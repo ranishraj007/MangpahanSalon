@@ -347,7 +347,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-              className="bg-white text-primary px-8 py-3 rounded-md font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg"
+              className="bg-white text-black px-8 py-3 rounded-md font-medium transition-all duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-primary "
             >
               Book Now
             </Link>
