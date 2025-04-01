@@ -1,6 +1,19 @@
 "use client";
 import React from "react";
 
+import GalleryImage_1 from "../assets/SalonImages/GallaryImage-1.jpg";
+import GalleryImage_2 from "../assets/SalonImages/GallaryImage-2.jpg";
+import GalleryImage_3 from "../assets/SalonImages/GallaryImage-3.jpg";
+import GalleryImage_4 from "../assets/SalonImages/GallaryImage-4.jpg";
+import GalleryImage_5 from "../assets/SalonImages/GallaryImage-5.jpg";
+import GalleryImage_6 from "../assets/SalonImages/GallaryImage-6.jpg";
+import GalleryImage_7 from "../assets/SalonImages/GallaryImage-7.jpg";
+import GalleryImage_8 from "../assets/SalonImages/GallaryImage-8.jpg";
+import GalleryImage_9 from "../assets/SalonImages/GallaryImage-9.jpg";
+import GalleryImage_10 from "../assets/SalonImages/GallaryImage-10.jpg";
+import GalleryImage_11 from "../assets/SalonImages/GallaryImage-11.jpg";
+import GalleryImage_12 from "../assets/SalonImages/GallaryImage-2.jpg";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "../components/PageTransition";
@@ -19,73 +32,73 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_1,
       title: "Modern Bob Cut",
       category: "haircuts",
     },
     {
       id: 2,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_2,
       title: "Balayage Highlights",
       category: "coloring",
     },
     {
       id: 3,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_3,
       title: "Elegant Updo",
       category: "styling",
     },
     {
       id: 4,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_4,
       title: "Natural Glam Makeup",
       category: "makeup",
     },
     {
       id: 5,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_5,
       title: "Layered Haircut",
       category: "haircuts",
     },
     {
       id: 6,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_6,
       title: "Vibrant Red Color",
       category: "coloring",
     },
     {
       id: 7,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_7,
       title: "Beach Waves",
       category: "styling",
     },
     {
       id: 8,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_8,
       title: "Smokey Eye Makeup",
       category: "makeup",
     },
     {
       id: 9,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_9,
       title: "Pixie Cut",
       category: "haircuts",
     },
     {
       id: 10,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_10,
       title: "Ombre Hair",
       category: "coloring",
     },
     {
       id: 11,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_11,
       title: "Bridal Hairstyle",
       category: "styling",
     },
     {
       id: 12,
-      image: "/placeholder.svg?height=600&width=800",
+      image: GalleryImage_12,
       title: "Bridal Makeup",
       category: "makeup",
     },

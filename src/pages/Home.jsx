@@ -5,6 +5,8 @@ import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
 import ServiceCard from "../components/ServiceCard";
 import TestimonialCard from "../components/TestimonialCard";
+import BG_Image from "../assets/SalonImages/GallaryImage-1.jpg";
+import BG_Image_2 from "../assets/SalonImages/GallaryImage-2.jpg";
 
 const Home = () => {
   const services = [
@@ -66,7 +68,7 @@ const Home = () => {
         <div
           className="absolute inset-0 bg-cover bg-center z-[-1]"
           style={{
-            backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
+            backgroundImage: `url(${BG_Image_2})`,
           }}
         ></div>
         <div className="container-custom relative z-10 text-white">
@@ -150,7 +152,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src="/placeholder.svg?height=600&width=800"
+                src={BG_Image}
                 alt="About Mangpahang Salon"
                 className="rounded-lg shadow-xl"
               />
