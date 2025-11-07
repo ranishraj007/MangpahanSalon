@@ -101,7 +101,7 @@ const Footer = () => {
                   href="tel:+9779851234567"
                   className="text-gray-300 hover:text-primary transition-colors duration-300"
                 >
-                  +977 9851234567
+                  +977-970-8073356
                 </a>
               </li>
               <li className="flex items-center">
@@ -110,14 +110,14 @@ const Footer = () => {
                   href="mailto:info@mangpahang.com"
                   className="text-gray-300 hover:text-primary transition-colors duration-300"
                 >
-                  info@mangpahang.com
+                  mangpahangsalon@gmail.com
                 </a>
               </li>
               <li className="flex items-start">
                 <Clock className="text-primary mt-1 mr-3 h-5 w-5" />
                 <div className="text-gray-300">
-                  <p>Mon-Sat: 10:00 AM - 8:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p>Sun-Sat: 10:00 AM - 8:00 PM</p>
+                  {/* <p>Sunday: Closed</p> */}
                 </div>
               </li>
             </ul>
