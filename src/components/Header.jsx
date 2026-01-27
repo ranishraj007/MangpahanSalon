@@ -48,9 +48,9 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-2xl md:text-3xl font-bold text-primary">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-400">
               Mangpahang
-              <span className="block text-sm md:text-base font-medium text-secondary dark:text-gray-200">
+              <span className="block text-sm md:text-base font-medium text-white dark:text-gray-400">
                 Unisex Salon
               </span>
             </h1>
@@ -72,7 +72,7 @@ const Header = () => {
                     `font-medium transition-colors duration-300 ${
                       isActive
                         ? "text-yellow-500"
-                        : "text-secondary dark:text-gray-200 hover:text-gray-400 dark:hover:text-primary"
+                        : "text-secondary dark:text-gray-400 hover:text-gray-700 dark:hover:text-primary"
                     }`
                   }
                 >

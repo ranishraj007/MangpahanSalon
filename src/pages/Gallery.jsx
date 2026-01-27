@@ -115,7 +115,7 @@ const Gallery = () => {
     <PageTransition>
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
-        <div className="container-custom text-center text-white">
+        <div className="container-custom text-center text-black">
           <motion.h1
             className="text-4xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}

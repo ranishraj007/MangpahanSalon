@@ -13,8 +13,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">Mangpahang</h3>
-            <p className="mb-4 text-gray-300">
+            <h3 className="text-xl font-bold mb-4 text-black">Mangpahang</h3>
+            <p className="mb-4 text-black">
               Mangpahang Unisex Salon offers premium hair and beauty services in
               a relaxing environment. Our skilled professionals are dedicated to
               enhancing your natural beauty.
@@ -28,7 +28,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Facebook size={24} />
+                <Facebook size={24} className="text-blue-700"/>
               </motion.a>
               <motion.a
                 href="https://www.instagram.com/mangpahangunisexsalon/"
@@ -36,7 +36,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Instagram size={24} />
+                <Instagram size={24} className="text-pink-800"/>
               </motion.a>
             </div>
           </div>
@@ -50,7 +50,7 @@ const Footer = () => {
                   <li key={item}>
                     <Link
                       to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                      className="text-gray-300 hover:text-primary transition-colors duration-300"
+                      className="text-black hover:text-gray-600 transition-colors duration-300"
                     >
                       {item}
                     </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
                 <li key={service}>
                   <Link
                     to="/services"
-                    className="text-gray-300 hover:text-primary transition-colors duration-300"
+                    className="text-black hover:text-gray-600 transition-colors duration-300 "
                   >
                     {service}
                   </Link>
@@ -91,7 +91,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="text-primary mt-1 mr-3 h-5 w-5" />
-                <span className="text-gray-300">
+                <span className="text-black">
                   Mid-Baneswor, Kathmandu, Nepal
                 </span>
               </li>
@@ -99,7 +99,7 @@ const Footer = () => {
                 <Phone className="text-primary mr-3 h-5 w-5" />
                 <a
                   href="tel:+9779851234567"
-                  className="text-gray-300 hover:text-primary transition-colors duration-300"
+                  className="text-black hover:text-primary transition-colors duration-300"
                 >
                   +977-970-8073356
                 </a>
@@ -108,14 +108,14 @@ const Footer = () => {
                 <Mail className="text-primary mr-3 h-5 w-5" />
                 <a
                   href="mailto:info@mangpahang.com"
-                  className="text-gray-300 hover:text-primary transition-colors duration-300"
+                  className="text-black hover:text-primary transition-colors duration-300"
                 >
                   mangpahangsalon@gmail.com
                 </a>
               </li>
               <li className="flex items-start">
                 <Clock className="text-primary mt-1 mr-3 h-5 w-5" />
-                <div className="text-gray-300">
+                <div className="text-black">
                   <p>Sun-Sat: 10:00 AM - 8:00 PM</p>
                   {/* <p>Sunday: Closed</p> */}
                 </div>
@@ -124,7 +124,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-black">
           <p>
             &copy; {currentYear} Mangpahang Unisex Salon. All rights reserved.
           </p>

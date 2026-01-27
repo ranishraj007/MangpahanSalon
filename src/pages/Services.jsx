@@ -163,7 +163,7 @@ const Services = () => {
     <PageTransition>
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
-        <div className="container-custom text-center text-white">
+        <div className="container-custom text-center text-black">
           <motion.h1
             className="text-4xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -199,7 +199,7 @@ const Services = () => {
                 key={category.id}
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${
                   activeCategory === category.id
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-yellow-500"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
                 onClick={() => setActiveCategory(category.id)}
@@ -266,7 +266,7 @@ const Services = () => {
                         </svg>
                       </button>
                     </div>
-                    <p className="mt-4 text-gray-600">{service.description}</p>
+                    <p className="mt-4 text-black">{service.description}</p>
                   </div>
 
                   <AnimatePresence>

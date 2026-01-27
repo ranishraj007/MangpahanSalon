@@ -38,25 +38,25 @@ const Home = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Minu Khatri",
       role: "Regular Customer",
       image: "/placeholder.svg?height=200&width=200",
       quote:
-        "Mangpahang Salon has been my go-to place for years. Their attention to detail and friendly service keeps me coming back!",
+        "Staffs were welcoming and hair consultation was excellent. I was thoroughly explained during consultation. I did hair wash, cut and blow dry and hairstyling, results were above my expectation.Highly recommended and will definitely revisit again",
     },
     {
-      name: "Michael Chen",
+      name: "Nishan Poudel",
       role: "First-time Customer",
       image: "/placeholder.svg?height=200&width=200",
       quote:
-        "I was nervous about trying a new salon, but the staff made me feel comfortable and I love my new haircut!",
+        "I had a great time here. The staff was friendly and welcoming. They really care about what they do. I was actually satisfied with the hair I got in the end. Overall, it was a really pleasant experience.",
     },
     {
-      name: "Priya Sharma",
+      name: "Binu Neupane",
       role: "Regular Customer",
       image: "/placeholder.svg?height=200&width=200",
       quote:
-        "The best salon experience in Kathmandu! Professional service with amazing results every time.",
+        "I went there for a haircut and met this young guy, Mr. Sudeep. He has a magical hand that transformed my uneven hair into a fine haircut. I am impressed.Thank you Sudeep Bhai :)",
     },
   ];
 
@@ -281,19 +281,19 @@ const Home = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 p-6 rounded-lg backdrop-blur-sm"
+                className=" p-6 rounded-lg backdrop-blur-sm border border-black/25 bg-amber-50"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-primary">
+                <h3 className="text-xl font-bold mb-2 text-black">
                   {item.title}
                 </h3>
-                <p className="text-gray-300">{item.description}</p>
+                <p className="text-black">{item.description}</p>
               </motion.div>
-            ))}
+            ))} 
           </div>
         </div>
       </section>
@@ -311,7 +311,7 @@ const Home = () => {
                 key={index}
                 name={testimonial.name}
                 role={testimonial.role}
-                image={testimonial.image}
+                // image={testimonial.image}
                 quote={testimonial.quote}
               />
             ))}
@@ -320,7 +320,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-primary text-black">
         <div className="container-custom text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6"
@@ -349,7 +349,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-              className="bg-white text-black px-8 py-3 rounded-md font-medium transition-all duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-primary "
+              className="bg-yellow-500 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary "
             >
               Book Now
             </Link>
