@@ -31,7 +31,7 @@ const Footer = () => {
                 <Facebook size={24} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://www.instagram.com/mangpahangunisexsalon/"
                 className="text-white hover:text-primary transition-colors duration-300"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}

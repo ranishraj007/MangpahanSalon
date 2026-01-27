@@ -125,7 +125,7 @@ const Services = () => {
       title: "THREADING",
       category: "hair",
       icon: Leaf,
-      price: "From Ra.50",
+      price: "From Rs.50",
       description:
         "Achieve precise and clean hair removal with our threading services. Perfect for shaping eyebrows and removing facial hair, threading is a gentle and effective method suitable for all skin types.",
       details: [
@@ -302,7 +302,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-black/50">
         <div className="container-custom text-center">
           <SectionTitle
             title="Ready to Book Your Appointment?"
