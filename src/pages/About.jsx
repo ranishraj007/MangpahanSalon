@@ -16,9 +16,9 @@ const About = () => {
 
   const team = [
     {
-      name: "Aarav Sharma",
+      name: "Sudip Rai",
       role: "Founder & Master Stylist",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "https://www.facebook.com/photo/?fbid=1049025667166495&set=a.k",
       bio: "With over 15 years of experience, Aarav brings creativity and precision to every haircut and style.",
     },
     {
@@ -33,12 +33,12 @@ const About = () => {
       image: "/placeholder.svg?height=400&width=400",
       bio: "Rohan is known for his ability to enhance natural beauty with his expert makeup techniques for any occasion.",
     },
-    {
-      name: "Sita Gurung",
-      role: "Nail Technician",
-      image: "/placeholder.svg?height=400&width=400",
-      bio: "Sita creates beautiful, long-lasting nail designs that express each client's personal style.",
-    },
+    // {
+    //   name: "Sita Gurung",
+    //   role: "Nail Technician",
+    //   image: "/placeholder.svg?height=400&width=400",
+    //   bio: "Sita creates beautiful, long-lasting nail designs that express each client's personal style.",
+    // },
   ];
 
   return (

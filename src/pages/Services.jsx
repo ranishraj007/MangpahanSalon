@@ -1,161 +1,163 @@
-"use client"
+"use client";
 import React from "react";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Scissors, Palette, Smile, Wand2, SnailIcon as Nail, SprayCanIcon as Spray, Leaf, Gem } from "lucide-react"
-import PageTransition from "../components/PageTransition"
-import SectionTitle from "../components/SectionTitle"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Scissors,
+  Palette,
+  Smile,
+  Wand2,
+  SnailIcon as Nail,
+  SprayCanIcon as Spray,
+  Leaf,
+  Gem,
+} from "lucide-react";
+import PageTransition from "../components/PageTransition";
+import SectionTitle from "../components/SectionTitle";
 
 const Services = () => {
   const categories = [
     { id: "all", name: "All Services" },
-    { id: "hair", name: "Hair" },
+    { id: "hair", name: "HAIR CUT WITH WASH AND BLOW DRY SETTING" },
     { id: "face", name: "Face & Skin" },
     { id: "body", name: "Body" },
     { id: "nails", name: "Nails" },
-  ]
+  ];
 
   const services = [
     {
       id: 1,
-      title: "Haircut & Styling",
+      title: "HAIR CUT WITH WASH AND BLOW DRY SETTING",
       category: "hair",
       icon: Scissors,
-      price: "From Rs.750",
+      price: "From Rs.700",
       description:
         "Our expert stylists provide precision haircuts tailored to your face shape and personal style. Includes consultation, shampoo, cut, and styling.",
       details: [
-        "Women's Haircut & Style - Rs.2000",
-        "Men's Haircut & Style - Rs.1000",
-        "Children's Haircut (Under 12) - Rs.600",
-        "Blow Dry & Style - Rs.1500",
-        "Special Occasion Styling - Rs.3000",
+        "Man Hair Cut - Rs.700",
+        "Ladies - Rs.1500",
+        "Ladies Hair Trimming- Rs.1000",
+        "Fringe/Bangs - Rs.250",
+        "Beard Trim - Rs.200",
+        "Clean Shave - Rs.350",
       ],
     },
     {
       id: 2,
-      title: "Hair Coloring",
+      title: "HAIR COLOR AND HIGHLIGHTS",
       category: "hair",
       icon: Palette,
-      price: "From Rs.5000",
+      price: "From Rs.500",
       description:
         "Transform your look with our professional hair coloring services. From subtle highlights to bold transformations, we use premium products for vibrant, long-lasting results.",
       details: [
-        "Root Touch-Up - Rs.5000",
-        "Full Color - Rs.5000",
-        "Highlights/Lowlights - Rs.10000",
-        "Balayage/Ombre - Rs.10000",
-        "Fashion Colors - Rs.10000",
+        "Global (Per Tube)- Rs.5000",
+        "Root Touch Up - Rs.3000",
+        "Front Touch Up - Rs.2500",
+        "Classic Half Highlight/ Root Highlight - Rs.1500",
+        "Classic Full Highlight - Rs.6000/9000",
+        "Ombre - Rs.9000/13000",
+        "Balayage - Rs.7000",
+        "Creative Highlight (Per Foil) - Rs.9000/13000",
+        "Quick Toning (Per Tube) - Rs.3000",
       ],
     },
+
     {
       id: 3,
-      title: "Facial Treatments",
-      category: "face",
+      title: "STYLING SET WITH WASH AND CONDITIONING",
+      category: "hair",
       icon: Smile,
       price: "From Rs.4000",
       description:
-        "Rejuvenate your skin with our customized facial treatments. Each facial is tailored to address your specific skin concerns and includes cleansing, exfoliation, and hydration.",
+        "A complete hair care and styling service that includes cleansing, conditioning, and professional finishing for a polished, refreshed look.",
       details: [
-        "Express Facial - Rs.4000",
-        "Classic Facial - Rs.6500",
-        "Deep Cleansing Facial - Rs.6500",
-        "Anti-Aging Facial - Rs.8500",
-        "Acne Treatment Facial - Rs.6500",
+        "Ladies Blow Dry - Rs.1000",
+        "Ironing/Tongs/Roller Set - Rs.1200",
+        "Man Hair Style/Set - Rs.300",
       ],
     },
     {
       id: 4,
-      title: "Professional Makeup",
+      title: "SKIN CARE AND FACIAL",
       category: "face",
       icon: Wand2,
-      price: "From Rs.5000",
+      price: "From Rs.500",
       description:
         "Our makeup artists create flawless looks for any occasion. Using high-quality products, we enhance your natural beauty and ensure your makeup lasts all day.",
       details: [
-        "Everyday Makeup - Rs.5000",
-        "Special Occasion Makeup - Rs.5000",
-        "Bridal Makeup - Rs.10000",
-        "Makeup Lesson - Rs.6500",
-        "Makeup with Lashes - Rs.5500",
+        "Super Express Clean Up - Rs.500",
+        "Casmara Clean Up - Rs.2000",
+        "Mini Casmara Facial with Gold Mask - Rs.4000",
       ],
     },
     {
       id: 5,
-      title: "Manicure & Pedicure",
+      title: "MANICURE AND PEDICURE",
       category: "nails",
       icon: Nail,
-      price: "From Rs.2500",
+      price: "From Rs.2000",
       description:
         "Treat your hands and feet to our luxurious nail services. We provide meticulous nail care, exfoliation, massage, and your choice of polish for a polished finish.",
       details: [
-        "Classic Manicure - Rs.2500",
-        "Gel Manicure - Rs.2500",
-        "Classic Pedicure - Rs.2500",
-        "Spa Pedicure - Ra.5000",
-        "Mani-Pedi Combo - Rs.5500",
+        "Manicure - Rs.2000",
+        "Pedicure - Rs.2000",
       ],
     },
     {
       id: 6,
-      title: "Hair Treatments",
+      title: "WAXING",
       category: "hair",
       icon: Spray,
-      price: "From Rs.5000",
+      price: "From Rs.500",
       description:
-        "Restore health and vitality to your hair with our specialized treatments. We address issues like dryness, damage, and frizz to leave your hair looking and feeling its best.",
+        "Experience smooth, hair-free skin with our professional waxing services. We use high-quality wax and techniques to ensure a comfortable and effective hair removal experience.",
       details: [
-        "Deep Conditioning - Rs.5000",
-        "Keratin Treatment - Rs.6000+",
-        "Scalp Treatment - Rs.4000",
-        "Hair Mask - Rs.2500",
-        "Anti-Frizz Treatment - Rs.5000",
+        "Underarms - Rs.500",
+        "Whole Body - Rs.7000",
+        "Legs - Rs.1700",
+        "Hand - Rs.1200",
       ],
     },
     {
       id: 7,
-      title: "Body Treatments",
-      category: "body",
+      title: "THREADING",
+      category: "hair",
       icon: Leaf,
-      price: "From Ra.5000",
+      price: "From Ra.50",
       description:
-        "Indulge in our relaxing body treatments designed to detoxify, hydrate, and rejuvenate. Each treatment includes gentle exfoliation and nourishing products for soft, glowing skin.",
+        "Achieve precise and clean hair removal with our threading services. Perfect for shaping eyebrows and removing facial hair, threading is a gentle and effective method suitable for all skin types.",
       details: [
-        "Body Scrub - Ra.5000",
-        "Body Wrap - Rs.7000",
-        "Back Facial - Rs.5000",
-        "Hand & Foot Treatment - Rs.4000",
-        "Full Body Package - Rs.15000",
+        "Eyebrow - Rs.100",
+        "Upper Lip - Rs.50",
       ],
     },
     {
       id: 8,
-      title: "Nail Art & Extensions",
+      title: "Nails Extensions & Nail Art",
       category: "nails",
       icon: Gem,
-      price: "From Rs.5000",
+      price: "From Rs.",
       description:
-        "Express your personality with our creative nail art and extension services. Our nail technicians can create anything from subtle designs to elaborate artwork.",
+        "Enhance the beauty of your nails with our expert nail extension and art services. Choose from a variety of designs and techniques to express your personal style.",
       details: [
-        "Basic Nail Art (per nail) - Rs.200",
-        "Full Set Nail Art - Rs.5000+",
-        "Acrylic Extensions - Rs.5000+",
-        "Gel Extensions - Rs.5000+",
-        "Nail Repair (per nail) - Rs.500",
+        "Nails Exensio",
       ],
     },
-  ]
+  ];
 
-  const [activeCategory, setActiveCategory] = useState("all")
-  const [expandedService, setExpandedService] = useState(null)
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [expandedService, setExpandedService] = useState(null);
 
   const filteredServices =
-    activeCategory === "all" ? services : services.filter((service) => service.category === activeCategory)
+    activeCategory === "all"
+      ? services
+      : services.filter((service) => service.category === activeCategory);
 
   const toggleExpand = (id) => {
-    setExpandedService(expandedService === id ? null : id)
-  }
+    setExpandedService(expandedService === id ? null : id);
+  };
 
   return (
     <PageTransition>
@@ -176,7 +178,8 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Discover our comprehensive range of hair and beauty services designed to enhance your natural beauty
+            Discover our comprehensive range of hair and beauty services
+            designed to enhance your natural beauty
           </motion.p>
         </div>
       </section>
@@ -223,15 +226,22 @@ const Services = () => {
                     expandedService === service.id ? "ring-2 ring-primary" : ""
                   }`}
                 >
-                  <div className="p-6 cursor-pointer" onClick={() => toggleExpand(service.id)}>
+                  <div
+                    className="p-6 cursor-pointer "
+                    onClick={() => toggleExpand(service.id)}
+                  >
                     <div className="flex items-start justify-between">
                       <div className="flex items-center">
-                        <div className="bg-primary/10 p-3 rounded-full text-primary mr-4">
+                        <div className="bg-primary/10 p-3 rounded-full text-black mr-4">
                           <service.icon size={24} />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-secondary">{service.title}</h3>
-                          <p className="text-primary font-medium">{service.price}</p>
+                          <h3 className="text-xl font-bold text-black">
+                            {service.title}
+                          </h3>
+                          <p className="text-black font-medium">
+                            {service.price}
+                          </p>
                         </div>
                       </div>
                       <button
@@ -247,7 +257,12 @@ const Services = () => {
                           viewBox="0 0 24 24"
                           stroke="currentColor"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -264,11 +279,13 @@ const Services = () => {
                         className="px-6 pb-6"
                       >
                         <div className="pt-4 border-t border-gray-200">
-                          <h4 className="font-bold text-secondary mb-2">Service Options:</h4>
-                          <ul className="space-y-2">
+                          <h4 className="font-bold text-black mb-2">
+                            Service Options:
+                          </h4>
+                          <ul className="space-y-2 text-black">
                             {service.details.map((detail, index) => (
                               <li key={index} className="flex items-center">
-                                <span className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></span>
+                                <span className="h-1.5 w-1.5 rounded-full bg-black mr-2 "></span>
                                 {detail}
                               </li>
                             ))}
@@ -308,8 +325,7 @@ const Services = () => {
         </div>
       </section>
     </PageTransition>
-  )
-}
+  );
+};
 
-export default Services
-
+export default Services;
