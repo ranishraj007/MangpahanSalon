@@ -71,8 +71,8 @@ const Header = () => {
                   className={({ isActive }) =>
                     `font-medium transition-colors duration-300 ${
                       isActive
-                        ? "text-primary"
-                        : "text-secondary dark:text-gray-200 hover:text-primary dark:hover:text-primary"
+                        ? "text-yellow-500"
+                        : "text-secondary dark:text-gray-200 hover:text-gray-400 dark:hover:text-primary"
                     }`
                   }
                 >
@@ -82,7 +82,7 @@ const Header = () => {
             ))}
           </ul>
           <div className="flex items-center space-x-4">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <motion.a
               href="tel:+9779851234567"
               className="flex items-center bg-primary text-white px-4 py-2 rounded-md"
@@ -96,7 +96,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button
             className="text-secondary dark:text-gray-200 text-2xl"
             onClick={toggleMenu}
