@@ -9,7 +9,6 @@ import SEO from "../components/SEO";
 import DefaultImage from "../assets/Images/default_profile_pic.png";
 
 const About = () => {
-  // console.log(DefaultImage)
   const stats = [
     { icon: Award, value: "10+", label: "Years of Experience" },
     { icon: Users, value: "5000+", label: "Happy Clients" },
