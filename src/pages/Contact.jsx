@@ -69,7 +69,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Opening Hours",
-      details: ["sunday - Saturday: 10:00 AM - 8:00 PM"],
+      details: ["Sunday - Saturday: 10:00 AM - 7:00 PM"],
       link: null,
       linkText: null,
     },
