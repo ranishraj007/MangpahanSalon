@@ -25,16 +25,16 @@ const ServiceCard = ({ icon, title, description, link = "/services" }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-primary/10 dark:bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-primary">
+      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 text-white">
         <IconComponent size={28} />
       </div>
       <h3 className="text-xl font-bold mb-2 text-secondary dark:text-gray-200">
         {title}
       </h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{description}</p>
+      <p className="text-white mb-4">{description}</p>
       <Link
         to={link}
-        className="text-primary font-medium hover:underline inline-flex items-center"
+        className="text-white font-medium hover:underline inline-flex items-center"
       >
         Learn More
         <svg
@@ -42,7 +42,7 @@ const ServiceCard = ({ icon, title, description, link = "/services" }) => {
           className="h-4 w-4 ml-1"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
+          stroke="white"
         >
           <path
             strokeLinecap="round"

@@ -11,7 +11,7 @@ const iconMap = {
   gem: Gem,
 };
 
-const ServiceCard = ({ icon, title, description, link = "/services" }) => {
+const ServiceCard = ({ icon, title, quote, name }) => {
   const IconComponent =
     typeof icon === "string" ? iconMap[icon] || Scissors : icon;
 
@@ -24,14 +24,11 @@ const ServiceCard = ({ icon, title, description, link = "/services" }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-primary/10 dark:bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-primary">
-        {/* <IconComponent size={28} /> */} 
-      </div>
       <h3 className="text-xl font-bold mb-2 text-white">
-        {title}
+        {name}
       </h3>
-      <p className="text-white mb-4">{description}</p>
-      <Link
+      <p className="text-white mb-4">"{quote}"</p>
+      {/* <Link
         to={link}
         className="text-white font-medium hover:underline inline-flex items-center"
       >
@@ -50,7 +47,7 @@ const ServiceCard = ({ icon, title, description, link = "/services" }) => {
             d="M9 5l7 7-7 7"
           />
         </svg>
-      </Link>
+      </Link> */}
     </motion.div>
   );
 };
