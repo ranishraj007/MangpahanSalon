@@ -19,6 +19,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
 import GalleryItem from "../components/GalleryItem";
+import SEO from "../components/SEO";
 
 const Gallery = () => {
   const categories = [
@@ -113,6 +114,12 @@ const Gallery = () => {
 
   return (
     <PageTransition>
+      <SEO
+        title="Gallery — Hair, Makeup & Beauty Transformations"
+        description="Browse the Mangpahang Unisex Salon gallery showcasing haircuts, balayage, ombre, hair coloring, makeup, nail art, and styling transformations from our Kathmandu salon."
+        keywords="salon gallery Kathmandu, hair transformation Kathmandu, balayage Kathmandu, hair color gallery, nail art gallery Kathmandu, makeup gallery Nepal"
+        canonical="/gallery"
+      />
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom text-center text-black">

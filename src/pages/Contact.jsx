@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Facebook } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
+import SEO from "../components/SEO";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -76,6 +77,12 @@ const Contact = () => {
 
   return (
     <PageTransition>
+      <SEO
+        title="Contact & Book Appointment — Baneshwor, Kathmandu"
+        description="Book an appointment at Mangpahang Unisex Salon, Mid-Baneshwor, Kathmandu. Call +977-9708073356, email mangpahangsalon@gmail.com, or use our contact form. Open daily 10 AM – 8 PM."
+        keywords="book salon appointment Kathmandu, Mangpahang contact, salon Baneshwor address, hair appointment Kathmandu, beauty salon booking Nepal"
+        canonical="/contact"
+      />
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom text-center text-black">

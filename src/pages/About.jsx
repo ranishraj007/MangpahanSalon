@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Award, Users, Smile, Scissors } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
+import SEO from "../components/SEO";
 
 const About = () => {
   const stats = [
@@ -43,6 +44,12 @@ const About = () => {
 
   return (
     <PageTransition>
+      <SEO
+        title="About Us — Mangpahang Unisex Salon, Kathmandu"
+        description="Learn about Mangpahang Unisex Salon, founded in 2013 in Baneshwor, Kathmandu. Meet our expert stylists, discover our story, mission, and commitment to premium hair and beauty services."
+        keywords="about salon Kathmandu, Mangpahang story, hair salon history Kathmandu, best stylist Kathmandu, unisex salon Nepal"
+        canonical="/about"
+      />
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom text-center text-black">

@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
+import SEO from "../components/SEO";
 
 const Services = () => {
   const categories = [
@@ -161,6 +162,12 @@ const Services = () => {
 
   return (
     <PageTransition>
+      <SEO
+        title="Salon Services — Haircut, Waxing, Nails, Facial & More"
+        description="Explore all services at Mangpahang Unisex Salon in Mid-Baneshwor, Kathmandu: haircut, hair coloring, highlights, waxing, threading, manicure, pedicure, nail extensions, nail art, facial, and makeup. Competitive prices starting from Rs.50."
+        keywords="haircut Baneshwor, waxing Kathmandu, nail art Kathmandu, manicure pedicure Kathmandu, hair color Kathmandu, threading Kathmandu, facial Kathmandu, nail extensions Kathmandu, makeup Kathmandu, balayage Kathmandu"
+        canonical="/services"
+      />
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom text-center text-black">

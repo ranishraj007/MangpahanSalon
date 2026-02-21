@@ -5,6 +5,7 @@ import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
 import ServiceCard from "../components/ServiceCard";
 import TestimonialCard from "../components/TestimonialCard";
+import SEO from "../components/SEO";
 import BG_Image from "../assets/SalonImages/GallaryImage-1.jpg";
 import BG_Image_2 from "../assets/SalonImages/GallaryImage-2.jpg";
 
@@ -62,6 +63,12 @@ const Home = () => {
 
   return (
     <PageTransition>
+      <SEO
+        title="Best Salon in Baneshwor, Kathmandu"
+        description="Mangpahang Unisex Salon in Mid-Baneshwor, Kathmandu — premium haircut, hair coloring, waxing, threading, nails, facial, manicure, pedicure, and makeup services. Open every day 10 AM – 8 PM."
+        keywords="salon Baneshwor, unisex salon Kathmandu, haircut Kathmandu, hair color Kathmandu, waxing Baneshwor, nail salon Kathmandu, facial Kathmandu, Mangpahang Salon"
+        canonical="/"
+      />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
