@@ -20,7 +20,7 @@ import SEO from "../components/SEO";
 const Services = () => {
   const categories = [
     { id: "all", name: "All Services" },
-    { id: "hair", name: "HAIR CUT WITH WASH AND BLOW DRY SETTING" },
+    { id: "hair", name: "Hair" },
     { id: "face", name: "Face & Skin" },
     { id: "body", name: "Body" },
     { id: "nails", name: "Nails" },
@@ -38,8 +38,8 @@ const Services = () => {
       details: [
         "Man Hair Cut - Rs.700",
         "Ladies - Rs.1500",
-        "Ladies Hair Trimming- Rs.1000",
-        "Fringe/Bangs - Rs.250",
+        // "Ladies Hair Trimming- Rs.1000",
+        "Fringe/Bangs - Rs.500",
         "Beard Trim - Rs.200",
         "Clean Shave - Rs.350",
       ],
@@ -246,9 +246,9 @@ const Services = () => {
                           <h3 className="text-xl font-bold text-black">
                             {service.title}
                           </h3>
-                          <p className="text-black font-medium">
+                          {/* <p className="text-black font-medium">
                             {service.price}
-                          </p>
+                          </p> */}
                         </div>
                       </div>
                       <button
