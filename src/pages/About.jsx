@@ -6,8 +6,10 @@ import { Award, Users, Smile, Scissors } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
 import SEO from "../components/SEO";
+import DefaultImage from "../assets/Images/default_profile_pic.png";
 
 const About = () => {
+  // console.log(DefaultImage)
   const stats = [
     { icon: Award, value: "10+", label: "Years of Experience" },
     { icon: Users, value: "5000+", label: "Happy Clients" },
@@ -19,20 +21,26 @@ const About = () => {
     {
       name: "Sudip Rai",
       role: "Founder & Master Stylist",
-      image: "https://www.facebook.com/photo/?fbid=1049025667166495&set=a.k",
-      bio: "With over 15 years of experience, Aarav brings creativity and precision to every haircut and style.",
+      image: "",
+      bio: "With over 5 years of experience, Aarav brings creativity and precision to every haircut and style.",
     },
     {
-      name: "Priya Patel",
-      role: "Senior Colorist",
-      image: "/placeholder.svg?height=400&width=400",
-      bio: "Priya specializes in creating stunning, personalized hair colors that complement each client's unique features.",
+      name: "Anupa Rai",
+      role: "Senior Beautician",
+      image: "",
+      bio: "Anupa specializes in creating stunning, personalized hair colors that complement each client's unique features.",
     },
     {
-      name: "Rohan Thapa",
-      role: "Makeup Artist",
-      image: "/placeholder.svg?height=400&width=400",
-      bio: "Rohan is known for his ability to enhance natural beauty with his expert makeup techniques for any occasion.",
+      name: "Srijana Limbu",
+      role: "Nail Technician",
+      image: "",
+      bio: "Srijana is known for her ability to enhance natural beauty with her expert nail art techniques for any occasion.",
+    },
+    {
+      name: "Sushil Buddha ",
+      role: "Hair Stylist",
+      image: "",
+      bio: "Sushil brings a unique perspective to hair styling, combining traditional techniques with modern trends.",
     },
     // {
     //   name: "Sita Gurung",
@@ -261,7 +269,7 @@ const About = () => {
                 whileHover={{ y: -10 }}
               >
                 <img
-                  src={member.image || "/placeholder.svg"}
+                  src={member?.image ? member?.image : DefaultImage}
                   alt={member.name}
                   className="w-full h-64 object-cover"
                 />

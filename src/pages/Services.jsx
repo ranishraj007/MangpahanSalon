@@ -101,10 +101,7 @@ const Services = () => {
       price: "From Rs.2000",
       description:
         "Treat your hands and feet to our luxurious nail services. We provide meticulous nail care, exfoliation, massage, and your choice of polish for a polished finish.",
-      details: [
-        "Manicure - Rs.2000",
-        "Pedicure - Rs.2000",
-      ],
+      details: ["Manicure - Rs.2000", "Pedicure - Rs.2000"],
     },
     {
       id: 6,
@@ -129,21 +126,26 @@ const Services = () => {
       price: "From Rs.50",
       description:
         "Achieve precise and clean hair removal with our threading services. Perfect for shaping eyebrows and removing facial hair, threading is a gentle and effective method suitable for all skin types.",
-      details: [
-        "Eyebrow - Rs.100",
-        "Upper Lip - Rs.50",
-      ],
+      details: ["Eyebrow - Rs.100", "Upper Lip - Rs.50"],
     },
     {
       id: 8,
-      title: "Nails Extensions & Nail Art",
+      title: "Nails Design & Nail Art",
       category: "nails",
       icon: Gem,
       price: "From Rs.",
       description:
         "Enhance the beauty of your nails with our expert nail extension and art services. Choose from a variety of designs and techniques to express your personal style.",
       details: [
-        "Nails Exensio",
+        "French Art - Rs.100",
+        "Fire Art - Rs.100",
+        "Glitter Art - Rs.100",
+        "Chrome Art - Rs.100",
+        "Marble Art - Rs.100",
+        "Ombre Art - Rs.50",
+        "Stone/Charms/Bow - Rs.100",
+        "3D Art - Rs.200",
+        "Seashell Art - Rs.150",
       ],
     },
   ];
