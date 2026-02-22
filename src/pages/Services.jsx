@@ -157,6 +157,25 @@ const Services = () => {
         "Seashell Art - Rs.150",
       ],
     },
+    {
+      id: 9,
+      title: "Nails Extension",
+      category: "nails",
+      icon: Gem,
+      price: "From Rs.2000",
+      description:
+        "Get the perfect length and shape with our professional nail extension services. We use high-quality materials to ensure durable and natural-looking results.",
+      details: [
+        "Gel overlay/Refill (Natural Nails)- Rs.2000 (with Extension)- Rs.3000",
+        "French Nails (Natural Nails)- Rs.2000 (with Extension)- Rs.2500",
+        "Ombre/air brush (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
+        "Cat Eye Nails (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
+        "Chrome Nails (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
+        "Marble Nails (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
+        "Toe Gel Nails (Natural Nails)- Rs.1500 (with Extension)- Rs.2000",
+        "Removel of Gel Nails - Rs.700",
+      ],
+    },
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");
