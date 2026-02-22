@@ -165,15 +165,16 @@ const Services = () => {
       price: "From Rs.2000",
       description:
         "Get the perfect length and shape with our professional nail extension services. We use high-quality materials to ensure durable and natural-looking results.",
+      isTable: true,
       details: [
-        "Gel overlay/Refill (Natural Nails)- Rs.2000 (with Extension)- Rs.3000",
-        "French Nails (Natural Nails)- Rs.2000 (with Extension)- Rs.2500",
-        "Ombre/air brush (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
-        "Cat Eye Nails (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
-        "Chrome Nails (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
-        "Marble Nails (Natural Nails)- Rs.2500 (with Extension)- Rs.3000",
-        "Toe Gel Nails (Natural Nails)- Rs.1500 (with Extension)- Rs.2000",
-        "Removel of Gel Nails - Rs.700",
+        { name: "Gel overlay/Refill", natural: "Rs.2000", extension: "Rs.3000" },
+        { name: "French Nails", natural: "Rs.2000", extension: "Rs.2500" },
+        { name: "Ombre/air brush", natural: "Rs.2500", extension: "Rs.3000" },
+        { name: "Cat Eye Nails", natural: "Rs.2500", extension: "Rs.3000" },
+        { name: "Chrome Nails", natural: "Rs.2500", extension: "Rs.3000" },
+        { name: "Marble Nails", natural: "Rs.2500", extension: "Rs.3000" },
+        { name: "Toe Gel Nails", natural: "Rs.1500", extension: "Rs.2000" },
+        { name: "Removal of Gel Nails", natural: "Rs.700", extension: "-" },
       ],
     },
   ];
@@ -316,17 +317,40 @@ const Services = () => {
                         className="px-6 pb-6"
                       >
                         <div className="pt-4 border-t border-gray-200">
-                          <h4 className="font-bold text-black mb-2">
+                          {/* <h4 className="font-bold text-black mb-2">
                             Service Options:
-                          </h4>
-                          <ul className="space-y-2 text-black">
-                            {service.details.map((detail, index) => (
-                              <li key={index} className="flex items-center">
-                                <span className="h-1.5 w-1.5 rounded-full bg-black mr-2 "></span>
-                                {detail}
-                              </li>
-                            ))}
-                          </ul>
+                          </h4> */}
+                          {service.isTable ? (
+                            <div className="overflow-x-auto mt-2">
+                              <table className="w-full text-left text-black border-collapse">
+                                <thead>
+                                  <tr className="border-b-2 border-gray-200">
+                                    <th className="py-2 px-2 font-semibold">Service</th>
+                                    <th className="py-2 px-2 font-semibold whitespace-nowrap">Natural Nails</th>
+                                    <th className="py-2 px-2 font-semibold whitespace-nowrap">With Extension</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {service.details.map((detail, index) => (
+                                    <tr key={index} className="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                                      <td className="py-2 px-2">{detail.name}</td>
+                                      <td className="py-2 px-2 font-medium">{detail.natural}</td>
+                                      <td className="py-2 px-2 font-medium">{detail.extension}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          ) : (
+                            <ul className="space-y-2 text-black">
+                              {service.details.map((detail, index) => (
+                                <li key={index} className="flex items-center">
+                                  <span className="h-1.5 w-1.5 rounded-full bg-black mr-2 "></span>
+                                  {detail}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </motion.div>
                     )}
