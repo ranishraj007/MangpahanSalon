@@ -249,7 +249,7 @@ const Services = () => {
           </div>
 
           {/* Services List */}
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8" layout>
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start" layout>
             <AnimatePresence>
               {filteredServices.map((service) => (
                 <motion.div

@@ -7,6 +7,7 @@ import PageTransition from "../components/PageTransition";
 import SectionTitle from "../components/SectionTitle";
 import SEO from "../components/SEO";
 import DefaultImage from "../assets/Images/default_profile_pic.png";
+import InteriorImage from "../assets/SalonImages/GallaryImage-7.jpg";
 
 const About = () => {
   const stats = [
@@ -91,7 +92,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src="/placeholder.svg?height=600&width=800"
+                src={InteriorImage}
                 alt="Mangpahang Salon Interior"
                 className="rounded-lg shadow-xl"
               />
@@ -105,7 +106,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Mangpahang Unisex Salon was founded in 2013 with a vision to
+                Mangpahang Unisex Salon was founded in 2024 with a vision to
                 provide premium hair and beauty services in a welcoming
                 environment. What started as a small salon has grown into a
                 beloved establishment in Kathmandu, known for exceptional
@@ -142,7 +143,7 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-primary text-white">
+      {/* <section className="py-16 bg-primary text-white">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat, index) => (
@@ -165,7 +166,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Mission & Values Section */}
       <section className="py-20">
@@ -308,11 +309,11 @@ const About = () => {
               beautiful and confident.
             </p>
             <div className="flex items-center justify-center">
-              <img
+              {/* <img
                 src="/placeholder.svg?height=100&width=100"
                 alt="Testimonial"
                 className="w-16 h-16 rounded-full object-cover mr-4"
-              />
+              /> */}
               <div className="text-left">
                 <h4 className="font-bold text-secondary">Anita Tamang</h4>
                 <p className="text-sm text-gray-500">Regular Client</p>
@@ -323,7 +324,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary text-white">
+      <section className="py-20  text-black">
         <div className="container-custom text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6"
@@ -352,7 +353,7 @@ const About = () => {
           >
             <a
               href="/contact"
-              className="bg-primary text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:bg-primary/90 hover:shadow-lg"
+              className="bg-amber-800 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:bg-primary/90 hover:shadow-lg"
             >
               Book Your Appointment
             </a>

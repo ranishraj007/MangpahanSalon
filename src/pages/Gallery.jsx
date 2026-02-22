@@ -26,8 +26,9 @@ const Gallery = () => {
     { id: "all", name: "All" },
     { id: "haircuts", name: "Haircuts" },
     { id: "coloring", name: "Coloring" },
-    { id: "styling", name: "Styling" },
+    { id: "nails", name: "nails" },
     { id: "makeup", name: "Makeup" },
+    { id: "salon", name: "Salon" },
   ];
 
   const galleryItems = [
@@ -40,14 +41,14 @@ const Gallery = () => {
     {
       id: 2,
       image: GalleryImage_2,
-      title: "Balayage Highlights",
-      category: "coloring",
+      title: "Reception",
+      category: "salon",
     },
     {
       id: 3,
       image: GalleryImage_3,
-      title: "Elegant Updo",
-      category: "styling",
+      title: "Hair Wash & Blowout",
+      category: "salon",
     },
     {
       id: 4,
@@ -58,25 +59,25 @@ const Gallery = () => {
     {
       id: 5,
       image: GalleryImage_5,
-      title: "Layered Haircut",
-      category: "haircuts",
+      title: "Nail Art Design",
+      category: "nails",
     },
     {
       id: 6,
       image: GalleryImage_6,
-      title: "Vibrant Red Color",
-      category: "coloring",
+      title: "Pedicure Treatment",
+      category: "nails",
     },
     {
       id: 7,
       image: GalleryImage_7,
-      title: "Beach Waves",
+      title: "Salon Styling Session",
       category: "styling",
     },
     {
       id: 8,
       image: GalleryImage_8,
-      title: "Smokey Eye Makeup",
+      title: "Product Application",
       category: "makeup",
     },
     {
@@ -158,8 +159,8 @@ const Gallery = () => {
                 key={category.id}
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${
                   activeCategory === category.id
-                    ? "bg-primary text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "text-amber-500"
+                    : "bg-gray-100 text-black hover:bg-gray-200"
                 }`}
                 onClick={() => setActiveCategory(category.id)}
                 whileHover={{ scale: 1.05 }}
@@ -200,7 +201,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Instagram Section */}
+      {/* Instagram Section
       <section className="py-20 bg-gray-50">
         <div className="container-custom text-center">
           <SectionTitle
@@ -257,7 +258,7 @@ const Gallery = () => {
             </svg>
           </motion.a>
         </div>
-      </section>
+      </section> */}
     </PageTransition>
   );
 };
