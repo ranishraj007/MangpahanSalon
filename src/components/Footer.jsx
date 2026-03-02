@@ -28,7 +28,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Facebook size={24} className="text-blue-700"/>
+                <Facebook size={24} className="text-blue-700" />
               </motion.a>
               <motion.a
                 href="https://www.instagram.com/mangpahangunisexsalon/"
@@ -36,7 +36,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Instagram size={24} className="text-pink-800"/>
+                <Instagram size={24} className="text-pink-800" />
               </motion.a>
             </div>
           </div>
@@ -55,7 +55,7 @@ const Footer = () => {
                       {item}
                     </Link>
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>
@@ -125,6 +125,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-black">
+          {/* current date */}
           <p>
             &copy; {currentYear} Mangpahang Unisex Salon. All rights reserved.
           </p>
