@@ -7,7 +7,7 @@ import ServiceCard from "../components/ServiceCard";
 import TestimonialCard from "../components/TestimonialCard";
 import SEO from "../components/SEO";
 import BG_Image from "../assets/SalonImages/GallaryImage-1.jpg";
-import BG_Image_2 from "../assets/SalonImages/GallaryImage-2.jpg";
+import BG_Image_2 from "../assets/SalonImages/GallaryImage-8.jpg";
 
 const Home = () => {
   const services = [

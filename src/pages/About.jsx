@@ -5,7 +5,7 @@ import { Award, Users, Smile, Scissors } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
 import DefaultImage from "../assets/Images/default_profile_pic.png";
-import InteriorImage from "../assets/SalonImages/GallaryImage-7.jpg";
+import InteriorImage from "../assets/SalonImages/GallaryImage-2.jpg";
 
 const About = () => {
   const stats = [

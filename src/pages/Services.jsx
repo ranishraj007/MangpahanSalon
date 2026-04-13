@@ -13,6 +13,7 @@ const Services = () => {
     { id: "hair", name: "Hair" },
     { id: "face", name: "Face & Skin" },
     { id: "nails", name: "Nails" },
+    { id: "massage", name: "Massage" },
   ];
 
   const services = [
@@ -138,6 +139,19 @@ const Services = () => {
         { name: "Gel Removal", n: "Rs.700", e: "—" },
       ],
     },
+    {
+      id: 10, cat: "massage", icon: Gem,
+      title: "Massage",
+      price: "From Rs.1500",
+      desc: "Express your style with expert nail art — from subtle accents to elaborate custom designs.",
+      details: [
+        { n: "Head(Oil)-For Men", p: "Rs.1500" },
+        { n: "Head(Oil)-For Women", p: "Rs.2000" },
+        { n: "Hair Spa(Men)", p: "Rs.1500" },
+        { n: "Hair Spa(Women) ", p: "Rs.2500" },
+      ],
+    },
+    
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");

@@ -10,11 +10,8 @@ import GalleryImage_3 from "../assets/SalonImages/GallaryImage-3.jpg";
 import GalleryImage_4 from "../assets/SalonImages/GallaryImage-4.jpg";
 import GalleryImage_5 from "../assets/SalonImages/GallaryImage-5.jpg";
 import GalleryImage_6 from "../assets/SalonImages/GallaryImage-6.jpg";
-import GalleryImage_7 from "../assets/SalonImages/GallaryImage-7.jpg";
 import GalleryImage_8 from "../assets/SalonImages/GallaryImage-8.jpg";
 import GalleryImage_9 from "../assets/SalonImages/GallaryImage-9.jpg";
-import GalleryImage_10 from "../assets/SalonImages/GallaryImage-10.jpg";
-import GalleryImage_11 from "../assets/SalonImages/GallaryImage-11.jpg";
 import GalleryImage_12 from "../assets/SalonImages/GallaryImage-2.jpg";
 
 const Gallery = () => {
@@ -34,11 +31,8 @@ const Gallery = () => {
     { id: 4, image: GalleryImage_4, title: "Natural Glam Makeup", category: "makeup" },
     { id: 5, image: GalleryImage_5, title: "Nail Art Design", category: "nails" },
     { id: 6, image: GalleryImage_6, title: "Pedicure Treatment", category: "nails" },
-    { id: 7, image: GalleryImage_7, title: "Salon Styling Session", category: "salon" },
     { id: 8, image: GalleryImage_8, title: "Product Application", category: "makeup" },
     { id: 9, image: GalleryImage_9, title: "Pixie Cut", category: "haircuts" },
-    { id: 10, image: GalleryImage_10, title: "Ombre Hair", category: "coloring" },
-    { id: 11, image: GalleryImage_11, title: "Bridal Hairstyle", category: "haircuts" },
     { id: 12, image: GalleryImage_12, title: "Bridal Makeup", category: "makeup" },
   ];
 
