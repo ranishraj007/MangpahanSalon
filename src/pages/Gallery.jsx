@@ -1,5 +1,8 @@
-"use client";
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import PageTransition from "../components/PageTransition";
+import GalleryItem from "../components/GalleryItem";
+import SEO from "../components/SEO";
 
 import GalleryImage_1 from "../assets/SalonImages/GallaryImage-1.jpg";
 import GalleryImage_2 from "../assets/SalonImages/GallaryImage-2.jpg";
@@ -14,96 +17,29 @@ import GalleryImage_10 from "../assets/SalonImages/GallaryImage-10.jpg";
 import GalleryImage_11 from "../assets/SalonImages/GallaryImage-11.jpg";
 import GalleryImage_12 from "../assets/SalonImages/GallaryImage-2.jpg";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import PageTransition from "../components/PageTransition";
-import SectionTitle from "../components/SectionTitle";
-import GalleryItem from "../components/GalleryItem";
-import SEO from "../components/SEO";
-
 const Gallery = () => {
   const categories = [
     { id: "all", name: "All" },
     { id: "haircuts", name: "Haircuts" },
     { id: "coloring", name: "Coloring" },
-    { id: "nails", name: "nails" },
+    { id: "nails", name: "Nails" },
     { id: "makeup", name: "Makeup" },
     { id: "salon", name: "Salon" },
   ];
 
   const galleryItems = [
-    {
-      id: 1,
-      image: GalleryImage_1,
-      title: "Modern Bob Cut",
-      category: "haircuts",
-    },
-    {
-      id: 2,
-      image: GalleryImage_2,
-      title: "Reception",
-      category: "salon",
-    },
-    {
-      id: 3,
-      image: GalleryImage_3,
-      title: "Hair Wash & Blowout",
-      category: "salon",
-    },
-    {
-      id: 4,
-      image: GalleryImage_4,
-      title: "Natural Glam Makeup",
-      category: "makeup",
-    },
-    {
-      id: 5,
-      image: GalleryImage_5,
-      title: "Nail Art Design",
-      category: "nails",
-    },
-    {
-      id: 6,
-      image: GalleryImage_6,
-      title: "Pedicure Treatment",
-      category: "nails",
-    },
-    {
-      id: 7,
-      image: GalleryImage_7,
-      title: "Salon Styling Session",
-      category: "styling",
-    },
-    {
-      id: 8,
-      image: GalleryImage_8,
-      title: "Product Application",
-      category: "makeup",
-    },
-    {
-      id: 9,
-      image: GalleryImage_9,
-      title: "Pixie Cut",
-      category: "haircuts",
-    },
-    {
-      id: 10,
-      image: GalleryImage_10,
-      title: "Ombre Hair",
-      category: "coloring",
-    },
-    {
-      id: 11,
-      image: GalleryImage_11,
-      title: "Bridal Hairstyle",
-      category: "styling",
-    },
-    {
-      id: 12,
-      image: GalleryImage_12,
-      title: "Bridal Makeup",
-      category: "makeup",
-    },
+    { id: 1, image: GalleryImage_1, title: "Modern Bob Cut", category: "haircuts" },
+    { id: 2, image: GalleryImage_2, title: "Reception", category: "salon" },
+    { id: 3, image: GalleryImage_3, title: "Hair Wash & Blowout", category: "salon" },
+    { id: 4, image: GalleryImage_4, title: "Natural Glam Makeup", category: "makeup" },
+    { id: 5, image: GalleryImage_5, title: "Nail Art Design", category: "nails" },
+    { id: 6, image: GalleryImage_6, title: "Pedicure Treatment", category: "nails" },
+    { id: 7, image: GalleryImage_7, title: "Salon Styling Session", category: "salon" },
+    { id: 8, image: GalleryImage_8, title: "Product Application", category: "makeup" },
+    { id: 9, image: GalleryImage_9, title: "Pixie Cut", category: "haircuts" },
+    { id: 10, image: GalleryImage_10, title: "Ombre Hair", category: "coloring" },
+    { id: 11, image: GalleryImage_11, title: "Bridal Hairstyle", category: "haircuts" },
+    { id: 12, image: GalleryImage_12, title: "Bridal Makeup", category: "makeup" },
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");
@@ -121,59 +57,77 @@ const Gallery = () => {
         keywords="salon gallery Kathmandu, hair transformation Kathmandu, balayage Kathmandu, hair color gallery, nail art gallery Kathmandu, makeup gallery Nepal"
         canonical="/gallery"
       />
-      {/* Hero Section */}
-      <section className="relative py-32 bg-secondary">
-        <div className="container-custom text-center text-black">
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Our Gallery
-          </motion.h1>
-          <motion.p
-            className="text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Browse through our portfolio of stunning transformations and
-            beautiful styles
-          </motion.p>
-        </div>
+
+      {/* ── HERO ── */}
+      <section className="bg-[#222222] py-28 text-center">
+        <motion.p
+          className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Mangpahang Unisex Salon · Baneshwor, Kathmandu
+        </motion.p>
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold text-white mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Our <span className="text-[#d4af37]">Gallery</span>
+        </motion.h1>
+        <motion.div
+          className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        />
+        <motion.p
+          className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          Browse through our portfolio of stunning transformations and beautiful styles
+        </motion.p>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-20">
+      {/* ── GALLERY SECTION ── */}
+      <section className="py-16">
         <div className="container-custom">
-          <SectionTitle
-            title="Our Work"
-            subtitle="Explore our collection of beautiful transformations created by our talented team"
-          />
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
+          {/* Section heading */}
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#222222]">
+              Our Work
+            </h2>
+            <p className="text-gray-500 text-sm mt-2">
+              Explore our collection of beautiful transformations by our talented team
+            </p>
+          </div>
+
+          {/* Category filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((cat) => (
               <motion.button
-                key={category.id}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "text-amber-500"
-                    : "bg-gray-100 text-black hover:bg-gray-200"
-                }`}
-                onClick={() => setActiveCategory(category.id)}
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className={`px-6 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
+                  activeCategory === cat.id
+                    ? "bg-[#d4af37] text-white border-[#d4af37]"
+                    : "bg-transparent text-gray-500 border-gray-300 hover:border-[#d4af37] hover:text-[#d4af37]"
+                }`}
               >
-                {category.name}
+                {cat.name}
               </motion.button>
             ))}
           </div>
 
-          {/* Gallery Grid */}
+          {/* Gallery grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
             layout
           >
             <AnimatePresence>
@@ -181,84 +135,49 @@ const Gallery = () => {
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <GalleryItem
                     image={item.image}
                     title={item.title}
                     category={
-                      categories.find((cat) => cat.id === item.category)
-                        ?.name || ""
+                      categories.find((cat) => cat.id === item.category)?.name || ""
                     }
                   />
                 </motion.div>
               ))}
             </AnimatePresence>
           </motion.div>
+
+          {/* ── CTA ── */}
+          <div className="bg-[#222222] rounded-2xl px-8 py-12 text-center mt-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+              Love What You See?
+            </h2>
+            <p className="text-gray-400 text-sm mb-7">
+              Book an appointment and let us create your perfect look
+            </p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              
+               <a href="tel:+9779851234567"
+                className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                Call Now
+              </a>
+              
+              <a  href="/contact"
+                className="border-2 border-[#d4af37] text-[#d4af37] px-8 py-3 rounded-md font-semibold text-sm hover:bg-[#d4af37]/10 transition-colors"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
-
-      {/* Instagram Section
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom text-center">
-          <SectionTitle
-            title="Follow Us on Instagram"
-            subtitle="Stay updated with our latest work and salon updates"
-          />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-12">
-            {[...Array(6)].map((_, index) => (
-              <motion.a
-                key={index}
-                href="#"
-                className="block overflow-hidden rounded-lg relative group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <img
-                  src={`/placeholder.svg?height=300&width=300&text=Instagram+${
-                    index + 1
-                  }`}
-                  alt={`Instagram post ${index + 1}`}
-                  className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white text-2xl">❤️</span>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-          <motion.a
-            href="#"
-            className="inline-flex items-center text-primary font-medium mt-8 hover:underline"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            Follow Us @mangpahang
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 ml-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </motion.a>
-        </div>
-      </section> */}
     </PageTransition>
   );
 };

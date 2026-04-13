@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
-
 import { motion } from "framer-motion";
 import { Award, Users, Smile, Scissors } from "lucide-react";
 import PageTransition from "../components/PageTransition";
-import SectionTitle from "../components/SectionTitle";
 import SEO from "../components/SEO";
 import DefaultImage from "../assets/Images/default_profile_pic.png";
 import InteriorImage from "../assets/SalonImages/GallaryImage-7.jpg";
@@ -22,7 +20,7 @@ const About = () => {
       name: "Sudip Rai",
       role: "Founder & Master Stylist",
       image: "",
-      bio: "With over 5 years of experience, Aarav brings creativity and precision to every haircut and style.",
+      bio: "With over 5 years of experience, Sudip brings creativity and precision to every haircut and style.",
     },
     {
       name: "Anupa Rai",
@@ -37,51 +35,45 @@ const About = () => {
       bio: "Srijana is known for her ability to enhance natural beauty with her expert nail art techniques for any occasion.",
     },
     {
-      name: "Sushil Buddha ",
+      name: "Sushil Buddha",
       role: "Hair Stylist",
       image: "",
       bio: "Sushil brings a unique perspective to hair styling, combining traditional techniques with modern trends.",
     },
-    // {
-    //   name: "Sita Gurung",
-    //   role: "Nail Technician",
-    //   image: "/placeholder.svg?height=400&width=400",
-    //   bio: "Sita creates beautiful, long-lasting nail designs that express each client's personal style.",
-    // },
+  ];
+
+  const values = [
+    { title: "Excellence", desc: "We are committed to delivering the highest quality services and results." },
+    { title: "Integrity", desc: "We operate with honesty, transparency, and respect in all our interactions." },
+    { title: "Creativity", desc: "We encourage innovation and artistic expression in our work." },
+    { title: "Inclusivity", desc: "We welcome and celebrate diversity in our clients and team." },
+    { title: "Continuous Learning", desc: "We are dedicated to ongoing education and professional development." },
   ];
 
   return (
     <PageTransition>
       <SEO
         title="About Us — Mangpahang Unisex Salon, Kathmandu"
-        description="Learn about Mangpahang Unisex Salon, founded in 2013 in Baneshwor, Kathmandu. Meet our expert stylists, discover our story, mission, and commitment to premium hair and beauty services."
+        description="Learn about Mangpahang Unisex Salon, founded in 2024 in Baneshwor, Kathmandu. Meet our expert stylists, discover our story, mission, and commitment to premium hair and beauty services."
         keywords="about salon Kathmandu, Mangpahang story, hair salon history Kathmandu, best stylist Kathmandu, unisex salon Nepal"
         canonical="/about"
       />
-      {/* Hero Section */}
-      <section className="relative py-32 bg-secondary">
-        <div className="container-custom text-center text-black">
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            About Us
-          </motion.h1>
-          <motion.p
-            className="text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Learn more about Mangpahang Unisex Salon and our dedicated team of
-            professionals
-          </motion.p>
-        </div>
+
+      {/* ── HERO ── */}
+      <section className="bg-[#222222] py-28 text-center">
+        <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
+          Mangpahang Unisex Salon · Baneshwor, Kathmandu
+        </p>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          About <span className="text-[#d4af37]">Us</span>
+        </h1>
+        <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5" />
+        <p className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed">
+          Learn more about Mangpahang Unisex Salon and our dedicated team of professionals
+        </p>
       </section>
 
-      {/* Our Story Section */}
+      {/* ── OUR STORY ── */}
       <section className="py-20">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -94,56 +86,51 @@ const About = () => {
               <img
                 src={InteriorImage}
                 alt="Mangpahang Salon Interior"
-                className="rounded-lg shadow-xl"
+                className="rounded-xl w-full object-cover"
               />
             </motion.div>
             <div>
-              <SectionTitle title="Our Story" centered={false} />
+              <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
+                Who We Are
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+                Our Story
+              </h2>
+              <div className="w-10 h-[2px] bg-[#d4af37] mb-6" />
               <motion.p
-                className="mb-6 text-gray-600"
+                className="mb-4 text-gray-500 text-sm leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Mangpahang Unisex Salon was founded in 2024 with a vision to
-                provide premium hair and beauty services in a welcoming
-                environment. What started as a small salon has grown into a
-                beloved establishment in Kathmandu, known for exceptional
-                service and skilled professionals.
+                Mangpahang Unisex Salon was founded in 2024 with a vision to provide premium hair and beauty services in a welcoming environment. What started as a small salon has grown into a beloved establishment in Kathmandu, known for exceptional service and skilled professionals.
               </motion.p>
               <motion.p
-                className="mb-6 text-gray-600"
+                className="mb-4 text-gray-500 text-sm leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                Our founder, inspired by traditional Nepali beauty practices and
-                modern techniques, created a space where clients could
-                experience the best of both worlds. Today, we continue to uphold
-                our commitment to excellence, using premium products and staying
-                at the forefront of industry trends.
+                Our founder, inspired by traditional Nepali beauty practices and modern techniques, created a space where clients could experience the best of both worlds. Today, we continue to uphold our commitment to excellence, using premium products and staying at the forefront of industry trends.
               </motion.p>
               <motion.p
-                className="mb-8 text-gray-600"
+                className="text-gray-500 text-sm leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                At Mangpahang, we believe that beauty services should be
-                accessible to everyone. Our diverse team is trained to work with
-                all hair types, skin tones, and personal styles, ensuring that
-                every client leaves feeling confident and beautiful.
+                At Mangpahang, we believe that beauty services should be accessible to everyone. Our diverse team is trained to work with all hair types, skin tones, and personal styles, ensuring every client leaves feeling confident and beautiful.
               </motion.p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      {/* <section className="py-16 bg-primary text-white">
+      {/* ── STATS ── */}
+      <section className="py-14 bg-[#222222]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat, index) => (
@@ -155,130 +142,130 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="flex justify-center mb-4">
-                  <stat.icon size={40} />
+                <div className="w-12 h-12 rounded-lg bg-[#f8f0e3]/10 flex items-center justify-center mx-auto mb-4">
+                  <stat.icon size={22} className="text-[#d4af37]" strokeWidth={1.8} />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-2">
-                  {stat.value}
-                </h3>
-                <p className="text-sm md:text-base">{stat.label}</p>
+                <h3 className="text-3xl font-bold text-white mb-1">{stat.value}</h3>
+                <p className="text-gray-400 text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* Mission & Values Section */}
+      {/* ── MISSION & VALUES ── */}
       <section className="py-20">
         <div className="container-custom">
-          <SectionTitle
-            title="Our Mission & Values"
-            subtitle="What drives us and shapes our approach to beauty services"
-          />
-          <div className="grid md:grid-cols-2 gap-12 mt-12">
+          <div className="text-center mb-10">
+            <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
+              What Drives Us
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+              Our Mission & Values
+            </h2>
+            <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-4" />
+            <p className="text-gray-500 text-sm max-w-md mx-auto">
+              What drives us and shapes our approach to beauty services
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Mission */}
             <motion.div
-              className="bg-gray-50 p-8 rounded-lg"
+              className="bg-white rounded-xl border border-gray-200 p-7 hover:border-[#d4af37] transition-colors duration-200"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-secondary">
-                Our Mission
-              </h3>
-              <p className="text-gray-600 mb-4">
-                To provide exceptional hair and beauty services that enhance our
-                clients' natural beauty and boost their confidence, while
-                creating a welcoming and relaxing environment for everyone who
-                walks through our doors.
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
+                  <Award size={20} className="text-[#b8921a]" strokeWidth={1.8} />
+                </div>
+                <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
+                  Our Mission
+                </h3>
+              </div>
+              <div className="w-8 h-[2px] bg-[#d4af37] mb-4" />
+              <p className="text-gray-500 text-sm leading-relaxed mb-3">
+                To provide exceptional hair and beauty services that enhance our clients' natural beauty and boost their confidence, while creating a welcoming and relaxing environment for everyone who walks through our doors.
               </p>
-              <p className="text-gray-600">
-                We strive to stay at the forefront of industry trends and
-                techniques, continuously improving our skills to deliver the
-                best possible results for our clients.
+              <p className="text-gray-500 text-sm leading-relaxed">
+                We strive to stay at the forefront of industry trends and techniques, continuously improving our skills to deliver the best possible results for our clients.
               </p>
             </motion.div>
+
+            {/* Values */}
             <motion.div
-              className="bg-gray-50 p-8 rounded-lg"
+              className="bg-white rounded-xl border border-gray-200 p-7 hover:border-[#d4af37] transition-colors duration-200"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-secondary">
-                Our Values
-              </h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-primary font-bold mr-2">•</span>
-                  <span>
-                    <strong>Excellence:</strong> We are committed to delivering
-                    the highest quality services and results.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary font-bold mr-2">•</span>
-                  <span>
-                    <strong>Integrity:</strong> We operate with honesty,
-                    transparency, and respect in all our interactions.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary font-bold mr-2">•</span>
-                  <span>
-                    <strong>Creativity:</strong> We encourage innovation and
-                    artistic expression in our work.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary font-bold mr-2">•</span>
-                  <span>
-                    <strong>Inclusivity:</strong> We welcome and celebrate
-                    diversity in our clients and team.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary font-bold mr-2">•</span>
-                  <span>
-                    <strong>Continuous Learning:</strong> We are dedicated to
-                    ongoing education and professional development.
-                  </span>
-                </li>
-              </ul>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
+                  <Smile size={20} className="text-[#b8921a]" strokeWidth={1.8} />
+                </div>
+                <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
+                  Our Values
+                </h3>
+              </div>
+              <div className="w-8 h-[2px] bg-[#d4af37] mb-4" />
+              <div className="space-y-0">
+                {values.map((v, i) => (
+                  <div key={i} className="flex justify-between items-start py-2 border-b border-black/5 last:border-0 text-xs gap-4">
+                    <span className="font-semibold text-[#222] whitespace-nowrap">{v.title}</span>
+                    <span className="text-gray-500 text-right">{v.desc}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* ── TEAM ── */}
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
-          <SectionTitle
-            title="Meet Our Team"
-            subtitle="Our talented professionals are dedicated to helping you look and feel your best"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div className="text-center mb-10">
+            <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
+              The Experts
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+              Meet Our Team
+            </h2>
+            <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-4" />
+            <p className="text-gray-500 text-sm max-w-md mx-auto">
+              Our talented professionals are dedicated to helping you look and feel your best
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {team.map((member, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-lg overflow-hidden shadow-lg"
+                className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-[#d4af37] transition-all duration-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
               >
                 <img
-                  src={member?.image ? member?.image : DefaultImage}
+                  src={member.image ? member.image : DefaultImage}
                   alt={member.name}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-56 object-cover"
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-secondary">
+                <div className="p-5">
+                  <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
                     {member.name}
                   </h3>
-                  <p className="text-primary mb-3">{member.role}</p>
-                  <p className="text-gray-600">{member.bio}</p>
+                  <p className="text-[#d4af37] font-semibold text-sm mt-1 mb-3">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-500 text-xs leading-relaxed border-t border-gray-100 pt-3">
+                    {member.bio}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -286,80 +273,71 @@ const About = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* ── TESTIMONIAL ── */}
       <section className="py-20">
-        <div className="container-custom text-center">
-          <SectionTitle
-            title="What Our Clients Say"
-            subtitle="Don't just take our word for it - hear from our satisfied customers"
-          />
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
+              Client Love
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+              What Our Clients Say
+            </h2>
+            <div className="w-12 h-[2px] bg-[#d4af37] mx-auto" />
+          </div>
+
           <motion.div
-            className="max-w-4xl mx-auto mt-12 bg-gray-50 p-8 rounded-lg shadow-lg"
+            className="max-w-3xl mx-auto bg-white rounded-xl border border-gray-200 p-8 hover:border-[#d4af37] transition-colors duration-200"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-5xl text-primary mb-6">"</div>
-            <p className="text-xl text-gray-600 italic mb-6">
-              I've been coming to Mangpahang Salon for over three years now, and
-              I wouldn't trust anyone else with my hair. The team is
-              professional, friendly, and always up-to-date with the latest
-              trends. Every visit feels like a treat, and I always leave feeling
-              beautiful and confident.
+            <div className="text-4xl text-[#d4af37] mb-4 leading-none">"</div>
+            <p className="text-gray-500 text-sm leading-relaxed italic mb-6">
+              I've been coming to Mangpahang Salon for over three years now, and I wouldn't trust anyone else with my hair. The team is professional, friendly, and always up-to-date with the latest trends. Every visit feels like a treat, and I always leave feeling beautiful and confident.
             </p>
-            <div className="flex items-center justify-center">
-              {/* <img
-                src="/placeholder.svg?height=100&width=100"
-                alt="Testimonial"
-                className="w-16 h-16 rounded-full object-cover mr-4"
-              /> */}
-              <div className="text-left">
-                <h4 className="font-bold text-secondary">Anita Tamang</h4>
-                <p className="text-sm text-gray-500">Regular Client</p>
+            <div className="border-t border-gray-100 pt-4 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
+                <span className="text-[#b8921a] text-sm font-bold">AT</span>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-[#222222] uppercase tracking-wide">Anita Tamang</h4>
+                <p className="text-[#d4af37] text-sm font-semibold">Regular Client</p>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20  text-black">
-        <div className="container-custom text-center">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Experience the Mangpahang Difference
-          </motion.h2>
-          <motion.p
-            className="text-lg mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Join our community of satisfied clients and discover why we're one
-            of Kathmandu's most trusted salons.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <a
-              href="/contact"
-              className="bg-amber-800 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:bg-primary/90 hover:shadow-lg"
-            >
-              Book Your Appointment
-            </a>
-          </motion.div>
+      {/* ── CTA ── */}
+      <section className="py-16">
+        <div className="container-custom">
+          <div className="bg-[#222222] rounded-2xl px-8 py-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+              Experience the Mangpahang Difference
+            </h2>
+            <p className="text-gray-400 text-sm mb-7 max-w-md mx-auto">
+              Join our community of satisfied clients and discover why we're one of Kathmandu's most trusted salons.
+            </p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <a
+                href="/contact"
+                className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                Book Your Appointment
+              </a>
+              <a
+                href="/services"
+                className="border-2 border-[#d4af37] text-[#d4af37] px-8 py-3 rounded-md font-semibold text-sm hover:bg-[#d4af37]/10 transition-colors"
+              >
+                View Services
+              </a>
+            </div>
+          </div>
         </div>
       </section>
+
     </PageTransition>
   );
 };
