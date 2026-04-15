@@ -282,7 +282,7 @@ const Contact = () => {
                       <label htmlFor="name" className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2">
                         Your Name *
                       </label>
-                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Newson Rai" className={inputClass} />
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name" className={inputClass} />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2">

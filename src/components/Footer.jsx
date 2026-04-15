@@ -8,13 +8,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-white pt-16 pb-8">
+    <footer className="bg-[#222222] text-white pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-black">Mangpahang</h3>
-            <p className="mb-4 text-black">
+            <h3 className="text-xl font-bold mb-4 text-[#d4af37]">Mangpahang</h3>
+            <p className="mb-4 text-gray-100">
               Mangpahang Unisex Salon offers premium hair and beauty services in
               a relaxing environment. Our skilled professionals are dedicated to
               enhancing your natural beauty.
@@ -28,7 +28,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Facebook size={24} className="text-blue-700"/>
+                <Facebook size={20} className="text-blue-400"/>
               </motion.a>
               <motion.a
                 href="https://www.instagram.com/mangpahangunisexsalon/"
@@ -36,21 +36,21 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Instagram size={24} className="text-pink-800"/>
+                <Instagram size={20} className="text-pink-400"/>
               </motion.a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#d4af37]">Quick Links</h3>
             <ul className="space-y-2">
               {["Home", "Services", "Gallery", "About", "Contact"].map(
                 (item) => (
                   <li key={item}>
                     <Link
                       to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                      className="text-black hover:text-gray-600 transition-colors duration-300"
+                      className="text-gray-100 hover:text-[#d4af37] transition-colors duration-300"
                     >
                       {item}
                     </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">
+            <h3 className="text-xl font-bold mb-4 text-[#d4af37]">
               Our Services
             </h3>
             <ul className="space-y-2">
@@ -76,7 +76,7 @@ const Footer = () => {
                 <li key={service}>
                   <Link
                     to="/services"
-                    className="text-black hover:text-gray-600 transition-colors duration-300 "
+                    className="text-gray-100 hover:text-[#d4af37] transition-colors duration-300 "
                   >
                     {service}
                   </Link>
@@ -87,35 +87,35 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#d4af37]">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <MapPin className="text-primary mt-1 mr-3 h-5 w-5" />
-                <span className="text-black">
+                <MapPin className="text-[#c9a84c] mt-1 mr-3 h-5 w-5" />
+                <span className="text-gray-100">
                   Mid-Baneswor, Kathmandu, Nepal
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="text-primary mr-3 h-5 w-5" />
+                <Phone className="text-[#c9a84c] mr-3 h-5 w-5" />
                 <a
                   href="tel:+9779851234567"
-                  className="text-black hover:text-primary transition-colors duration-300"
+                  className="text-gray-100 hover:text-[#d4af37] transition-colors duration-300"
                 >
                   +977-970-8073356
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail className="text-primary mr-3 h-5 w-5" />
+                <Mail className="text-[#d4af37] mr-3 h-5 w-5" />
                 <a
                   href="mailto:info@mangpahang.com"
-                  className="text-black hover:text-primary transition-colors duration-300"
+                  className="text-gray-100 hover:text-[#c9a84c] transition-colors duration-300"
                 >
                   mangpahangsalon@gmail.com
                 </a>
               </li>
               <li className="flex items-start">
-                <Clock className="text-primary mt-1 mr-3 h-5 w-5" />
-                <div className="text-black">
+                <Clock className="text-[#d4af37] mt-1 mr-3 h-5 w-5" />
+                <div className="text-gray-100">
                   <p>Sun-Sat: 10:00 AM - 7:00 PM</p>
                   {/* <p>Sunday: Closed</p> */}
                 </div>
@@ -124,9 +124,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-black">
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-100">
           <p>
-            &copy; {currentYear} Mangpahang Unisex Salon. All rights reserved.
+           <span className="text-[#d4af37]">&copy;</span>  {currentYear} Mangpahang Unisex Salon. All rights reserved.
           </p>
         </div>
       </div>

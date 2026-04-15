@@ -86,16 +86,16 @@ const Home = () => {
             className="max-w-3xl"
           >
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               Discover Your True Beauty at{" "}
-              <span className="text-primary">Mangpahang</span>
+              <span className="text-[#c9a84c]">Mangpahang</span>
             </motion.h1>
             <motion.p
-              className="text-lg md:text-xl mb-8"
+              className="text-sm md:text-xl mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -105,15 +105,17 @@ const Home = () => {
               your natural beauty.
             </motion.p>
             <motion.div
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Link to="/services" className="btn-primary">
+              <Link to="/services" 
+              className="btn-primary px-6 py-3 text-sm font-medium rounded-md">
                 Our Services
               </Link>
-              <Link to="/contact" className="btn-secondary">
+              <Link to="/contact" 
+              className="btn-secondary px-6 py-3 text-sm font-medium rounded-md">
                 Book Appointment
               </Link>
             </motion.div>
