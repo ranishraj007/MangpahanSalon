@@ -11,7 +11,7 @@ const iconMap = {
   gem: Gem,
 };
 
-const ServiceCard = ({ icon, title, quote, name }) => {
+const ServiceCard = ({ icon, quote, name }) => {
   const IconComponent =
     typeof icon === "string" ? iconMap[icon] || Scissors : icon;
 

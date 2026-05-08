@@ -6,8 +6,10 @@ import SectionTitle from "../components/SectionTitle";
 import ServiceCard from "../components/ServiceCard";
 import TestimonialCard from "../components/TestimonialCard";
 import SEO from "../components/SEO";
-import BG_Image from "../assets/SalonImages/GallaryImage-1.jpg";
-import BG_Image_2 from "../assets/SalonImages/GallaryImage-8.jpg";
+import AboutImage480 from "../assets/SalonImages/optimized/GallaryImage-1-480.webp";
+import AboutImage768 from "../assets/SalonImages/optimized/GallaryImage-1-768.webp";
+import AboutImage1200 from "../assets/SalonImages/optimized/GallaryImage-1-1200.webp";
+import HeroBackground from "../assets/SalonImages/optimized/GallaryImage-8-1200.webp";
 
 const homeSchema = {
   "@context": "https://schema.org",
@@ -153,7 +155,7 @@ const Home = () => {
         <div
           className="absolute inset-0 bg-cover bg-center z-[-1]"
           style={{
-            backgroundImage: `url(${BG_Image_2})`,
+            backgroundImage: `url(${HeroBackground})`,
           }}
         ></div>
         <div className="container-custom relative z-10 text-white">
@@ -239,8 +241,14 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src={BG_Image}
-                alt="About Mangpahang Salon"
+                src={AboutImage768}
+                srcSet={`${AboutImage480} 480w, ${AboutImage768} 768w, ${AboutImage1200} 1200w`}
+                sizes="(min-width: 768px) 50vw, calc(100vw - 32px)"
+                alt="Mangpahang Unisex Salon haircut and beauty service in Kathmandu"
+                width="768"
+                height="1152"
+                loading="lazy"
+                decoding="async"
                 className="rounded-lg shadow-xl"
               />
             </motion.div>

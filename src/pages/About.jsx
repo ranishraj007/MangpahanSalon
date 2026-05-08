@@ -5,7 +5,9 @@ import { Award, Users, Smile, Scissors } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
 import DefaultImage from "../assets/Images/default_profile_pic.png";
-import InteriorImage from "../assets/SalonImages/GallaryImage-2.jpg";
+import InteriorImage480 from "../assets/SalonImages/optimized/GallaryImage-2-480.webp";
+import InteriorImage768 from "../assets/SalonImages/optimized/GallaryImage-2-768.webp";
+import InteriorImage1200 from "../assets/SalonImages/optimized/GallaryImage-2-1200.webp";
 
 const About = () => {
   const stats = [
@@ -86,8 +88,14 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src={InteriorImage}
-                alt="Mangpahang Salon Interior"
+                src={InteriorImage768}
+                srcSet={`${InteriorImage480} 480w, ${InteriorImage768} 768w, ${InteriorImage1200} 1200w`}
+                sizes="(min-width: 768px) 50vw, calc(100vw - 32px)"
+                alt="Mangpahang Unisex Salon interior in Mid-Baneshwor Kathmandu"
+                width="768"
+                height="576"
+                loading="lazy"
+                decoding="async"
                 className="rounded-xl w-full object-cover"
               />
             </motion.div>

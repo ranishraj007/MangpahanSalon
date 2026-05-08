@@ -1,9 +1,15 @@
-import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 
-const GalleryItem = ({ image, title, category }) => {
+const GalleryItem = ({
+  image,
+  title,
+  category,
+  alt,
+  loading = "lazy",
+  fetchPriority = "auto",
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -16,11 +22,32 @@ const GalleryItem = ({ image, title, category }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        src={image || "/placeholder.svg"}
-        alt={title}
-        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-      />
+      <picture>
+        {image?.webpSrcSet && (
+          <source
+            type="image/webp"
+            srcSet={image.webpSrcSet}
+            sizes={image.sizes}
+          />
+        )}
+        {image?.jpgSrcSet && (
+          <source
+            type="image/jpeg"
+            srcSet={image.jpgSrcSet}
+            sizes={image.sizes}
+          />
+        )}
+        <img
+          src={image?.src || "/placeholder.svg"}
+          alt={alt || title}
+          width={image?.width || 768}
+          height={image?.height || 512}
+          loading={loading}
+          fetchPriority={fetchPriority}
+          decoding="async"
+          className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+      </picture>
       <motion.div
         className="absolute inset-0 bg-primary/70 flex flex-col items-center justify-center p-4 text-white"
         initial={{ opacity: 0 }}

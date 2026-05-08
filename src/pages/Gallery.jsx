@@ -4,15 +4,103 @@ import PageTransition from "../components/PageTransition";
 import GalleryItem from "../components/GalleryItem";
 import SEO from "../components/SEO";
 
-import GalleryImage_1 from "../assets/SalonImages/GallaryImage-1.jpg";
-import GalleryImage_2 from "../assets/SalonImages/GallaryImage-2.jpg";
-import GalleryImage_3 from "../assets/SalonImages/GallaryImage-3.jpg";
-import GalleryImage_4 from "../assets/SalonImages/GallaryImage-4.jpg";
-import GalleryImage_5 from "../assets/SalonImages/GallaryImage-5.jpg";
-import GalleryImage_6 from "../assets/SalonImages/GallaryImage-6.jpg";
-import GalleryImage_8 from "../assets/SalonImages/GallaryImage-8.jpg";
-import GalleryImage_9 from "../assets/SalonImages/GallaryImage-9.jpg";
-import GalleryImage_12 from "../assets/SalonImages/GallaryImage-2.jpg";
+const galleryImageModules = import.meta.glob(
+  "../assets/SalonImages/optimized/*.{jpg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  },
+);
+
+const galleryImageSizes =
+  "(min-width: 1024px) calc((100vw - 112px) / 3), (min-width: 640px) calc((100vw - 68px) / 2), calc(100vw - 32px)";
+
+const getOptimizedGalleryImage = (name) => {
+  const imagePath = (width, extension) =>
+    galleryImageModules[
+      `../assets/SalonImages/optimized/${name}-${width}.${extension}`
+    ];
+
+  return {
+    src: imagePath(768, "jpg"),
+    webpSrcSet: [480, 768, 1200]
+      .map((width) => `${imagePath(width, "webp")} ${width}w`)
+      .join(", "),
+    jpgSrcSet: [480, 768, 1200]
+      .map((width) => `${imagePath(width, "jpg")} ${width}w`)
+      .join(", "),
+    sizes: galleryImageSizes,
+    width: 768,
+    height: 512,
+  };
+};
+
+const galleryItems = [
+  {
+    id: 1,
+    image: getOptimizedGalleryImage("GallaryImage-1"),
+    title: "Modern Bob Cut",
+    category: "haircuts",
+    alt: "Modern bob haircut by Mangpahang Unisex Salon in Kathmandu",
+  },
+  {
+    id: 2,
+    image: getOptimizedGalleryImage("GallaryImage-2"),
+    title: "Reception",
+    category: "salon",
+    alt: "Mangpahang Unisex Salon reception area in Mid-Baneshwor Kathmandu",
+  },
+  {
+    id: 3,
+    image: getOptimizedGalleryImage("GallaryImage-3"),
+    title: "Hair Wash & Blowout",
+    category: "salon",
+    alt: "Hair wash and blowout service at Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 4,
+    image: getOptimizedGalleryImage("GallaryImage-4"),
+    title: "Natural Glam Makeup",
+    category: "makeup",
+    alt: "Natural glam makeup look from Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 5,
+    image: getOptimizedGalleryImage("GallaryImage-5"),
+    title: "Nail Art Design",
+    category: "nails",
+    alt: "Nail art design by Mangpahang Unisex Salon in Kathmandu",
+  },
+  {
+    id: 6,
+    image: getOptimizedGalleryImage("GallaryImage-6"),
+    title: "Pedicure Treatment",
+    category: "nails",
+    alt: "Pedicure treatment service at Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 8,
+    image: getOptimizedGalleryImage("GallaryImage-8"),
+    title: "Product Application",
+    category: "makeup",
+    alt: "Professional beauty product application at Mangpahang Unisex Salon",
+  },
+  {
+    id: 9,
+    image: getOptimizedGalleryImage("GallaryImage-9"),
+    title: "Pixie Cut",
+    category: "haircuts",
+    alt: "Pixie haircut transformation by Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 12,
+    image: getOptimizedGalleryImage("GallaryImage-4"),
+    title: "Bridal Makeup",
+    category: "makeup",
+    alt: "Bridal makeup look by Mangpahang Unisex Salon in Kathmandu",
+  },
+];
 
 const gallerySchema = {
   "@context": "https://schema.org",
@@ -33,6 +121,11 @@ const gallerySchema = {
     name: "Mangpahang Unisex Salon",
     address: "Mid-Baneshwor, Kathmandu, Nepal",
   },
+  associatedMedia: galleryItems.map((item) => ({
+    "@type": "ImageObject",
+    name: item.title,
+    caption: item.alt,
+  })),
 };
 
 const Gallery = () => {
@@ -43,18 +136,6 @@ const Gallery = () => {
     { id: "nails", name: "Nails" },
     { id: "makeup", name: "Makeup" },
     { id: "salon", name: "Salon" },
-  ];
-
-  const galleryItems = [
-    { id: 1, image: GalleryImage_1, title: "Modern Bob Cut", category: "haircuts" },
-    { id: 2, image: GalleryImage_2, title: "Reception", category: "salon" },
-    { id: 3, image: GalleryImage_3, title: "Hair Wash & Blowout", category: "salon" },
-    { id: 4, image: GalleryImage_4, title: "Natural Glam Makeup", category: "makeup" },
-    { id: 5, image: GalleryImage_5, title: "Nail Art Design", category: "nails" },
-    { id: 6, image: GalleryImage_6, title: "Pedicure Treatment", category: "nails" },
-    { id: 8, image: GalleryImage_8, title: "Product Application", category: "makeup" },
-    { id: 9, image: GalleryImage_9, title: "Pixie Cut", category: "haircuts" },
-    { id: 12, image: GalleryImage_12, title: "Bridal Makeup", category: "makeup" },
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");
@@ -148,7 +229,7 @@ const Gallery = () => {
             layout
           >
             <AnimatePresence>
-              {filteredItems.map((item) => (
+              {filteredItems.map((item, index) => (
                 <motion.div
                   key={item.id}
                   layout
@@ -160,6 +241,9 @@ const Gallery = () => {
                   <GalleryItem
                     image={item.image}
                     title={item.title}
+                    alt={item.alt}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    fetchPriority={index < 3 ? "high" : "auto"}
                     category={
                       categories.find((cat) => cat.id === item.category)?.name || ""
                     }
