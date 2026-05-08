@@ -14,6 +14,27 @@ import GalleryImage_8 from "../assets/SalonImages/GallaryImage-8.jpg";
 import GalleryImage_9 from "../assets/SalonImages/GallaryImage-9.jpg";
 import GalleryImage_12 from "../assets/SalonImages/GallaryImage-2.jpg";
 
+const gallerySchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  name: "Mangpahang Unisex Salon Gallery",
+  url: "https://mangpahang.com.np/gallery",
+  description:
+    "Haircut, hair color, makeup, nail art, pedicure, and salon transformation gallery from Mangpahang Unisex Salon in Baneshwor, Kathmandu.",
+  about: [
+    "salon gallery Kathmandu",
+    "hair transformation Kathmandu",
+    "makeup gallery Nepal",
+    "nail art Kathmandu",
+    "stylish haircut Kathmandu",
+  ],
+  provider: {
+    "@type": "HairSalon",
+    name: "Mangpahang Unisex Salon",
+    address: "Mid-Baneshwor, Kathmandu, Nepal",
+  },
+};
+
 const Gallery = () => {
   const categories = [
     { id: "all", name: "All" },
@@ -46,10 +67,11 @@ const Gallery = () => {
   return (
     <PageTransition>
       <SEO
-        title="Gallery — Hair, Makeup & Beauty Transformations"
-        description="Browse the Mangpahang Unisex Salon gallery showcasing haircuts, balayage, ombre, hair coloring, makeup, nail art, and styling transformations from our Kathmandu salon."
-        keywords="salon gallery Kathmandu, hair transformation Kathmandu, balayage Kathmandu, hair color gallery, nail art gallery Kathmandu, makeup gallery Nepal"
+        title="Salon Gallery in Kathmandu — Hair, Makeup, Nails & Beauty"
+        description="Browse Mangpahang Unisex Salon's Kathmandu gallery with stylish haircuts, hair color, makeup, bridal looks, nail art, pedicure, and salon transformations from Mid-Baneshwor."
+        keywords="salon gallery Kathmandu, hair transformation Kathmandu, stylish haircut gallery Kathmandu, balayage Kathmandu, ombre Kathmandu, hair color gallery, nail art gallery Kathmandu, bridal makeup gallery Kathmandu, makeup gallery Nepal, best salon gallery Nepal"
         canonical="/gallery"
+        schema={gallerySchema}
       />
 
       {/* ── HERO ── */}
@@ -82,7 +104,8 @@ const Gallery = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Browse through our portfolio of stunning transformations and beautiful styles
+          Browse our portfolio of stylish haircuts, hair color, makeup, nail
+          art, pedicure care, and beauty transformations in Kathmandu
         </motion.p>
       </section>
 
@@ -156,7 +179,7 @@ const Gallery = () => {
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
               
-               <a href="tel:+9779851234567"
+               <a href="tel:+9779708073356"
                 className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
               >
                 Call Now

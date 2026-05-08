@@ -7,6 +7,41 @@ import {
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
 
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Mangpahang Unisex Salon Services",
+  description:
+    "Salon services in Kathmandu including haircut, hair styling, hair color, balayage, facial, waxing, threading, nails, bridal makeup, hair spa, keratin, botox, nanoplastia, and massage.",
+  itemListElement: [
+    "Haircut with Wash & Blow Dry",
+    "Hair Color & Highlights",
+    "Balayage and Ombre Hair Color",
+    "Facial and Skincare",
+    "Manicure and Pedicure",
+    "Waxing",
+    "Threading",
+    "Nail Design and Nail Art",
+    "Nail Extensions",
+    "Hair Spa and Head Massage",
+    "Keratin, Botox, Nanoplastia and Hair Straightening",
+    "Bridal Makeup and Party Makeup",
+  ].map((name, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name,
+      provider: {
+        "@type": "HairSalon",
+        name: "Mangpahang Unisex Salon",
+        url: "https://mangpahang.com.np/",
+      },
+      areaServed: "Kathmandu, Nepal",
+    },
+  })),
+};
+
 const Services = () => {
   const categories = [
     { id: "all", name: "All Services" },
@@ -210,10 +245,11 @@ const Services = () => {
   return (
     <PageTransition>
       <SEO
-        title="Salon Services — Haircut, Waxing, Nails, Facial & More"
-        description="Explore all services at Mangpahang Unisex Salon in Mid-Baneshwor, Kathmandu."
-        keywords="haircut Baneshwor, waxing Kathmandu, nail art Kathmandu, hair color Kathmandu"
+        title="Salon Services in Kathmandu — Haircut, Makeup, Nails & Facial"
+        description="Explore Mangpahang Unisex Salon services in Mid-Baneshwor, Kathmandu: stylish haircut, hair color, highlights, balayage, ombre, waxing, threading, nail art, nail extensions, facial, bridal makeup, party makeup, keratin, botox, nanoplastia, and hair spa."
+        keywords="salon services Kathmandu, best salon services Nepal, haircut Baneshwor, stylish haircut Kathmandu, hair color Kathmandu, balayage Kathmandu, ombre hair Kathmandu, waxing Kathmandu, threading Kathmandu, nail art Kathmandu, nail extensions Kathmandu, facial Kathmandu, bridal makeup Kathmandu, party makeup Kathmandu, keratin treatment Kathmandu, botox hair treatment Kathmandu, nanoplastia Kathmandu"
         canonical="/services"
+        schema={servicesSchema}
       />
 
       {/* ── HERO ── */}
@@ -226,7 +262,8 @@ const Services = () => {
         </h1>
         <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5" />
         <p className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed">
-          Premium hair & beauty services crafted for you — in a relaxing, welcoming environment
+          Premium hair, makeup, nail, skincare, waxing, threading, and hair
+          treatment services crafted for you in Baneshwor, Kathmandu
         </p>
       </section>
 
@@ -237,10 +274,11 @@ const Services = () => {
           {/* Section heading */}
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-[#222222]">
-              Premium Beauty Services
+              Premium Beauty Services in Kathmandu
             </h2>
             <p className="text-gray-500 text-sm mt-2">
-              Tap any card to see full pricing details
+              Tap any card to see full pricing details for one of the best
+              salon service menus in Baneshwor
             </p>
           </div>
 
@@ -379,7 +417,7 @@ const Services = () => {
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
               
-               <a href="tel:+9779851234567"
+               <a href="tel:+9779708073356"
                 className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
               >
                 Call Now

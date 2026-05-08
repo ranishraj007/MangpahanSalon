@@ -9,6 +9,83 @@ import SEO from "../components/SEO";
 import BG_Image from "../assets/SalonImages/GallaryImage-1.jpg";
 import BG_Image_2 from "../assets/SalonImages/GallaryImage-8.jpg";
 
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  name: "Mangpahang Unisex Salon",
+  alternateName: [
+    "Mangpahang Salon",
+    "Mangpahang Unisex Salon Kathmandu",
+    "Mangpahang Salon Baneshwor",
+  ],
+  url: "https://mangpahang.com.np/",
+  image: "https://mangpahang.com.np/Logo.jpg",
+  telephone: "+9779708073356",
+  email: "mangpahangsalon@gmail.com",
+  priceRange: "Rs.50 - Rs.25000",
+  description:
+    "Mangpahang Unisex Salon is a hair and beauty salon in Mid-Baneshwor, Kathmandu offering haircut, styling, hair color, balayage, facial, waxing, threading, nails, bridal makeup, party makeup, keratin, botox, nanoplastia, hair spa, and grooming services.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mid-Baneshwor",
+    addressLocality: "Kathmandu",
+    addressRegion: "Bagmati Province",
+    postalCode: "44600",
+    addressCountry: "NP",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 27.695287,
+    longitude: 85.334901,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "10:00",
+      closes: "19:00",
+    },
+  ],
+  areaServed: [
+    "Kathmandu",
+    "Baneshwor",
+    "Mid-Baneshwor",
+    "New Baneshwor",
+    "Koteshwor",
+    "Tinkune",
+    "Maitidevi",
+    "Putalisadak",
+    "Lalitpur",
+    "Bhaktapur",
+    "Nepal",
+  ],
+  knowsAbout: [
+    "best salon in Kathmandu",
+    "best salon in Nepal",
+    "stylish haircut",
+    "hair color",
+    "bridal makeup",
+    "nail art",
+    "facial",
+    "waxing",
+    "threading",
+    "hair treatment",
+    "keratin treatment",
+  ],
+  sameAs: [
+    "https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/",
+    "https://www.instagram.com/mangpahangunisexsalon/",
+  ],
+};
+
 const Home = () => {
   const services = [
     {
@@ -64,10 +141,11 @@ const Home = () => {
   return (
     <PageTransition>
       <SEO
-        title="Best Salon in Baneshwor, Kathmandu"
-        description="Mangpahang Unisex Salon in Mid-Baneshwor, Kathmandu — premium haircut, hair coloring, waxing, threading, nails, facial, manicure, pedicure, and makeup services. Open every day 10 AM – 8 PM."
-        keywords="salon Baneshwor, unisex salon Kathmandu, haircut Kathmandu, hair color Kathmandu, waxing Baneshwor, nail salon Kathmandu, facial Kathmandu, Mangpahang Salon"
+        title="Best Salon in Kathmandu for Hair, Makeup, Nails & Beauty"
+        description="Searching for the best salon in Kathmandu or Nepal? Mangpahang Unisex Salon in Mid-Baneshwor offers stylish haircuts, hair coloring, bridal makeup, facial, waxing, threading, nails, manicure, pedicure, and hair treatments."
+        keywords="best salon in Kathmandu, best salon in Nepal, stylish salon Kathmandu, stylish haircut Kathmandu, best hair salon Kathmandu, beauty salon Kathmandu, salon in Baneshwor, unisex salon Kathmandu, haircut Baneshwor, hair color Kathmandu, bridal makeup Kathmandu, nail salon Kathmandu, facial Kathmandu, waxing Baneshwor, threading Kathmandu, Mangpahang Salon"
         canonical="/"
+        schema={homeSchema}
       />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center">
@@ -100,9 +178,9 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Experience premium hair and beauty services in a relaxing
-              environment. Our skilled professionals are dedicated to enhancing
-              your natural beauty.
+              Searching for the best salon in Kathmandu? Visit our Mid-Baneshwor
+              unisex salon for stylish haircuts, hair color, bridal makeup,
+              nails, facial, waxing, threading, and modern beauty care.
             </motion.p>
             <motion.div
               className="flex flex-row gap-4"
@@ -179,9 +257,9 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 At Mangpahang, we believe that everyone deserves to look and
-                feel their best. Our salon offers a wide range of services
-                designed to enhance your natural beauty and boost your
-                confidence.
+                feel their best. Our salon in Baneshwor, Kathmandu offers a wide
+                range of hair and beauty services designed to enhance your
+                natural beauty and boost your confidence.
               </motion.p>
               <motion.p
                 className="mb-8 text-gray-600"
@@ -192,8 +270,9 @@ const Home = () => {
               >
                 Our team of skilled professionals is dedicated to providing
                 exceptional service in a relaxing and welcoming environment. We
-                use only premium products and stay up-to-date with the latest
-                trends and techniques.
+                use premium products and stay up-to-date with the latest trends
+                in stylish haircuts, hair color, skincare, nails, makeup, and
+                grooming for clients across Kathmandu and Nepal.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -214,8 +293,8 @@ const Home = () => {
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <SectionTitle
-            title="Our Services"
-            subtitle="Experience premium hair and beauty services tailored to your unique style and needs"
+            title="Best Salon Services in Kathmandu"
+            subtitle="Experience premium hair, beauty, nail, makeup, and grooming services tailored to your unique style and needs"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {services.map((service, index) => (
@@ -238,6 +317,37 @@ const Home = () => {
               View All Services
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Local Search Section */}
+      <section className="py-16">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center">
+            <SectionTitle
+              title="A Salon People Search for in Kathmandu"
+              subtitle="Mangpahang Unisex Salon serves clients looking for reliable beauty care, stylish haircuts, bridal makeup, nails, facial, waxing, threading, and professional hair treatments in Baneshwor and across Kathmandu."
+            />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 text-sm text-gray-600">
+              {[
+                "Best salon in Kathmandu",
+                "Best salon in Nepal",
+                "Hair salon in Baneshwor",
+                "Stylish haircut Kathmandu",
+                "Bridal makeup Kathmandu",
+                "Nail salon Kathmandu",
+                "Facial in Kathmandu",
+                "Waxing and threading",
+              ].map((term) => (
+                <span
+                  key={term}
+                  className="border border-gray-200 rounded-md px-3 py-2 bg-white"
+                >
+                  {term}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

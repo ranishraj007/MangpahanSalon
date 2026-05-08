@@ -120,16 +120,30 @@ const Contact = () => {
     },
   ];
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   const inputClass =
     "w-full px-4 py-3 border border-gray-200 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#d4af37] transition-colors duration-200";
 
   return (
     <PageTransition>
       <SEO
-        title="Contact & Book Appointment — Baneshwor, Kathmandu"
-        description="Book an appointment at Mangpahang Unisex Salon, Mid-Baneshwor, Kathmandu. Call +977-9708073356, email mangpahangsalon@gmail.com, or use our contact form. Open daily 10 AM – 7 PM."
-        keywords="book salon appointment Kathmandu, Mangpahang contact, salon Baneshwor address, hair appointment Kathmandu, beauty salon booking Nepal"
+        title="Book Salon Appointment in Kathmandu — Contact Mangpahang"
+        description="Book an appointment at Mangpahang Unisex Salon in Mid-Baneshwor, Kathmandu for haircut, hair color, facial, nails, waxing, threading, bridal makeup, and beauty services. Call +977-9708073356 or visit us daily 10 AM – 7 PM."
+        keywords="book salon appointment Kathmandu, best salon booking Kathmandu, Mangpahang contact, salon Baneshwor address, hair appointment Kathmandu, beauty salon booking Nepal, bridal makeup appointment Kathmandu, nail salon appointment Kathmandu, facial booking Kathmandu"
         canonical="/contact"
+        schema={contactSchema}
       />
 
       {/* ── HERO ── */}
@@ -142,7 +156,8 @@ const Contact = () => {
         </h1>
         <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5" />
         <p className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed">
-          Get in touch with us for appointments, inquiries, or feedback
+          Get in touch for haircut, hair color, facial, nails, waxing,
+          threading, bridal makeup, and beauty appointments in Kathmandu
         </p>
       </section>
 

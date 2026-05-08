@@ -53,9 +53,9 @@ const About = () => {
   return (
     <PageTransition>
       <SEO
-        title="About Us — Mangpahang Unisex Salon, Kathmandu"
-        description="Learn about Mangpahang Unisex Salon, founded in 2024 in Baneshwor, Kathmandu. Meet our expert stylists, discover our story, mission, and commitment to premium hair and beauty services."
-        keywords="about salon Kathmandu, Mangpahang story, hair salon history Kathmandu, best stylist Kathmandu, unisex salon Nepal"
+        title="About the Best Salon Experience in Baneshwor, Kathmandu"
+        description="Learn about Mangpahang Unisex Salon in Baneshwor, Kathmandu. Meet our stylists and beauty professionals for stylish haircuts, hair color, nails, facial, makeup, and premium salon services in Nepal."
+        keywords="about salon Kathmandu, Mangpahang story, best salon in Kathmandu, best salon in Nepal, best stylist Kathmandu, unisex salon Nepal, beauty professionals Kathmandu, hair stylist Baneshwor"
         canonical="/about"
       />
 
@@ -69,7 +69,9 @@ const About = () => {
         </h1>
         <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5" />
         <p className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed">
-          Learn more about Mangpahang Unisex Salon and our dedicated team of professionals
+          Learn more about Mangpahang Unisex Salon, our Kathmandu beauty team,
+          and the care behind every haircut, color, facial, nail, and makeup
+          service
         </p>
       </section>
 
