@@ -1,388 +1,433 @@
-"use client";
-import React from "react";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Scissors,
-  Palette,
-  Smile,
-  Wand2,
-  SnailIcon as Nail,
-  SprayCanIcon as Spray,
-  Leaf,
-  Gem,
+  Scissors, Palette, Smile, Wand2,
+  SnailIcon as Nail, SprayCanIcon as Spray, Leaf, Gem,
 } from "lucide-react";
 import PageTransition from "../components/PageTransition";
-import SectionTitle from "../components/SectionTitle";
 import SEO from "../components/SEO";
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Mangpahang Unisex Salon Services",
+  description:
+    "Salon services in Kathmandu including haircut, hair styling, hair color, balayage, facial, waxing, threading, nails, bridal makeup, hair spa, keratin, botox, nanoplastia, and massage.",
+  itemListElement: [
+    "Haircut with Wash & Blow Dry",
+    "Hair Color & Highlights",
+    "Balayage and Ombre Hair Color",
+    "Facial and Skincare",
+    "Manicure and Pedicure",
+    "Waxing",
+    "Threading",
+    "Nail Design and Nail Art",
+    "Nail Extensions",
+    "Hair Spa and Head Massage",
+    "Keratin, Botox, Nanoplastia and Hair Straightening",
+    "Bridal Makeup and Party Makeup",
+  ].map((name, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name,
+      provider: {
+        "@type": "HairSalon",
+        name: "Mangpahang Unisex Salon",
+        url: "https://mangpahang.com.np/",
+      },
+      areaServed: "Kathmandu, Nepal",
+    },
+  })),
+};
 
 const Services = () => {
   const categories = [
     { id: "all", name: "All Services" },
     { id: "hair", name: "Hair" },
     { id: "face", name: "Face & Skin" },
-    { id: "body", name: "Body" },
     { id: "nails", name: "Nails" },
+    { id: "massage", name: "Massage" },
+    { id: "makeup", name: "Bridal Makeup" },
   ];
 
   const services = [
     {
-      id: 1,
-      title: "HAIR CUT WITH WASH AND BLOW DRY SETTING",
-      category: "hair",
-      icon: Scissors,
+      id: 1, cat: "hair", icon: Scissors,
+      title: "Haircut with Wash & Blow Dry",
       price: "From Rs.700",
-      description:
-        "Our expert stylists provide precision haircuts tailored to your face shape and personal style. Includes consultation, shampoo, cut, and styling.",
+      desc: "Expert haircuts tailored to your face shape and personal style. Includes consultation, shampoo, cut, and styling.",
       details: [
-        "Man Hair Cut - Rs.700",
-        "Ladies - Rs.1500",
-        // "Ladies Hair Trimming- Rs.1000",
-        "Fringe/Bangs (women's) - Rs.500",
-        "Beard Trim - Rs.200",
-        "Clean Shave - Rs.350",
+        { n: "Man Haircut", p: "Rs.700" },
+        { n: "Ladies", p: "Rs.1,500" },
+        { n: "Fringe/Bangs", p: "Rs.500" },
+        { n: "Beard Trim", p: "Rs.200" },
+        { n: "Clean Shave", p: "Rs.350" },
       ],
     },
     {
-      id: 2,
-      title: "HAIR COLOR AND HIGHLIGHTS",
-      category: "hair",
-      icon: Palette,
+      id: 2, cat: "hair", icon: Palette,
+      title: "Hair Color & Highlights",
+      price: "From Rs.1500",
+      desc: "From subtle highlights to bold transformations using premium products for vibrant, long-lasting results.",
+      details: [
+        { n: "Global (Per Tube)", p: "Rs.3,000" },
+        { n: "Root Touch Up", p: "Rs.2,500" },
+        { n: "Front Touch Up", p: "Rs.1,500" },
+        { n: "Half Highlight", p: "Rs.6,000" },
+        { n: "Full Highlight", p: "Rs.9,000" },
+        { n: "Ombré", p: "Rs.7,000" },
+        { n: "Balayage", p: "Rs.9,000+" },
+        { n: "Quick Toning", p: "Rs.3,000" },
+      ],
+    },
+    {
+      id: 3, cat: "hair", icon: Smile,
+      title: "Styling Set with Conditioning",
+      price: "From Rs.300",
+      desc: "Complete hair care with cleansing, conditioning, and professional finishing for a polished look.",
+      details: [
+        { n: "Ladies Blow Dry", p: "Rs.1,000" },
+        { n: "Ironing/Tongs/Roller Set", p: "Rs.1,200" },
+        { n: "Man Hair Style", p: "Rs.300" },
+      ],
+    },
+    {
+      id: 4, cat: "face", icon: Wand2,
+      title: "Skin Care & Facial",
       price: "From Rs.500",
-      description:
-        "Transform your look with our professional hair coloring services. From subtle highlights to bold transformations, we use premium products for vibrant, long-lasting results.",
+      desc: "Rejuvenating treatments to cleanse, hydrate, and revitalise your skin for a healthy, glowing complexion.",
       details: [
-        "Global (Per Tube)- Rs.3000",
-        "Root Touch Up - Rs.2500",
-        "Front Touch Up - Rs.1500",
-        "Classic Half Highlight/ Root Highlight - Rs.6000/9000",
-        "Classic Full Highlight - Rs.9000/13000",
-        "Ombre - Rs.7000",
-        "Balayage - Rs.9000/13000",
-        "Creative Highlight (Per Foil) - Rs.500",
-        "Quick Toning (Per Tube) - Rs.3000",
-      ],
-    },
-
-    {
-      id: 3,
-      title: "STYLING SET WITH WASH AND CONDITIONING",
-      category: "hair",
-      icon: Smile,
-      price: "From Rs.4000",
-      description:
-        "A complete hair care and styling service that includes cleansing, conditioning, and professional finishing for a polished, refreshed look.",
-      details: [
-        "Ladies Blow Dry - Rs.1000",
-        "Ironing/Tongs/Roller Set - Rs.1200",
-        "Man Hair Style/Set - Rs.300",
+        { n: "Super Express Clean", p: "Rs.500" },
+        { n: "Casmara Clean Up", p: "Rs.2,500" },
+        { n: "Casmara facial mini", p: "Rs.4,500" },
+        { n: "Casmara goji", p: "Rs.5,700" },
+        { n: "Casmara Nacar", p: "Rs.6,900" },
+        { n: "Casmara Ocean Miracle", p: "Rs.5,700" },
       ],
     },
     {
-      id: 4,
-      title: "SKIN CARE AND FACIAL",
-      category: "face",
-      icon: Wand2,
-      price: "From Rs.500",
-      description:
-        "Our makeup artists create flawless looks for any occasion. Using high-quality products, we enhance your natural beauty and ensure your makeup lasts all day.",
-      details: [
-        "Super Express Clean Up - Rs.500",
-        "Casmara Clean Up - Rs.2000",
-        "Mini Casmara Facial with Gold Mask - Rs.4000",
-      ],
-    },
-    {
-      id: 5,
-      title: "MANICURE AND PEDICURE",
-      category: "nails",
-      icon: Nail,
+      id: 5, cat: "nails", icon: Nail,
+      title: "Manicure & Pedicure",
       price: "From Rs.2000",
-      description:
-        "Treat your hands and feet to our luxurious nail services. We provide meticulous nail care, exfoliation, massage, and your choice of polish for a polished finish.",
-      details: ["Manicure - Rs.2000", "Pedicure - Rs.2000"],
-    },
-    {
-      id: 6,
-      title: "WAXING",
-      category: "hair",
-      icon: Spray,
-      price: "From Rs.500",
-      description:
-        "Experience smooth, hair-free skin with our professional waxing services. We use high-quality wax and techniques to ensure a comfortable and effective hair removal experience.",
+      desc: "Luxurious nail care with exfoliation, massage, and your choice of polish for a perfectly polished finish.",
       details: [
-        "Underarms - Rs.500",
-        "Whole Body - Rs.7000",
-        "Legs - Rs.1700",
-        "Hand - Rs.1200",
+        { n: "Manicure", p: "Rs.2,000" },
+        { n: "Pedicure", p: "Rs.2,000" },
       ],
     },
     {
-      id: 7,
-      title: "THREADING",
-      category: "hair",
-      icon: Leaf,
+      id: 6, cat: "hair", icon: Spray,
+      title: "Waxing",
+      price: "From Rs.500",
+      desc: "Smooth, hair-free skin using high-quality wax and professional techniques for lasting results.",
+      details: [
+        { n: "Underarms", p: "Rs.500" },
+        { n: "Whole Body", p: "Rs.7,000" },
+        { n: "Legs", p: "Rs.1,700" },
+        { n: "Hands", p: "Rs.1,200" },
+      ],
+    },
+    {
+      id: 7, cat: "hair", icon: Leaf,
+      title: "Threading",
       price: "From Rs.50",
-      description:
-        "Achieve precise and clean hair removal with our threading services. Perfect for shaping eyebrows and removing facial hair, threading is a gentle and effective method suitable for all skin types.",
+      desc: "Precise, gentle hair removal for eyebrows and facial hair. Suitable for all skin types.",
       details: [
-        "Full Face (women's)- Rs.500",
-        "Full Face (men's)- Rs.550",
-        "Forehead (women's) - Rs.150",
-        "Chin (women's) - Rs.100",
-        "Upper Lip (women's) - Rs.100",
-        "Upper Lip (men's) - Rs.120",
-        "Eyebrows (women's) - Rs.100",
-        "Eyebrows (men's) - Rs.120",
+        { n: "Full Face (Women)", p: "Rs.500" },
+        { n: "Full Face (Men)", p: "Rs.550" },
+        { n: "Eyebrows (Women)", p: "Rs.100" },
+        { n: "Eyebrows (Men)", p: "Rs.120" },
+        { n: "Upper Lip (Women)", p: "Rs.100" },
+        { n: "Upper Lip (Men)", p: "Rs.120" },
+        { n: "Chin", p: "Rs.100" },
+        { n: "Forehead", p: "Rs.150" },
       ],
     },
     {
-      id: 8,
-      title: "Nails Design & Nail Art",
-      category: "nails",
-      icon: Gem,
-      price: "From Rs.",
-      description:
-        "Enhance the beauty of your nails with our expert nail extension and art services. Choose from a variety of designs and techniques to express your personal style.",
+      id: 8, cat: "nails", icon: Gem,
+      title: "Nail Design & Art",
+      price: "From Rs.50",
+      desc: "Express your style with expert nail art — from subtle accents to elaborate custom designs.",
       details: [
-        "French Art - Rs.100",
-        "Fire Art - Rs.100",
-        "Glitter Art - Rs.100",
-        "Chrome Art - Rs.100",
-        "Marble Art - Rs.100",
-        "Ombre Art - Rs.50",
-        "Stone/Charms/Bow - Rs.100",
-        "3D Art - Rs.200",
-        "Seashell Art - Rs.150",
+        { n: "French Art", p: "Rs.100" },
+        { n: "Glitter Art", p: "Rs.100" },
+        { n: "Chrome Art", p: "Rs.100" },
+        { n: "Marble Art", p: "Rs.100" },
+        { n: "Ombré Art", p: "Rs.50" },
+        { n: "3D Art", p: "Rs.200" },
+        { n: "Stone/Charms", p: "Rs.100" },
+        { n: "Seashell Art", p: "Rs.150" },
       ],
     },
     {
-      id: 9,
-      title: "Nails Extension",
-      category: "nails",
-      icon: Gem,
-      price: "From Rs.2000",
-      description:
-        "Get the perfect length and shape with our professional nail extension services. We use high-quality materials to ensure durable and natural-looking results.",
+      id: 9, cat: "nails", icon: Gem,
+      title: "Nail Extensions",
+      price: "From Rs.1500",
+      desc: "Professional extensions for perfect length and shape using durable, high-quality materials.",
       isTable: true,
       details: [
-        { name: "Gel overlay/Refill", natural: "Rs.2000", extension: "Rs.3000" },
-        { name: "French Nails", natural: "Rs.2000", extension: "Rs.2500" },
-        { name: "Ombre/air brush", natural: "Rs.2500", extension: "Rs.3000" },
-        { name: "Cat Eye Nails", natural: "Rs.2500", extension: "Rs.3000" },
-        { name: "Chrome Nails", natural: "Rs.2500", extension: "Rs.3000" },
-        { name: "Marble Nails", natural: "Rs.2500", extension: "Rs.3000" },
-        { name: "Toe Gel Nails", natural: "Rs.1500", extension: "Rs.2000" },
-        { name: "Removal of Gel Nails", natural: "Rs.700", extension: "-" },
+        { name: "Gel Overlay/Refill", n: "Rs.2000", e: "Rs.3000" },
+        { name: "French Nails", n: "Rs.2,000", e: "Rs.2,500" },
+        { name: "Ombré/Airbrush", n: "Rs.2,500", e: "Rs.3,000" },
+        { name: "Cat Eye Nails", n: "Rs.2,500", e: "Rs.3,000" },
+        { name: "Chrome Nails", n: "Rs.2,500", e: "Rs.3,000" },
+        { name: "Marble Nails", n: "Rs.2,500", e: "Rs.3,000" },
+        { name: "Toe Gel Nails", n: "Rs.1,500", e: "Rs.2,000" },
+        { name: "Gel Removal", n: "Rs.700", e: "—" },
       ],
     },
+    {
+      id: 10, cat: "massage", icon: Gem,
+      title: "Massage",
+      price: "From Rs.1500",
+      desc: "Indulge in a soothing hair and head massage designed to relieve stress, stimulate the scalp, and promote healthy hair growth.",
+      details: [
+        { n: "Head(Oil)-For Men", p: "Rs.1,500" },
+        { n: "Head(Oil)-For Women", p: "Rs.2,000" },
+        { n: "Hair Spa(Men)", p: "Rs.1,500" },
+        { n: "Hair Spa(Women) ", p: "Rs.2,500" },
+      ],
+    },
+    {
+      id: 11, cat: "hair", icon: Scissors,
+      title: "Keratin, Botox, Nanoplastia(treatment) and Hair straightening",
+      price: "From Rs.8000",
+      desc: "Transform unruly, damaged hair into smooth and lustrous locks with our professional hair straightening and treatment services using top-quality products.",
+      details: [
+        { n: "G.K. Resistant", p: "Rs.9,000-10,000" },
+        { n: "G.K. Best", p: "Rs.10,000-12,000" },
+        { n: "G.K. cocoBest", p: "Rs.10,000-12,000" },
+        { n: "Amazon series cysteine", p: "Rs.9,000-10,000" },
+        { n: "Extreme protein (Brazilian)", p: "Rs.8,000-9,000" },
+        { n: "Botox Hair", p: "Rs.10,000-12,000" },
+        { n: "Nanoplastia", p: "Rs.10,000-12,000" },
+      ],
+    },
+    {
+      id: 12, cat: "hair", icon: Scissors,
+      title: "Hair treatment with Blast Day and Hair Perm",
+      price: "From Rs.8000",
+      desc: "Deeply nourish and reshape your hair with our intensive blast day treatment and professional perming — perfect for adding volume, bounce, and lasting style.",
+      details: [
+        { n: "Fiberplex", p: "Rs.3,500" },
+        { n: "Olaplex", p: "Rs.5,000" },
+        { n: "Fibre Clinix", p: "Rs.3,000" },
+        { n: "Repair Molecular treatment", p: "Rs.3,000" },
+        { n: "Hair Perm(Men)", p: "Rs.5,000-7,000" },
+        { n: "Hair Perm(Women)", p: "Rs.10,000-12,000" },
+      ],
+    },
+    {
+      id: 13, cat: "makeup", icon: Wand2,
+      title: "Bridal Makeup",
+      price: "From Rs.4500",
+      desc: "Celebrate your big day with a stunning bridal look crafted by our professional makeup artists, using premium products for a flawless, picture-perfect finish that lasts all day.",
+      details: [
+        { n: "Bridal Makeup", p: "Rs.25,000" },
+        { n: "Reception Makeup", p: "Rs.8,000" },
+        { n: "Party Makeup", p: "Rs.4,500" },
+        { n: "Soft Glam Makeup", p: "Rs.4,500" },
+        { n: "Mehendi Makeup", p: "Rs.4,500" },
+      ],
+    },
+    
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");
   const [expandedService, setExpandedService] = useState(null);
 
-  const filteredServices =
-    activeCategory === "all"
-      ? services
-      : services.filter((service) => service.category === activeCategory);
-
-  const toggleExpand = (id) => {
-    setExpandedService(expandedService === id ? null : id);
-  };
+  const filtered = activeCategory === "all"
+    ? services
+    : services.filter((s) => s.cat === activeCategory);
 
   return (
     <PageTransition>
       <SEO
-        title="Salon Services — Haircut, Waxing, Nails, Facial & More"
-        description="Explore all services at Mangpahang Unisex Salon in Mid-Baneshwor, Kathmandu: haircut, hair coloring, highlights, waxing, threading, manicure, pedicure, nail extensions, nail art, facial, and makeup. Competitive prices starting from Rs.50."
-        keywords="haircut Baneshwor, waxing Kathmandu, nail art Kathmandu, manicure pedicure Kathmandu, hair color Kathmandu, threading Kathmandu, facial Kathmandu, nail extensions Kathmandu, makeup Kathmandu, balayage Kathmandu"
+        title="Salon Services in Kathmandu — Haircut, Makeup, Nails & Facial"
+        description="Explore Mangpahang Unisex Salon services in Mid-Baneshwor, Kathmandu: stylish haircut, hair color, highlights, balayage, ombre, waxing, threading, nail art, nail extensions, facial, bridal makeup, party makeup, keratin, botox, nanoplastia, and hair spa."
+        keywords="salon services Kathmandu, best salon services Nepal, haircut Baneshwor, stylish haircut Kathmandu, hair color Kathmandu, balayage Kathmandu, ombre hair Kathmandu, waxing Kathmandu, threading Kathmandu, nail art Kathmandu, nail extensions Kathmandu, facial Kathmandu, bridal makeup Kathmandu, party makeup Kathmandu, keratin treatment Kathmandu, botox hair treatment Kathmandu, nanoplastia Kathmandu"
         canonical="/services"
+        schema={servicesSchema}
       />
-      {/* Hero Section */}
-      <section className="relative py-32 bg-secondary">
-        <div className="container-custom text-center text-black">
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Our Services
-          </motion.h1>
-          <motion.p
-            className="text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Discover our comprehensive range of hair and beauty services
-            designed to enhance your natural beauty
-          </motion.p>
-        </div>
+
+      {/* ── HERO ── */}
+      <section className="page-hero py-32 text-center">
+        <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
+          Mangpahang Unisex Salon · Baneshwor, Kathmandu
+        </p>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          Our <span className="text-[#d4af37]">Services</span>
+        </h1>
+        <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5" />
+        <p className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed">
+          Premium hair, makeup, nail, skincare, waxing, threading, and hair
+          treatment services crafted for you in Baneshwor, Kathmandu
+        </p>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20">
+      {/* ── MAIN CONTENT ── */}
+      <section className="py-20 bg-[#fffaf3]">
         <div className="container-custom">
-          <SectionTitle
-            title="Premium Beauty Services"
-            subtitle="Explore our wide range of professional services tailored to meet your beauty needs"
-          />
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <motion.button
-                key={category.id}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-primary text-yellow-500"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+          {/* Section heading */}
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412]">
+              Premium Beauty Services in Kathmandu
+            </h2>
+            <p className="text-[#746b61] text-sm mt-3">
+              Tap any card to see full pricing details for one of the best
+              salon service menus in Baneshwor
+            </p>
+          </div>
+
+          {/* Category filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-6 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
+                  activeCategory === cat.id
+                    ? "bg-[#171412] text-white border-[#171412]"
+                    : "bg-white/70 text-[#746b61] border-[#eadfce] hover:border-[#b68a2a] hover:text-[#8f681b]"
                 }`}
-                onClick={() => setActiveCategory(category.id)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
-                {category.name}
-              </motion.button>
+                {cat.name}
+              </button>
             ))}
           </div>
 
-          {/* Services List */}
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start" layout>
+          {/* Service cards grid */}
+          <div className="grid grid-cols-1 items-start md:grid-cols-2 lg:grid-cols-3 gap-5">
             <AnimatePresence>
-              {filteredServices.map((service) => (
+              {filtered.map((service) => (
                 <motion.div
                   key={service.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
-                  className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${
-                    expandedService === service.id ? "ring-2 ring-primary" : ""
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className={`surface-card self-start rounded-2xl transition-all duration-300 overflow-hidden ${
+                    expandedService === service.id
+                      ? "border-[#b68a2a]"
+                      : "hover:border-[#b68a2a]"
                   }`}
                 >
+                  {/* Card header — clickable */}
                   <div
-                    className="p-6 cursor-pointer "
-                    onClick={() => toggleExpand(service.id)}
+                    className="p-5 cursor-pointer"
+                    onClick={() =>
+                      setExpandedService(
+                        expandedService === service.id ? null : service.id
+                      )
+                    }
                   >
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center">
-                        <div className="bg-primary/10 p-3 rounded-full text-black mr-4">
-                          <service.icon size={24} />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-black">
-                            {service.title}
-                          </h3>
-                          {/* <p className="text-black font-medium">
-                            {service.price}
-                          </p> */}
-                        </div>
+                    <div className="flex items-start gap-3">
+                      {/* Title + price */}
+                      <div className="flex-1 min-w-0">
+                        <div className="mb-3 h-1 w-10 rounded-full bg-[#d6b05b]" />
+                        <h3 className="text-sm font-bold text-[#171412] uppercase tracking-wide leading-snug">
+                          {service.title}
+                        </h3>
+                        <p className="text-[#8f681b] font-semibold text-sm mt-2">
+                          {service.price}
+                        </p>
                       </div>
-                      <button
-                        className={`text-gray-400 transition-transform duration-300 ${
+                      {/* Chevron */}
+                      <svg
+                        className={`w-4 h-4 text-gray-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
                           expandedService === service.id ? "rotate-180" : ""
                         }`}
-                        aria-label="Toggle service details"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </button>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                     </div>
-                    <p className="mt-4 text-black">{service.description}</p>
+                    {/* Description */}
+                    <p className="text-[#746b61] text-xs leading-relaxed mt-4 pt-4 border-t border-[#eadfce]">
+                      {service.desc}
+                    </p>
                   </div>
 
+                  {/* Expandable pricing */}
                   <AnimatePresence>
                     {expandedService === service.id && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="px-6 pb-6"
+                        transition={{ duration: 0.25 }}
+                        className="bg-[#f7efe2] border-t border-[#eadfce] px-5 py-4"
                       >
-                        <div className="pt-4 border-t border-gray-200">
-                          {/* <h4 className="font-bold text-black mb-2">
-                            Service Options:
-                          </h4> */}
-                          {service.isTable ? (
-                            <div className="overflow-x-auto mt-2">
-                              <table className="w-full text-left text-black border-collapse">
-                                <thead>
-                                  <tr className="border-b-2 border-gray-200">
-                                    <th className="py-2 px-2 font-semibold">Service</th>
-                                    <th className="py-2 px-2 font-semibold whitespace-nowrap">Natural Nails</th>
-                                    <th className="py-2 px-2 font-semibold whitespace-nowrap">With Extension</th>
+                        {service.isTable ? (
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-xs">
+                              <thead>
+                                <tr className="border-b border-[#ddd]">
+                                  <th className="text-left py-2 px-1 font-semibold text-gray-500">Service</th>
+                                  <th className="text-left py-2 px-1 font-semibold text-gray-500 whitespace-nowrap">Natural</th>
+                                  <th className="text-left py-2 px-1 font-semibold text-gray-500 whitespace-nowrap">Extension</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {service.details.map((d, i) => (
+                                  <tr key={i} className="border-b border-black/5 last:border-0">
+                                    <td className="py-2 px-1 text-gray-600">{d.name}</td>
+                                    <td className="py-2 px-1 font-semibold text-[#222]">{d.n}</td>
+                                    <td className="py-2 px-1 font-semibold text-[#222]">{d.e}</td>
                                   </tr>
-                                </thead>
-                                <tbody>
-                                  {service.details.map((detail, index) => (
-                                    <tr key={index} className="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
-                                      <td className="py-2 px-2">{detail.name}</td>
-                                      <td className="py-2 px-2 font-medium">{detail.natural}</td>
-                                      <td className="py-2 px-2 font-medium">{detail.extension}</td>
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          ) : (
-                            <ul className="space-y-2 text-black">
-                              {service.details.map((detail, index) => (
-                                <li key={index} className="flex items-center">
-                                  <span className="h-1.5 w-1.5 rounded-full bg-black mr-2 "></span>
-                                  {detail}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        ) : (
+                          <div className="space-y-0">
+                            {service.details.map((d, i) => (
+                              <div
+                                key={i}
+                                className="flex justify-between items-center py-2 border-b border-black/5 last:border-0 text-xs"
+                              >
+                                <span className="text-gray-600">{d.n}</span>
+                                <span className="font-semibold text-[#222]">{d.p}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
-        </div>
-      </section>
+          </div>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-50 dark:bg-black/50">
-        <div className="container-custom text-center">
-          <SectionTitle
-            title="Ready to Book Your Appointment?"
-            subtitle="Experience our premium services and let our experts take care of you"
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-8"
-          >
-            <a href="tel:+9779851234567" className="btn-primary mx-2">
-              Call Now
-            </a>
-            <a href="/contact" className="btn-secondary mx-2">
-              Contact Us
-            </a>
-          </motion.div>
+          {/* ── CTA ── */}
+          <div className="premium-panel rounded-3xl px-8 py-12 text-center mt-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+              Ready to Book Your Appointment?
+            </h2>
+            <p className="text-gray-400 text-sm mb-7">
+              Our team is ready to help you look and feel your best
+            </p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              
+               <a href="tel:+9779708073356"
+                className="btn-primary"
+              >
+                Call Now
+              </a>
+              
+               <a href="/contact"
+                className="btn-secondary"
+             >
+                Contact Us
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
     </PageTransition>

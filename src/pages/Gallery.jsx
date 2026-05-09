@@ -1,109 +1,141 @@
-"use client";
-import React from "react";
-
-import GalleryImage_1 from "../assets/SalonImages/GallaryImage-1.jpg";
-import GalleryImage_2 from "../assets/SalonImages/GallaryImage-2.jpg";
-import GalleryImage_3 from "../assets/SalonImages/GallaryImage-3.jpg";
-import GalleryImage_4 from "../assets/SalonImages/GallaryImage-4.jpg";
-import GalleryImage_5 from "../assets/SalonImages/GallaryImage-5.jpg";
-import GalleryImage_6 from "../assets/SalonImages/GallaryImage-6.jpg";
-import GalleryImage_7 from "../assets/SalonImages/GallaryImage-7.jpg";
-import GalleryImage_8 from "../assets/SalonImages/GallaryImage-8.jpg";
-import GalleryImage_9 from "../assets/SalonImages/GallaryImage-9.jpg";
-import GalleryImage_10 from "../assets/SalonImages/GallaryImage-10.jpg";
-import GalleryImage_11 from "../assets/SalonImages/GallaryImage-11.jpg";
-import GalleryImage_12 from "../assets/SalonImages/GallaryImage-2.jpg";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "../components/PageTransition";
-import SectionTitle from "../components/SectionTitle";
 import GalleryItem from "../components/GalleryItem";
 import SEO from "../components/SEO";
+
+const galleryImageModules = import.meta.glob(
+  "../assets/SalonImages/optimized/*.{jpg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  },
+);
+
+const galleryImageSizes =
+  "(min-width: 1024px) calc((100vw - 112px) / 3), (min-width: 640px) calc((100vw - 68px) / 2), calc(100vw - 32px)";
+
+const getOptimizedGalleryImage = (name) => {
+  const imagePath = (width, extension) =>
+    galleryImageModules[
+      `../assets/SalonImages/optimized/${name}-${width}.${extension}`
+    ];
+
+  return {
+    src: imagePath(768, "jpg"),
+    webpSrcSet: [480, 768, 1200]
+      .map((width) => `${imagePath(width, "webp")} ${width}w`)
+      .join(", "),
+    jpgSrcSet: [480, 768, 1200]
+      .map((width) => `${imagePath(width, "jpg")} ${width}w`)
+      .join(", "),
+    sizes: galleryImageSizes,
+    width: 768,
+    height: 512,
+  };
+};
+
+const galleryItems = [
+  {
+    id: 1,
+    image: getOptimizedGalleryImage("GallaryImage-1"),
+    title: "Modern Bob Cut",
+    category: "haircuts",
+    alt: "Modern bob haircut by Mangpahang Unisex Salon in Kathmandu",
+  },
+  {
+    id: 2,
+    image: getOptimizedGalleryImage("GallaryImage-2"),
+    title: "Reception",
+    category: "salon",
+    alt: "Mangpahang Unisex Salon reception area in Mid-Baneshwor Kathmandu",
+  },
+  {
+    id: 3,
+    image: getOptimizedGalleryImage("GallaryImage-3"),
+    title: "Hair Wash & Blowout",
+    category: "salon",
+    alt: "Hair wash and blowout service at Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 4,
+    image: getOptimizedGalleryImage("GallaryImage-4"),
+    title: "Natural Glam Makeup",
+    category: "makeup",
+    alt: "Natural glam makeup look from Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 5,
+    image: getOptimizedGalleryImage("GallaryImage-5"),
+    title: "Nail Art Design",
+    category: "nails",
+    alt: "Nail art design by Mangpahang Unisex Salon in Kathmandu",
+  },
+  {
+    id: 6,
+    image: getOptimizedGalleryImage("GallaryImage-6"),
+    title: "Pedicure Treatment",
+    category: "nails",
+    alt: "Pedicure treatment service at Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 8,
+    image: getOptimizedGalleryImage("GallaryImage-8"),
+    title: "Product Application",
+    category: "makeup",
+    alt: "Professional beauty product application at Mangpahang Unisex Salon",
+  },
+  {
+    id: 9,
+    image: getOptimizedGalleryImage("GallaryImage-9"),
+    title: "Pixie Cut",
+    category: "haircuts",
+    alt: "Pixie haircut transformation by Mangpahang Unisex Salon Kathmandu",
+  },
+  {
+    id: 12,
+    image: getOptimizedGalleryImage("GallaryImage-4"),
+    title: "Bridal Makeup",
+    category: "makeup",
+    alt: "Bridal makeup look by Mangpahang Unisex Salon in Kathmandu",
+  },
+];
+
+const gallerySchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  name: "Mangpahang Unisex Salon Gallery",
+  url: "https://mangpahang.com.np/gallery",
+  description:
+    "Haircut, hair color, makeup, nail art, pedicure, and salon transformation gallery from Mangpahang Unisex Salon in Baneshwor, Kathmandu.",
+  about: [
+    "salon gallery Kathmandu",
+    "hair transformation Kathmandu",
+    "makeup gallery Nepal",
+    "nail art Kathmandu",
+    "stylish haircut Kathmandu",
+  ],
+  provider: {
+    "@type": "HairSalon",
+    name: "Mangpahang Unisex Salon",
+    address: "Mid-Baneshwor, Kathmandu, Nepal",
+  },
+  associatedMedia: galleryItems.map((item) => ({
+    "@type": "ImageObject",
+    name: item.title,
+    caption: item.alt,
+  })),
+};
 
 const Gallery = () => {
   const categories = [
     { id: "all", name: "All" },
     { id: "haircuts", name: "Haircuts" },
     { id: "coloring", name: "Coloring" },
-    { id: "nails", name: "nails" },
+    { id: "nails", name: "Nails" },
     { id: "makeup", name: "Makeup" },
     { id: "salon", name: "Salon" },
-  ];
-
-  const galleryItems = [
-    {
-      id: 1,
-      image: GalleryImage_1,
-      title: "Modern Bob Cut",
-      category: "haircuts",
-    },
-    {
-      id: 2,
-      image: GalleryImage_2,
-      title: "Reception",
-      category: "salon",
-    },
-    {
-      id: 3,
-      image: GalleryImage_3,
-      title: "Hair Wash & Blowout",
-      category: "salon",
-    },
-    {
-      id: 4,
-      image: GalleryImage_4,
-      title: "Natural Glam Makeup",
-      category: "makeup",
-    },
-    {
-      id: 5,
-      image: GalleryImage_5,
-      title: "Nail Art Design",
-      category: "nails",
-    },
-    {
-      id: 6,
-      image: GalleryImage_6,
-      title: "Pedicure Treatment",
-      category: "nails",
-    },
-    {
-      id: 7,
-      image: GalleryImage_7,
-      title: "Salon Styling Session",
-      category: "styling",
-    },
-    {
-      id: 8,
-      image: GalleryImage_8,
-      title: "Product Application",
-      category: "makeup",
-    },
-    {
-      id: 9,
-      image: GalleryImage_9,
-      title: "Pixie Cut",
-      category: "haircuts",
-    },
-    {
-      id: 10,
-      image: GalleryImage_10,
-      title: "Ombre Hair",
-      category: "coloring",
-    },
-    {
-      id: 11,
-      image: GalleryImage_11,
-      title: "Bridal Hairstyle",
-      category: "styling",
-    },
-    {
-      id: 12,
-      image: GalleryImage_12,
-      title: "Bridal Makeup",
-      category: "makeup",
-    },
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");
@@ -116,149 +148,137 @@ const Gallery = () => {
   return (
     <PageTransition>
       <SEO
-        title="Gallery — Hair, Makeup & Beauty Transformations"
-        description="Browse the Mangpahang Unisex Salon gallery showcasing haircuts, balayage, ombre, hair coloring, makeup, nail art, and styling transformations from our Kathmandu salon."
-        keywords="salon gallery Kathmandu, hair transformation Kathmandu, balayage Kathmandu, hair color gallery, nail art gallery Kathmandu, makeup gallery Nepal"
+        title="Salon Gallery in Kathmandu — Hair, Makeup, Nails & Beauty"
+        description="Browse Mangpahang Unisex Salon's Kathmandu gallery with stylish haircuts, hair color, makeup, bridal looks, nail art, pedicure, and salon transformations from Mid-Baneshwor."
+        keywords="salon gallery Kathmandu, hair transformation Kathmandu, stylish haircut gallery Kathmandu, balayage Kathmandu, ombre Kathmandu, hair color gallery, nail art gallery Kathmandu, bridal makeup gallery Kathmandu, makeup gallery Nepal, best salon gallery Nepal"
         canonical="/gallery"
+        schema={gallerySchema}
       />
-      {/* Hero Section */}
-      <section className="relative py-32 bg-secondary">
-        <div className="container-custom text-center text-black">
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Our Gallery
-          </motion.h1>
-          <motion.p
-            className="text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Browse through our portfolio of stunning transformations and
-            beautiful styles
-          </motion.p>
-        </div>
+
+      {/* ── HERO ── */}
+      <section className="page-hero py-32 text-center">
+        <motion.p
+          className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Mangpahang Unisex Salon · Baneshwor, Kathmandu
+        </motion.p>
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold text-white mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Our <span className="text-[#d4af37]">Gallery</span>
+        </motion.h1>
+        <motion.div
+          className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        />
+        <motion.p
+          className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          Browse our portfolio of stylish haircuts, hair color, makeup, nail
+          art, pedicure care, and beauty transformations in Kathmandu
+        </motion.p>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-20">
+      {/* ── GALLERY SECTION ── */}
+      <section className="py-20 bg-[#fffaf3]">
         <div className="container-custom">
-          <SectionTitle
-            title="Our Work"
-            subtitle="Explore our collection of beautiful transformations created by our talented team"
-          />
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
+          {/* Section heading */}
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412]">
+              Our Work
+            </h2>
+            <p className="text-[#746b61] text-sm mt-3">
+              Explore our collection of beautiful transformations by our talented team
+            </p>
+          </div>
+
+          {/* Category filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((cat) => (
               <motion.button
-                key={category.id}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "text-amber-500"
-                    : "bg-gray-100 text-black hover:bg-gray-200"
-                }`}
-                onClick={() => setActiveCategory(category.id)}
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className={`px-6 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
+                  activeCategory === cat.id
+                    ? "bg-[#171412] text-white border-[#171412]"
+                    : "bg-white/70 text-[#746b61] border-[#eadfce] hover:border-[#b68a2a] hover:text-[#8f681b]"
+                }`}
               >
-                {category.name}
+                {cat.name}
               </motion.button>
             ))}
           </div>
 
-          {/* Gallery Grid */}
+          {/* Gallery grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
             layout
           >
             <AnimatePresence>
-              {filteredItems.map((item) => (
+              {filteredItems.map((item, index) => (
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <GalleryItem
                     image={item.image}
                     title={item.title}
+                    alt={item.alt}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    fetchPriority={index < 3 ? "high" : "auto"}
                     category={
-                      categories.find((cat) => cat.id === item.category)
-                        ?.name || ""
+                      categories.find((cat) => cat.id === item.category)?.name || ""
                     }
                   />
                 </motion.div>
               ))}
             </AnimatePresence>
           </motion.div>
+
+          {/* ── CTA ── */}
+          <div className="premium-panel rounded-3xl px-8 py-12 text-center mt-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+              Love What You See?
+            </h2>
+            <p className="text-gray-400 text-sm mb-7">
+              Book an appointment and let us create your perfect look
+            </p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              
+               <a href="tel:+9779708073356"
+                className="btn-primary"
+              >
+                Call Now
+              </a>
+              
+              <a  href="/contact"
+                className="btn-secondary"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
-
-      {/* Instagram Section
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom text-center">
-          <SectionTitle
-            title="Follow Us on Instagram"
-            subtitle="Stay updated with our latest work and salon updates"
-          />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-12">
-            {[...Array(6)].map((_, index) => (
-              <motion.a
-                key={index}
-                href="#"
-                className="block overflow-hidden rounded-lg relative group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <img
-                  src={`/placeholder.svg?height=300&width=300&text=Instagram+${
-                    index + 1
-                  }`}
-                  alt={`Instagram post ${index + 1}`}
-                  className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white text-2xl">❤️</span>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-          <motion.a
-            href="#"
-            className="inline-flex items-center text-primary font-medium mt-8 hover:underline"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            Follow Us @mangpahang
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 ml-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </motion.a>
-        </div>
-      </section> */}
     </PageTransition>
   );
 };

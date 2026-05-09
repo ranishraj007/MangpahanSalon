@@ -6,8 +6,87 @@ import SectionTitle from "../components/SectionTitle";
 import ServiceCard from "../components/ServiceCard";
 import TestimonialCard from "../components/TestimonialCard";
 import SEO from "../components/SEO";
-import BG_Image from "../assets/SalonImages/GallaryImage-1.jpg";
-import BG_Image_2 from "../assets/SalonImages/GallaryImage-2.jpg";
+import AboutImage480 from "../assets/SalonImages/optimized/GallaryImage-1-480.webp";
+import AboutImage768 from "../assets/SalonImages/optimized/GallaryImage-1-768.webp";
+import AboutImage1200 from "../assets/SalonImages/optimized/GallaryImage-1-1200.webp";
+import HeroBackground from "../assets/SalonImages/optimized/GallaryImage-8-1200.webp";
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  name: "Mangpahang Unisex Salon",
+  alternateName: [
+    "Mangpahang Salon",
+    "Mangpahang Unisex Salon Kathmandu",
+    "Mangpahang Salon Baneshwor",
+  ],
+  url: "https://mangpahang.com.np/",
+  image: "https://mangpahang.com.np/Logo.jpg",
+  telephone: "+9779708073356",
+  email: "mangpahangsalon@gmail.com",
+  priceRange: "Rs.50 - Rs.25000",
+  description:
+    "Mangpahang Unisex Salon is a hair and beauty salon in Mid-Baneshwor, Kathmandu offering haircut, styling, hair color, balayage, facial, waxing, threading, nails, bridal makeup, party makeup, keratin, botox, nanoplastia, hair spa, and grooming services.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mid-Baneshwor",
+    addressLocality: "Kathmandu",
+    addressRegion: "Bagmati Province",
+    postalCode: "44600",
+    addressCountry: "NP",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 27.695287,
+    longitude: 85.334901,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "10:00",
+      closes: "19:00",
+    },
+  ],
+  areaServed: [
+    "Kathmandu",
+    "Baneshwor",
+    "Mid-Baneshwor",
+    "New Baneshwor",
+    "Koteshwor",
+    "Tinkune",
+    "Maitidevi",
+    "Putalisadak",
+    "Lalitpur",
+    "Bhaktapur",
+    "Nepal",
+  ],
+  knowsAbout: [
+    "best salon in Kathmandu",
+    "best salon in Nepal",
+    "stylish haircut",
+    "hair color",
+    "bridal makeup",
+    "nail art",
+    "facial",
+    "waxing",
+    "threading",
+    "hair treatment",
+    "keratin treatment",
+  ],
+  sameAs: [
+    "https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/",
+    "https://www.instagram.com/mangpahangunisexsalon/",
+  ],
+};
 
 const Home = () => {
   const services = [
@@ -64,18 +143,20 @@ const Home = () => {
   return (
     <PageTransition>
       <SEO
-        title="Best Salon in Baneshwor, Kathmandu"
-        description="Mangpahang Unisex Salon in Mid-Baneshwor, Kathmandu — premium haircut, hair coloring, waxing, threading, nails, facial, manicure, pedicure, and makeup services. Open every day 10 AM – 8 PM."
-        keywords="salon Baneshwor, unisex salon Kathmandu, haircut Kathmandu, hair color Kathmandu, waxing Baneshwor, nail salon Kathmandu, facial Kathmandu, Mangpahang Salon"
+        title="Best Salon in Kathmandu for Hair, Makeup, Nails & Beauty"
+        description="Searching for the best salon in Kathmandu or Nepal? Mangpahang Unisex Salon in Mid-Baneshwor offers stylish haircuts, hair coloring, bridal makeup, facial, waxing, threading, nails, manicure, pedicure, and hair treatments."
+        keywords="best salon in Kathmandu, best salon in Nepal, stylish salon Kathmandu, stylish haircut Kathmandu, best hair salon Kathmandu, beauty salon Kathmandu, salon in Baneshwor, unisex salon Kathmandu, haircut Baneshwor, hair color Kathmandu, bridal makeup Kathmandu, nail salon Kathmandu, facial Kathmandu, waxing Baneshwor, threading Kathmandu, Mangpahang Salon"
         canonical="/"
+        schema={homeSchema}
       />
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
-        <div className="absolute inset-0 bg-black/50 z-0"></div>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/48 to-black/18 z-0"></div>
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#fffaf3] to-transparent z-0"></div>
         <div
           className="absolute inset-0 bg-cover bg-center z-[-1]"
           style={{
-            backgroundImage: `url(${BG_Image_2})`,
+            backgroundImage: `url(${HeroBackground})`,
           }}
         ></div>
         <div className="container-custom relative z-10 text-white">
@@ -83,26 +164,26 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-3xl pt-20"
           >
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               Discover Your True Beauty at{" "}
-              <span className="text-primary">Mangpahang</span>
+              <span className="text-[#c9a84c]">Mangpahang</span>
             </motion.h1>
             <motion.p
-              className="text-lg md:text-xl mb-8"
+              className="text-base md:text-xl leading-8 text-white/82 mb-9 max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Experience premium hair and beauty services in a relaxing
-              environment. Our skilled professionals are dedicated to enhancing
-              your natural beauty.
+              Searching for the best salon in Kathmandu? Visit our Mid-Baneshwor
+              unisex salon for stylish haircuts, hair color, bridal makeup,
+              nails, facial, waxing, threading, and modern beauty care.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4"
@@ -110,10 +191,12 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Link to="/services" className="btn-primary">
+              <Link to="/services" 
+              className="btn-primary text-sm text-center">
                 Our Services
               </Link>
-              <Link to="/contact" className="btn-secondary">
+              <Link to="/contact" 
+              className="btn-secondary text-sm text-center">
                 Book Appointment
               </Link>
             </motion.div>
@@ -149,9 +232,9 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -159,9 +242,15 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src={BG_Image}
-                alt="About Mangpahang Salon"
-                className="rounded-lg shadow-xl"
+                src={AboutImage768}
+                srcSet={`${AboutImage480} 480w, ${AboutImage768} 768w, ${AboutImage1200} 1200w`}
+                sizes="(min-width: 768px) 50vw, calc(100vw - 32px)"
+                alt="Mangpahang Unisex Salon haircut and beauty service in Kathmandu"
+                width="768"
+                height="1152"
+                loading="lazy"
+                decoding="async"
+                className="rounded-3xl shadow-[0_30px_80px_rgba(23,20,18,0.18)] aspect-[4/5] w-full object-cover"
               />
             </motion.div>
             <div>
@@ -170,19 +259,19 @@ const Home = () => {
                 centered={false}
               />
               <motion.p
-                className="mb-6 text-gray-600"
+                className="mb-6 text-[#746b61] leading-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 At Mangpahang, we believe that everyone deserves to look and
-                feel their best. Our salon offers a wide range of services
-                designed to enhance your natural beauty and boost your
-                confidence.
+                feel their best. Our salon in Baneshwor, Kathmandu offers a wide
+                range of hair and beauty services designed to enhance your
+                natural beauty and boost your confidence.
               </motion.p>
               <motion.p
-                className="mb-8 text-gray-600"
+                className="mb-8 text-[#746b61] leading-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -190,8 +279,9 @@ const Home = () => {
               >
                 Our team of skilled professionals is dedicated to providing
                 exceptional service in a relaxing and welcoming environment. We
-                use only premium products and stay up-to-date with the latest
-                trends and techniques.
+                use premium products and stay up-to-date with the latest trends
+                in stylish haircuts, hair color, skincare, nails, makeup, and
+                grooming for clients across Kathmandu and Nepal.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -209,11 +299,11 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-[#f7efe2]">
         <div className="container-custom">
           <SectionTitle
-            title="Our Services"
-            subtitle="Experience premium hair and beauty services tailored to your unique style and needs"
+            title="Best Salon Services in Kathmandu"
+            subtitle="Experience premium hair, beauty, nail, makeup, and grooming services tailored to your unique style and needs"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {services.map((service, index) => (
@@ -239,8 +329,39 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Local Search Section */}
+      <section className="py-16 bg-[#fffaf3]">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center">
+            <SectionTitle
+              title="A Salon People Search for in Kathmandu"
+              subtitle="Mangpahang Unisex Salon serves clients looking for reliable beauty care, stylish haircuts, bridal makeup, nails, facial, waxing, threading, and professional hair treatments in Baneshwor and across Kathmandu."
+            />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 text-sm text-[#746b61]">
+              {[
+                "Best salon in Kathmandu",
+                "Best salon in Nepal",
+                "Hair salon in Baneshwor",
+                "Stylish haircut Kathmandu",
+                "Bridal makeup Kathmandu",
+                "Nail salon Kathmandu",
+                "Facial in Kathmandu",
+                "Waxing and threading",
+              ].map((term) => (
+                <span
+                  key={term}
+                  className="border border-[#eadfce] rounded-full px-4 py-3 bg-white/75 shadow-sm"
+                >
+                  {term}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-secondary text-white">
+      <section className="py-24 premium-panel text-white">
         <div className="container-custom">
           <SectionTitle
             title="Why Choose Us"
@@ -288,17 +409,17 @@ const Home = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className=" p-6 rounded-lg backdrop-blur-sm border border-black/25 bg-amber-50"
+                className="rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.1]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-black">
+                <div className="mb-5 h-1 w-12 rounded-full bg-[#d6b05b]" />
+                <h3 className="text-xl font-bold mb-3 text-white">
                   {item.title}
                 </h3>
-                <p className="text-black">{item.description}</p>
+                <p className="text-sm leading-7 text-white/70">{item.description}</p>
               </motion.div>
             ))} 
           </div>
@@ -306,7 +427,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container-custom">
           <SectionTitle
             title="What Our Clients Say"
@@ -327,10 +448,10 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-black">
+      <section className="py-20 bg-[#f7efe2] text-[#171412]">
         <div className="container-custom text-center">
           <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-6"
+            className="text-3xl md:text-4xl font-extrabold mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -356,7 +477,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-              className="bg-yellow-500 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary "
+            className="btn-primary inline-flex"
             >
               Book Now
             </Link>

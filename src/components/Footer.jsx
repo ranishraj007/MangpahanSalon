@@ -8,13 +8,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-white pt-16 pb-8">
+    <footer className="bg-[#171412] text-white pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-black">Mangpahang</h3>
-            <p className="mb-4 text-black">
+            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">Mangpahang</h3>
+            <p className="mb-5 text-white/70 leading-7">
               Mangpahang Unisex Salon offers premium hair and beauty services in
               a relaxing environment. Our skilled professionals are dedicated to
               enhancing your natural beauty.
@@ -24,33 +24,41 @@ const Footer = () => {
                 href="https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-primary transition-colors duration-300"
+                className="h-10 w-10 rounded-full bg-white/10 text-white hover:bg-[#d6b05b] hover:text-[#171412] transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
+<<<<<<< HEAD
                 <Facebook size={24} className="text-blue-700" />
+=======
+                <Facebook size={18} />
+>>>>>>> main
               </motion.a>
               <motion.a
                 href="https://www.instagram.com/mangpahangunisexsalon/"
-                className="text-white hover:text-primary transition-colors duration-300"
+                className="h-10 w-10 rounded-full bg-white/10 text-white hover:bg-[#d6b05b] hover:text-[#171412] transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
+<<<<<<< HEAD
                 <Instagram size={24} className="text-pink-800" />
+=======
+                <Instagram size={18} />
+>>>>>>> main
               </motion.a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">Quick Links</h3>
             <ul className="space-y-2">
               {["Home", "Services", "Gallery", "About", "Contact"].map(
                 (item) => (
                   <li key={item}>
                     <Link
                       to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                      className="text-black hover:text-gray-600 transition-colors duration-300"
+                      className="text-white/70 hover:text-[#d6b05b] transition-colors duration-300"
                     >
                       {item}
                     </Link>
@@ -62,7 +70,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">
+            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">
               Our Services
             </h3>
             <ul className="space-y-2">
@@ -76,7 +84,7 @@ const Footer = () => {
                 <li key={service}>
                   <Link
                     to="/services"
-                    className="text-black hover:text-gray-600 transition-colors duration-300 "
+                    className="text-white/70 hover:text-[#d6b05b] transition-colors duration-300 "
                   >
                     {service}
                   </Link>
@@ -87,35 +95,35 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <MapPin className="text-primary mt-1 mr-3 h-5 w-5" />
-                <span className="text-black">
+                <MapPin className="text-[#d6b05b] mt-1 mr-3 h-5 w-5" />
+                <span className="text-white/70">
                   Mid-Baneswor, Kathmandu, Nepal
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="text-primary mr-3 h-5 w-5" />
+                <Phone className="text-[#d6b05b] mr-3 h-5 w-5" />
                 <a
-                  href="tel:+9779851234567"
-                  className="text-black hover:text-primary transition-colors duration-300"
+                  href="tel:+9779708073356"
+                  className="text-white/70 hover:text-[#d6b05b] transition-colors duration-300"
                 >
                   +977-970-8073356
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail className="text-primary mr-3 h-5 w-5" />
+                <Mail className="text-[#d6b05b] mr-3 h-5 w-5" />
                 <a
                   href="mailto:info@mangpahang.com"
-                  className="text-black hover:text-primary transition-colors duration-300"
+                  className="text-white/70 hover:text-[#d6b05b] transition-colors duration-300"
                 >
                   mangpahangsalon@gmail.com
                 </a>
               </li>
               <li className="flex items-start">
-                <Clock className="text-primary mt-1 mr-3 h-5 w-5" />
-                <div className="text-black">
+                <Clock className="text-[#d6b05b] mt-1 mr-3 h-5 w-5" />
+                <div className="text-white/70">
                   <p>Sun-Sat: 10:00 AM - 7:00 PM</p>
                   {/* <p>Sunday: Closed</p> */}
                 </div>
@@ -124,10 +132,14 @@ const Footer = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-black">
           {/* current date */}
+=======
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-white/55">
+>>>>>>> main
           <p>
-            &copy; {currentYear} Mangpahang Unisex Salon. All rights reserved.
+           <span className="text-[#d4af37]">&copy;</span>  {currentYear} Mangpahang Unisex Salon. All rights reserved.
           </p>
         </div>
       </div>

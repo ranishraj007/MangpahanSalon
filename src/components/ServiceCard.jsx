@@ -2,47 +2,34 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Scissors, Palette, Smile, Wand2, Gem } from "lucide-react";
 
-const iconMap = {
-  scissors: Scissors,
-  palette: Palette,
-  smile: Smile,
-  wand: Wand2,
-  gem: Gem,
-};
-
-const ServiceCard = ({ icon, title, description, link = "/services" }) => {
-  const IconComponent =
-    typeof icon === "string" ? iconMap[icon] || Scissors : icon;
-
+const ServiceCard = ({ title, description, link = "/services" }) => {
   return (
     <motion.div
-      className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-      whileHover={{ y: -10 }}
+      className="surface-card group relative overflow-hidden rounded-2xl p-6 transition-all duration-300"
+      whileHover={{ y: -8 }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 text-white">
-        <IconComponent size={28} />
-      </div>
-      <h3 className="text-xl font-bold mb-2 text-secondary dark:text-gray-200">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#8f681b] via-[#d6b05b] to-[#f0d890]" />
+      <p className="eyebrow mb-4">Signature Service</p>
+      <h3 className="text-xl font-bold mb-3 text-[#171412]">
         {title}
       </h3>
-      <p className="text-white mb-4">{description}</p>
+      <p className="text-sm leading-7 text-[#746b61] mb-6">{description}</p>
       <Link
         to={link}
-        className="text-white font-medium hover:underline inline-flex items-center"
+        className="inline-flex items-center text-sm font-bold text-[#8f681b] transition-colors group-hover:text-[#171412]"
       >
         Learn More
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 ml-1"
+          className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="white"
+          stroke="currentColor"
         >
           <path
             strokeLinecap="round"
