@@ -13,7 +13,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">Mangpahang</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">
+              Mangpahang
+            </h3>
             <p className="mb-5 text-white/70 leading-7">
               Mangpahang Unisex Salon offers premium hair and beauty services in
               a relaxing environment. Our skilled professionals are dedicated to
@@ -28,11 +30,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-<<<<<<< HEAD
-                <Facebook size={24} className="text-blue-700" />
-=======
                 <Facebook size={18} />
->>>>>>> main
               </motion.a>
               <motion.a
                 href="https://www.instagram.com/mangpahangunisexsalon/"
@@ -40,18 +38,16 @@ const Footer = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-<<<<<<< HEAD
-                <Instagram size={24} className="text-pink-800" />
-=======
                 <Instagram size={18} />
->>>>>>> main
               </motion.a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               {["Home", "Services", "Gallery", "About", "Contact"].map(
                 (item) => (
@@ -95,7 +91,9 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#d6b05b]">
+              Contact Us
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="text-[#d6b05b] mt-1 mr-3 h-5 w-5" />
@@ -132,14 +130,10 @@ const Footer = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-black">
-          {/* current date */}
-=======
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-white/55">
->>>>>>> main
           <p>
-           <span className="text-[#d4af37]">&copy;</span>  {currentYear} Mangpahang Unisex Salon. All rights reserved.
+            <span className="text-[#d4af37]">&copy;</span> {currentYear}{" "}
+            Mangpahang Unisex Salon. All rights reserved.
           </p>
         </div>
       </div>
