@@ -14,7 +14,7 @@ const GalleryItem = ({
 
   return (
     <motion.div
-      className="relative overflow-hidden rounded-lg group"
+      className="surface-card relative overflow-hidden rounded-2xl group"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -45,17 +45,17 @@ const GalleryItem = ({
           loading={loading}
           fetchPriority={fetchPriority}
           decoding="async"
-          className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </picture>
       <motion.div
-        className="absolute inset-0 bg-primary/70 flex flex-col items-center justify-center p-4 text-white"
+        className="absolute inset-0 bg-[#171412]/72 flex flex-col items-center justify-center p-4 text-white backdrop-blur-[2px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
         <motion.div
-          className="bg-white dark:bg-gray-800 text-primary rounded-full p-3 mb-3"
+          className="bg-[#d6b05b] text-[#171412] rounded-full p-3 mb-3"
           initial={{ scale: 0 }}
           animate={{ scale: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}

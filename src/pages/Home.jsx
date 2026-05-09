@@ -150,8 +150,9 @@ const Home = () => {
         schema={homeSchema}
       />
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
-        <div className="absolute inset-0 bg-black/50 z-0"></div>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/48 to-black/18 z-0"></div>
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#fffaf3] to-transparent z-0"></div>
         <div
           className="absolute inset-0 bg-cover bg-center z-[-1]"
           style={{
@@ -163,10 +164,10 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-3xl pt-20"
           >
             <motion.h1
-              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -175,7 +176,7 @@ const Home = () => {
               <span className="text-[#c9a84c]">Mangpahang</span>
             </motion.h1>
             <motion.p
-              className="text-sm md:text-xl mb-8"
+              className="text-base md:text-xl leading-8 text-white/82 mb-9 max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -185,17 +186,17 @@ const Home = () => {
               nails, facial, waxing, threading, and modern beauty care.
             </motion.p>
             <motion.div
-              className="flex flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Link to="/services" 
-              className="btn-primary px-6 py-3 text-sm font-medium rounded-md">
+              className="btn-primary text-sm text-center">
                 Our Services
               </Link>
               <Link to="/contact" 
-              className="btn-secondary px-6 py-3 text-sm font-medium rounded-md">
+              className="btn-secondary text-sm text-center">
                 Book Appointment
               </Link>
             </motion.div>
@@ -231,9 +232,9 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -249,7 +250,7 @@ const Home = () => {
                 height="1152"
                 loading="lazy"
                 decoding="async"
-                className="rounded-lg shadow-xl"
+                className="rounded-3xl shadow-[0_30px_80px_rgba(23,20,18,0.18)] aspect-[4/5] w-full object-cover"
               />
             </motion.div>
             <div>
@@ -258,7 +259,7 @@ const Home = () => {
                 centered={false}
               />
               <motion.p
-                className="mb-6 text-gray-600"
+                className="mb-6 text-[#746b61] leading-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -270,7 +271,7 @@ const Home = () => {
                 natural beauty and boost your confidence.
               </motion.p>
               <motion.p
-                className="mb-8 text-gray-600"
+                className="mb-8 text-[#746b61] leading-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -298,7 +299,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-[#f7efe2]">
         <div className="container-custom">
           <SectionTitle
             title="Best Salon Services in Kathmandu"
@@ -329,14 +330,14 @@ const Home = () => {
       </section>
 
       {/* Local Search Section */}
-      <section className="py-16">
+      <section className="py-16 bg-[#fffaf3]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <SectionTitle
               title="A Salon People Search for in Kathmandu"
               subtitle="Mangpahang Unisex Salon serves clients looking for reliable beauty care, stylish haircuts, bridal makeup, nails, facial, waxing, threading, and professional hair treatments in Baneshwor and across Kathmandu."
             />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 text-sm text-gray-600">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 text-sm text-[#746b61]">
               {[
                 "Best salon in Kathmandu",
                 "Best salon in Nepal",
@@ -349,7 +350,7 @@ const Home = () => {
               ].map((term) => (
                 <span
                   key={term}
-                  className="border border-gray-200 rounded-md px-3 py-2 bg-white"
+                  className="border border-[#eadfce] rounded-full px-4 py-3 bg-white/75 shadow-sm"
                 >
                   {term}
                 </span>
@@ -360,7 +361,7 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-secondary text-white">
+      <section className="py-24 premium-panel text-white">
         <div className="container-custom">
           <SectionTitle
             title="Why Choose Us"
@@ -408,17 +409,17 @@ const Home = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className=" p-6 rounded-lg backdrop-blur-sm border border-black/25 bg-amber-50"
+                className="rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.1]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-black">
+                <div className="mb-5 h-1 w-12 rounded-full bg-[#d6b05b]" />
+                <h3 className="text-xl font-bold mb-3 text-white">
                   {item.title}
                 </h3>
-                <p className="text-black">{item.description}</p>
+                <p className="text-sm leading-7 text-white/70">{item.description}</p>
               </motion.div>
             ))} 
           </div>
@@ -426,7 +427,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container-custom">
           <SectionTitle
             title="What Our Clients Say"
@@ -447,10 +448,10 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-black">
+      <section className="py-20 bg-[#f7efe2] text-[#171412]">
         <div className="container-custom text-center">
           <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-6"
+            className="text-3xl md:text-4xl font-extrabold mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -476,7 +477,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-              className="bg-yellow-500 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary "
+            className="btn-primary inline-flex"
             >
               Book Now
             </Link>

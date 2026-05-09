@@ -62,7 +62,7 @@ const About = () => {
       />
 
       {/* ── HERO ── */}
-      <section className="bg-[#222222] py-28 text-center">
+      <section className="page-hero py-32 text-center">
         <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
           Mangpahang Unisex Salon · Baneshwor, Kathmandu
         </p>
@@ -78,7 +78,7 @@ const About = () => {
       </section>
 
       {/* ── OUR STORY ── */}
-      <section className="py-20">
+      <section className="py-24 bg-[#fffaf3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -96,14 +96,14 @@ const About = () => {
                 height="576"
                 loading="lazy"
                 decoding="async"
-                className="rounded-xl w-full object-cover"
+                className="rounded-3xl w-full object-cover shadow-[0_30px_80px_rgba(23,20,18,0.14)]"
               />
             </motion.div>
             <div>
               <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
                 Who We Are
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+              <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412] mb-2">
                 Our Story
               </h2>
               <div className="w-10 h-[2px] bg-[#d4af37] mb-6" />
@@ -140,7 +140,7 @@ const About = () => {
       </section>
 
       {/* ── STATS ── */}
-      <section className="py-14 bg-[#222222]">
+      <section className="py-16 premium-panel">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat, index) => (
@@ -164,13 +164,13 @@ const About = () => {
       </section>
 
       {/* ── MISSION & VALUES ── */}
-      <section className="py-20">
+      <section className="py-24 bg-[#fffaf3]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
               What Drives Us
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412] mb-2">
               Our Mission & Values
             </h2>
             <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-4" />
@@ -182,7 +182,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Mission */}
             <motion.div
-              className="bg-white rounded-xl border border-gray-200 p-7 hover:border-[#d4af37] transition-colors duration-200"
+              className="surface-card rounded-2xl p-7 hover:border-[#b68a2a] transition-colors duration-200"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -207,7 +207,7 @@ const About = () => {
 
             {/* Values */}
             <motion.div
-              className="bg-white rounded-xl border border-gray-200 p-7 hover:border-[#d4af37] transition-colors duration-200"
+              className="surface-card rounded-2xl p-7 hover:border-[#b68a2a] transition-colors duration-200"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -236,13 +236,13 @@ const About = () => {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-[#f7efe2]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
               The Experts
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412] mb-2">
               Meet Our Team
             </h2>
             <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-4" />
@@ -255,7 +255,7 @@ const About = () => {
             {team.map((member, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-[#d4af37] transition-all duration-200"
+                className="surface-card rounded-2xl overflow-hidden hover:border-[#b68a2a] transition-all duration-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -284,20 +284,20 @@ const About = () => {
       </section>
 
       {/* ── TESTIMONIAL ── */}
-      <section className="py-20">
+      <section className="py-24 bg-[#fffaf3]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
               Client Love
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-2">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412] mb-2">
               What Our Clients Say
             </h2>
             <div className="w-12 h-[2px] bg-[#d4af37] mx-auto" />
           </div>
 
           <motion.div
-            className="max-w-3xl mx-auto bg-white rounded-xl border border-gray-200 p-8 hover:border-[#d4af37] transition-colors duration-200"
+            className="surface-card max-w-3xl mx-auto rounded-2xl p-8 hover:border-[#b68a2a] transition-colors duration-200"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -321,9 +321,9 @@ const About = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16">
+      <section className="py-16 bg-[#fffaf3]">
         <div className="container-custom">
-          <div className="bg-[#222222] rounded-2xl px-8 py-12 text-center">
+          <div className="premium-panel rounded-3xl px-8 py-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
               Experience the Mangpahang Difference
             </h2>
@@ -333,13 +333,13 @@ const About = () => {
             <div className="flex gap-3 justify-center flex-wrap">
               <a
                 href="/contact"
-                className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
+                className="btn-primary"
               >
                 Book Your Appointment
               </a>
               <a
                 href="/services"
-                className="border-2 border-[#d4af37] text-[#d4af37] px-8 py-3 rounded-md font-semibold text-sm hover:bg-[#d4af37]/10 transition-colors"
+                className="btn-secondary"
               >
                 View Services
               </a>

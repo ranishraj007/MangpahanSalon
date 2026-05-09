@@ -253,7 +253,7 @@ const Services = () => {
       />
 
       {/* ── HERO ── */}
-      <section className="bg-[#222222] py-28 text-center">
+      <section className="page-hero py-32 text-center">
         <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
           Mangpahang Unisex Salon · Baneshwor, Kathmandu
         </p>
@@ -268,15 +268,15 @@ const Services = () => {
       </section>
 
       {/* ── MAIN CONTENT ── */}
-      <section className="py-16">
+      <section className="py-20 bg-[#fffaf3]">
         <div className="container-custom">
 
           {/* Section heading */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222]">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412]">
               Premium Beauty Services in Kathmandu
             </h2>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-[#746b61] text-sm mt-3">
               Tap any card to see full pricing details for one of the best
               salon service menus in Baneshwor
             </p>
@@ -290,8 +290,8 @@ const Services = () => {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-6 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
                   activeCategory === cat.id
-                    ? "bg-[#d4af37] text-white border-[#d4af37]"
-                    : "bg-transparent text-gray-500 border-gray-300 hover:border-[#d4af37] hover:text-[#d4af37]"
+                    ? "bg-[#171412] text-white border-[#171412]"
+                    : "bg-white/70 text-[#746b61] border-[#eadfce] hover:border-[#b68a2a] hover:text-[#8f681b]"
                 }`}
               >
                 {cat.name}
@@ -300,7 +300,7 @@ const Services = () => {
           </div>
 
           {/* Service cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 items-start md:grid-cols-2 lg:grid-cols-3 gap-5">
             <AnimatePresence>
               {filtered.map((service) => (
                 <motion.div
@@ -310,10 +310,10 @@ const Services = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className={`bg-white rounded-xl border transition-all duration-200 overflow-hidden ${
+                  className={`surface-card self-start rounded-2xl transition-all duration-300 overflow-hidden ${
                     expandedService === service.id
-                      ? "border-[#d4af37]"
-                      : "border-gray-200 hover:border-[#d4af37]"
+                      ? "border-[#b68a2a]"
+                      : "hover:border-[#b68a2a]"
                   }`}
                 >
                   {/* Card header — clickable */}
@@ -326,16 +326,13 @@ const Services = () => {
                     }
                   >
                     <div className="flex items-start gap-3">
-                      {/* Icon */}
-                      <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
-                        <service.icon size={20} className="text-[#b8921a]" strokeWidth={1.8} />
-                      </div>
                       {/* Title + price */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide leading-snug">
+                        <div className="mb-3 h-1 w-10 rounded-full bg-[#d6b05b]" />
+                        <h3 className="text-sm font-bold text-[#171412] uppercase tracking-wide leading-snug">
                           {service.title}
                         </h3>
-                        <p className="text-[#d4af37] font-semibold text-sm mt-1">
+                        <p className="text-[#8f681b] font-semibold text-sm mt-2">
                           {service.price}
                         </p>
                       </div>
@@ -350,7 +347,7 @@ const Services = () => {
                       </svg>
                     </div>
                     {/* Description */}
-                    <p className="text-gray-500 text-xs leading-relaxed mt-3 pt-3 border-t border-gray-100">
+                    <p className="text-[#746b61] text-xs leading-relaxed mt-4 pt-4 border-t border-[#eadfce]">
                       {service.desc}
                     </p>
                   </div>
@@ -363,7 +360,7 @@ const Services = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25 }}
-                        className="bg-[#f8f0e3] border-t border-[#e8e0d0] px-5 py-4"
+                        className="bg-[#f7efe2] border-t border-[#eadfce] px-5 py-4"
                       >
                         {service.isTable ? (
                           <div className="overflow-x-auto">
@@ -408,7 +405,7 @@ const Services = () => {
           </div>
 
           {/* ── CTA ── */}
-          <div className="bg-[#222222] rounded-2xl px-8 py-12 text-center mt-14">
+          <div className="premium-panel rounded-3xl px-8 py-12 text-center mt-14">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
               Ready to Book Your Appointment?
             </h2>
@@ -418,13 +415,13 @@ const Services = () => {
             <div className="flex gap-3 justify-center flex-wrap">
               
                <a href="tel:+9779708073356"
-                className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
+                className="btn-primary"
               >
                 Call Now
               </a>
               
                <a href="/contact"
-                className="border-2 border-[#d4af37] text-[#d4af37] px-8 py-3 rounded-md font-semibold text-sm hover:bg-[#d4af37]/10 transition-colors"
+                className="btn-secondary"
              >
                 Contact Us
               </a>

@@ -156,7 +156,7 @@ const Gallery = () => {
       />
 
       {/* ── HERO ── */}
-      <section className="bg-[#222222] py-28 text-center">
+      <section className="page-hero py-32 text-center">
         <motion.p
           className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3"
           initial={{ opacity: 0, y: 20 }}
@@ -191,15 +191,15 @@ const Gallery = () => {
       </section>
 
       {/* ── GALLERY SECTION ── */}
-      <section className="py-16">
+      <section className="py-20 bg-[#fffaf3]">
         <div className="container-custom">
 
           {/* Section heading */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222]">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412]">
               Our Work
             </h2>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-[#746b61] text-sm mt-3">
               Explore our collection of beautiful transformations by our talented team
             </p>
           </div>
@@ -214,8 +214,8 @@ const Gallery = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`px-6 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
                   activeCategory === cat.id
-                    ? "bg-[#d4af37] text-white border-[#d4af37]"
-                    : "bg-transparent text-gray-500 border-gray-300 hover:border-[#d4af37] hover:text-[#d4af37]"
+                    ? "bg-[#171412] text-white border-[#171412]"
+                    : "bg-white/70 text-[#746b61] border-[#eadfce] hover:border-[#b68a2a] hover:text-[#8f681b]"
                 }`}
               >
                 {cat.name}
@@ -254,7 +254,7 @@ const Gallery = () => {
           </motion.div>
 
           {/* ── CTA ── */}
-          <div className="bg-[#222222] rounded-2xl px-8 py-12 text-center mt-14">
+          <div className="premium-panel rounded-3xl px-8 py-12 text-center mt-14">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
               Love What You See?
             </h2>
@@ -264,13 +264,13 @@ const Gallery = () => {
             <div className="flex gap-3 justify-center flex-wrap">
               
                <a href="tel:+9779708073356"
-                className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
+                className="btn-primary"
               >
                 Call Now
               </a>
               
               <a  href="/contact"
-                className="border-2 border-[#d4af37] text-[#d4af37] px-8 py-3 rounded-md font-semibold text-sm hover:bg-[#d4af37]/10 transition-colors"
+                className="btn-secondary"
               >
                 Contact Us
               </a>

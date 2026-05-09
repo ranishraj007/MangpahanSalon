@@ -31,7 +31,7 @@ const Header = () => {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white shadow-md py-2"
+          ? "bg-[#fffaf3]/90 shadow-[0_12px_40px_rgba(23,20,18,0.08)] backdrop-blur-xl py-2"
           : "bg-transparent py-4"
       }`}
     >
@@ -46,7 +46,7 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             {/* Circle with M */}
-            <div className="w-11 h-11 rounded-full bg-[#222222] flex items-center justify-center flex-shrink-0">
+            <div className="w-11 h-11 rounded-full bg-[#171412] ring-1 ring-[#d6b05b]/35 flex items-center justify-center flex-shrink-0">
               <span
                 style={{ fontFamily: "Georgia, serif" }}
                 className="text-[#d4af37] text-lg font-bold leading-none"
@@ -59,14 +59,14 @@ const Header = () => {
               <div
                 style={{ fontFamily: "Georgia, serif", letterSpacing: "2px" }}
                 className={`text-base font-bold leading-none transition-colors duration-300 ${
-                  scrolled ? "text-[#222222]" : "text-white"
+                  scrolled ? "text-[#171412]" : "text-white"
                 }`}
               >
                 MANGPAHANG
               </div>
               <div
                 className={`text-[9px] tracking-[3px] uppercase mt-1 transition-colors duration-300 ${
-                  scrolled ? "text-gray-500" : "text-gray-300"
+                  scrolled ? "text-[#746b61]" : "text-white/70"
                 }`}
               >
                 UNISEX SALON
@@ -76,8 +76,10 @@ const Header = () => {
         </Link>
 
         {/* ── Desktop Navigation ── */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <ul className="flex space-x-6">
+        <nav className="hidden md:flex items-center space-x-6">
+          <ul className={`flex items-center gap-5 rounded-full px-4 py-2 transition-all duration-300 ${
+            scrolled ? "bg-white/75 border border-[#eadfce]" : "bg-white/10 border border-white/15 backdrop-blur-md"
+          }`}>
             {navLinks.map((link) => (
               <motion.li
                 key={link.name}
@@ -89,10 +91,10 @@ const Header = () => {
                   className={({ isActive }) =>
                     `font-medium transition-colors duration-300 ${
                       isActive
-                        ? "text-yellow-500"
+                        ? "text-[#d6b05b]"
                         : scrolled
-                        ? "text-[#222222] hover:text-[#d4af37]"
-                        : "text-gray-200 hover:text-white"
+                        ? "text-[#171412] hover:text-[#8f681b]"
+                        : "text-white/78 hover:text-white"
                     }`
                   }
                 >
@@ -102,8 +104,8 @@ const Header = () => {
             ))}
           </ul>
           <motion.a
-            href="tel:+9779851234567"
-            className="flex items-center bg-[#d4af37] text-white px-4 py-2 rounded-md text-sm font-medium"
+            href="tel:+9779708073356"
+            className="flex items-center bg-[#d6b05b] text-[#171412] px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-black/10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -115,7 +117,7 @@ const Header = () => {
         <div className="md:hidden flex items-center">
           <button
             className={`text-2xl transition-colors duration-300 ${
-              scrolled ? "text-[#222222]" : "text-white"
+              scrolled ? "text-[#171412]" : "text-white"
             }`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
@@ -127,7 +129,7 @@ const Header = () => {
 
       {/* ── Mobile Navigation ── */}
       <motion.div
-        className={`md:hidden fixed inset-0 bg-white z-40 ${
+        className={`md:hidden fixed inset-0 bg-[#fffaf3] z-40 ${
           isOpen ? "block" : "hidden"
         }`}
         initial={{ opacity: 0, x: "100%" }}
@@ -137,7 +139,7 @@ const Header = () => {
         <div className="flex flex-col h-full justify-center items-center">
           {/* Mobile logo */}
           <div className="flex items-center gap-3 mb-10">
-            <div className="w-12 h-12 rounded-full bg-[#222222] flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full bg-[#171412] flex items-center justify-center">
               <span
                 style={{ fontFamily: "Georgia, serif" }}
                 className="text-[#d4af37] text-xl font-bold"
@@ -148,7 +150,7 @@ const Header = () => {
             <div>
               <div
                 style={{ fontFamily: "Georgia, serif", letterSpacing: "2px" }}
-                className="text-base font-bold text-[#222222] leading-none"
+                className="text-base font-bold text-[#171412] leading-none"
               >
                 MANGPAHANG
               </div>
@@ -171,7 +173,7 @@ const Header = () => {
                     `text-xl font-medium transition-colors duration-300 ${
                       isActive
                         ? "text-[#d4af37]"
-                        : "text-[#222222] hover:text-[#d4af37]"
+                        : "text-[#171412] hover:text-[#d4af37]"
                     }`
                   }
                   onClick={closeMenu}
@@ -183,8 +185,8 @@ const Header = () => {
           </ul>
 
           <motion.a
-            href="tel:+9779851234567"
-            className="flex items-center bg-[#d4af37] text-white px-6 py-3 rounded-md mt-8 font-medium"
+            href="tel:+9779708073356"
+            className="flex items-center bg-[#d6b05b] text-[#171412] px-6 py-3 rounded-full mt-8 font-bold"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

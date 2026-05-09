@@ -147,7 +147,7 @@ const Contact = () => {
       />
 
       {/* ── HERO ── */}
-      <section className="bg-[#222222] py-28 text-center">
+      <section className="page-hero py-32 text-center">
         <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3">
           Mangpahang Unisex Salon · Baneshwor, Kathmandu
         </p>
@@ -162,21 +162,21 @@ const Contact = () => {
       </section>
 
       {/* ── CONTACT INFO CARDS ── */}
-      <section className="py-16">
+      <section className="py-20 bg-[#fffaf3]">
         <div className="container-custom">
 
           {/* Section heading */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222]">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412]">
               How to Reach Us
             </h2>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-[#746b61] text-sm mt-3">
               Tap any card to see more details
             </p>
           </div>
 
           {/* Info cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+          <div className="grid grid-cols-1 items-start md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             <AnimatePresence>
               {contactCards.map((card) => (
                 <motion.div
@@ -186,10 +186,10 @@ const Contact = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className={`bg-white rounded-xl border transition-all duration-200 overflow-hidden ${
+                  className={`surface-card self-start rounded-2xl transition-all duration-300 overflow-hidden ${
                     expandedFaq === `card-${card.id}`
-                      ? "border-[#d4af37]"
-                      : "border-gray-200 hover:border-[#d4af37]"
+                      ? "border-[#b68a2a]"
+                      : "hover:border-[#b68a2a]"
                   }`}
                 >
                   {/* Card header — clickable */}
@@ -270,7 +270,7 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-10">
 
             {/* Contact Form */}
-            <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="surface-card rounded-2xl p-6">
               <div className="mb-6">
                 <p className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-2">
                   Get In Touch
@@ -351,7 +351,7 @@ const Contact = () => {
 
             {/* Map */}
             <div className="flex flex-col gap-5">
-              <div className="bg-white rounded-xl border border-gray-200 overflow-hidden flex-1">
+              <div className="surface-card rounded-2xl overflow-hidden flex-1">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.5762714553636!2d85.33490107547936!3d27.695287176195683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19de8c6534ef%3A0x4c847f36fa6441fe!2sMangpahang%20Unisex%20Salon%20(Mid-Baneswor)!5e0!3m2!1sen!2sus!4v1682345678901!5m2!1sen!2sus"
                   width="100%"
@@ -365,7 +365,7 @@ const Contact = () => {
               </div>
 
               {/* Social media card */}
-              <div className="bg-white rounded-xl border border-gray-200 p-5">
+              <div className="surface-card rounded-2xl p-5">
                 <div className="flex items-start gap-3 mb-4">
                   <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
                     <Facebook size={20} className="text-[#b8921a]" strokeWidth={1.8} />
@@ -400,10 +400,10 @@ const Contact = () => {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-[#f7efe2]">
         <div className="container-custom">
           <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222]">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#171412]">
               Frequently Asked Questions
             </h2>
             <p className="text-gray-500 text-sm mt-2">
@@ -411,7 +411,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 items-start md:grid-cols-2 lg:grid-cols-3 gap-5">
             <AnimatePresence>
               {faqs.map((faq) => (
                 <motion.div
@@ -421,10 +421,10 @@ const Contact = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className={`bg-white rounded-xl border transition-all duration-200 overflow-hidden ${
+                  className={`surface-card self-start rounded-2xl transition-all duration-300 overflow-hidden ${
                     expandedFaq === `faq-${faq.id}`
-                      ? "border-[#d4af37]"
-                      : "border-gray-200 hover:border-[#d4af37]"
+                      ? "border-[#b68a2a]"
+                      : "hover:border-[#b68a2a]"
                   }`}
                 >
                   <div
@@ -476,9 +476,9 @@ const Contact = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16">
+      <section className="py-16 bg-[#fffaf3]">
         <div className="container-custom">
-          <div className="bg-[#222222] rounded-2xl px-8 py-12 text-center">
+          <div className="premium-panel rounded-3xl px-8 py-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
               Ready to Book Your Appointment?
             </h2>
@@ -488,7 +488,7 @@ const Contact = () => {
             <div className="flex gap-3 justify-center flex-wrap">
               <a
                 href="tel:+9779708073356"
-                className="bg-[#d4af37] text-[#1a1a1a] px-8 py-3 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity"
+                className="btn-primary"
               >
                 Call Now
               </a>
@@ -496,7 +496,7 @@ const Contact = () => {
                 href="https://www.google.com/maps/place/Mangpahang+Unisex+Salon+(Mid-Baneswor)/@27.6952872,85.3374764,17z/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-[#d4af37] text-[#d4af37] px-8 py-3 rounded-md font-semibold text-sm hover:bg-[#d4af37]/10 transition-colors"
+                className="btn-secondary"
               >
                 Get Directions
               </a>

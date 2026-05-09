@@ -6,7 +6,7 @@ const SectionTitle = ({ title, subtitle, centered = true, light = false }) => {
     <div className={`mb-12 ${centered ? "text-center" : "text-left"}`}>
       <motion.h2
         className={`section-title ${
-          light ? "text-black" : "text-black dark:text-black"
+          light ? "text-white" : "text-[#171412]"
         }`}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -18,7 +18,7 @@ const SectionTitle = ({ title, subtitle, centered = true, light = false }) => {
       {subtitle && (
         <motion.p
           className={`section-subtitle ${centered ? "mx-auto" : ""} ${
-            light ? "text-black" : "text-black dark:text-black"
+            light ? "text-white/70" : "text-[#746b61]"
           }`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
