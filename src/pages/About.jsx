@@ -9,6 +9,29 @@ import InteriorImage480 from "../assets/SalonImages/optimized/GallaryImage-2-480
 import InteriorImage768 from "../assets/SalonImages/optimized/GallaryImage-2-768.webp";
 import InteriorImage1200 from "../assets/SalonImages/optimized/GallaryImage-2-1200.webp";
 
+const teamImageAssets = import.meta.glob("../assets/OurTeam/optimized/*.{webp,jpg,jpeg,png}", {
+  eager: true,
+  import: "default",
+  query: "?url",
+});
+
+const findTeamImage = (fileName) =>
+  Object.entries(teamImageAssets).find(([path]) => path.endsWith(`/${fileName}`))?.[1];
+
+const getTeamImage = (name) => {
+  const image480 = findTeamImage(`${name}-480.webp`);
+  const image768 = findTeamImage(`${name}-768.webp`);
+
+  if (!image480) {
+    return { src: DefaultImage };
+  }
+
+  return {
+    src: image480,
+    srcSet: image768 ? `${image480} 480w, ${image768} 768w` : undefined,
+  };
+};
+
 const About = () => {
   const stats = [
     { icon: Award, value: "10+", label: "Years of Experience" },
@@ -21,25 +44,25 @@ const About = () => {
     {
       name: "Sudip Rai",
       role: "Founder & Master Stylist",
-      image: "",
+      image: getTeamImage("Sudip"),
       bio: "With over 5 years of experience, Sudip brings creativity and precision to every haircut and style.",
     },
     {
       name: "Anupa Rai",
       role: "Senior Beautician",
-      image: "",
+      image: getTeamImage("Anupa"),
       bio: "Anupa specializes in creating stunning, personalized hair colors that complement each client's unique features.",
     },
     {
       name: "Srijana Limbu",
       role: "Nail Technician",
-      image: "",
+      image: getTeamImage("Srijana"),
       bio: "Srijana is known for her ability to enhance natural beauty with her expert nail art techniques for any occasion.",
     },
     {
       name: "Sushil Buddha",
       role: "Hair Stylist",
-      image: "",
+      image: getTeamImage("Sushil"),
       bio: "Sushil brings a unique perspective to hair styling, combining traditional techniques with modern trends.",
     },
   ];
@@ -262,9 +285,19 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <img
-                  src={member.image ? member.image : DefaultImage}
-                  alt={member.name}
-                  className="w-full h-56 object-cover"
+                  src={member.image.src}
+                  srcSet={member.image.srcSet}
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 32px)"
+                  alt={`${member.name}, ${member.role} at Mangpahang Unisex Salon`}
+                  width="480"
+                  height="640"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(event) => {
+                    event.currentTarget.src = DefaultImage;
+                    event.currentTarget.removeAttribute("srcset");
+                  }}
+                  className="w-full h-56 object-cover object-top"
                 />
                 <div className="p-5">
                   <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
