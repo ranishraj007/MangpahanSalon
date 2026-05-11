@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Award, Users, Smile, Scissors } from "lucide-react";
+import { Award, Users, Smile, Scissors, Facebook, Instagram } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
 import DefaultImage from "../assets/Images/default_profile_pic.png";
@@ -32,6 +32,11 @@ const getTeamImage = (name) => {
   };
 };
 
+const defaultSocialLinks = {
+  facebook: "https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/",
+  instagram: "https://www.instagram.com/mangpahangunisexsalon/",
+};
+
 const About = () => {
   const stats = [
     { icon: Award, value: "10+", label: "Years of Experience" },
@@ -45,24 +50,28 @@ const About = () => {
       name: "Sudip Rai",
       role: "Founder & Master Stylist",
       image: getTeamImage("Sudip"),
+      social: defaultSocialLinks,
       bio: "With over 5 years of experience, Sudip brings creativity and precision to every haircut and style.",
     },
     {
       name: "Anupa Rai",
       role: "Senior Beautician",
       image: getTeamImage("Anupa"),
+      social: defaultSocialLinks,
       bio: "Anupa specializes in creating stunning, personalized hair colors that complement each client's unique features.",
     },
     {
       name: "Srijana Limbu",
       role: "Nail Technician",
       image: getTeamImage("Srijana"),
+      social: defaultSocialLinks,
       bio: "Srijana is known for her ability to enhance natural beauty with her expert nail art techniques for any occasion.",
     },
     {
       name: "Sushil Buddha",
       role: "Hair Stylist",
       image: getTeamImage("Sushil"),
+      social: defaultSocialLinks,
       bio: "Sushil brings a unique perspective to hair styling, combining traditional techniques with modern trends.",
     },
   ];
@@ -278,27 +287,49 @@ const About = () => {
             {team.map((member, index) => (
               <motion.div
                 key={index}
-                className="surface-card rounded-2xl overflow-hidden hover:border-[#b68a2a] transition-all duration-200"
+                className="surface-card group rounded-2xl overflow-hidden hover:border-[#b68a2a] transition-all duration-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <img
-                  src={member.image.src}
-                  srcSet={member.image.srcSet}
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 32px)"
-                  alt={`${member.name}, ${member.role} at Mangpahang Unisex Salon`}
-                  width="480"
-                  height="640"
-                  loading="lazy"
-                  decoding="async"
-                  onError={(event) => {
-                    event.currentTarget.src = DefaultImage;
-                    event.currentTarget.removeAttribute("srcset");
-                  }}
-                  className="w-full h-56 object-cover object-top"
-                />
+                <div className="relative overflow-hidden">
+                  <img
+                    src={member.image.src}
+                    srcSet={member.image.srcSet}
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 32px)"
+                    alt={`${member.name}, ${member.role} at Mangpahang Unisex Salon`}
+                    width="480"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(event) => {
+                      event.currentTarget.src = DefaultImage;
+                      event.currentTarget.removeAttribute("srcset");
+                    }}
+                    className="w-full h-72 object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110 group-focus-within:scale-110"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 flex justify-center gap-3 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-4 pb-4 pt-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                    <a
+                      href={member.social.instagram}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${member.name} Instagram profile`}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[#171412] shadow-lg transition-colors duration-200 hover:bg-[#d4af37] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]"
+                    >
+                      <Instagram size={18} strokeWidth={1.8} />
+                    </a>
+                    <a
+                      href={member.social.facebook}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${member.name} Facebook profile`}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[#171412] shadow-lg transition-colors duration-200 hover:bg-[#d4af37] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]"
+                    >
+                      <Facebook size={18} strokeWidth={1.8} />
+                    </a>
+                  </div>
+                </div>
                 <div className="p-5">
                   <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
                     {member.name}
