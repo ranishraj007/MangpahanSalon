@@ -13,8 +13,8 @@ const GalleryItem = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div
-      className="surface-card relative overflow-hidden rounded-2xl group"
+    <motion.figure
+      className="surface-card relative overflow-hidden rounded-lg group"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -49,7 +49,7 @@ const GalleryItem = ({
         />
       </picture>
       <motion.div
-        className="absolute inset-0 bg-[#171412]/72 flex flex-col items-center justify-center p-4 text-white backdrop-blur-[2px]"
+        className="absolute inset-x-0 top-0 bottom-16 bg-[#171412]/72 hidden flex-col items-center justify-center p-4 text-white backdrop-blur-[2px] sm:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
@@ -60,7 +60,7 @@ const GalleryItem = ({
           animate={{ scale: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}
         >
-          <Search size={18} />
+          <Search size={18} aria-hidden="true" />
         </motion.div>
         <motion.h3
           className="text-lg font-bold text-center"
@@ -79,7 +79,15 @@ const GalleryItem = ({
           {category}
         </motion.p>
       </motion.div>
-    </motion.div>
+      <figcaption className="flex min-h-16 items-center justify-between gap-4 px-4 py-3">
+        <div>
+          <h3 className="text-sm font-bold text-[#171412]">{title}</h3>
+          <p className="text-xs font-semibold uppercase tracking-wide text-[#8f681b]">
+            {category}
+          </p>
+        </div>
+      </figcaption>
+    </motion.figure>
   );
 };
 

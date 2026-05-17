@@ -26,6 +26,7 @@ const Footer = () => {
                 href="https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Mangpahang Unisex Salon Facebook"
                 className="h-10 w-10 rounded-full bg-white/10 text-white hover:bg-[#d6b05b] hover:text-[#171412] transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
@@ -34,6 +35,9 @@ const Footer = () => {
               </motion.a>
               <motion.a
                 href="https://www.instagram.com/mangpahangunisexsalon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Mangpahang Unisex Salon Instagram"
                 className="h-10 w-10 rounded-full bg-white/10 text-white hover:bg-[#d6b05b] hover:text-[#171412] transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
@@ -98,7 +102,7 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="text-[#d6b05b] mt-1 mr-3 h-5 w-5" />
                 <span className="text-white/70">
-                  Mid-Baneswor, Kathmandu, Nepal
+                  Mid-Baneshwor, Kathmandu, Nepal
                 </span>
               </li>
               <li className="flex items-center">
@@ -113,7 +117,7 @@ const Footer = () => {
               <li className="flex items-center">
                 <Mail className="text-[#d6b05b] mr-3 h-5 w-5" />
                 <a
-                  href="mailto:info@mangpahang.com"
+                  href="mailto:mangpahangsalon@gmail.com"
                   className="text-white/70 hover:text-[#d6b05b] transition-colors duration-300"
                 >
                   mangpahangsalon@gmail.com

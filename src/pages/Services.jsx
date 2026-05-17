@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Scissors, Palette, Smile, Wand2,
-  SnailIcon as Nail, SprayCanIcon as Spray, Leaf, Gem,
+  Scissors,
+  Palette,
+  Smile,
+  Wand2,
+  ChevronDown,
+  SprayCanIcon as Spray,
+  Leaf,
+  Gem,
 } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
@@ -108,7 +114,7 @@ const Services = () => {
       ],
     },
     {
-      id: 5, cat: "nails", icon: Nail,
+      id: 5, cat: "nails", icon: Gem,
       title: "Manicure & Pedicure",
       price: "From Rs.2000",
       desc: "Luxurious nail care with exfoliation, massage, and your choice of polish for a perfectly polished finish.",
@@ -118,7 +124,7 @@ const Services = () => {
       ],
     },
     {
-      id: 6, cat: "hair", icon: Spray,
+      id: 6, cat: "face", icon: Spray,
       title: "Waxing",
       price: "From Rs.500",
       desc: "Smooth, hair-free skin using high-quality wax and professional techniques for lasting results.",
@@ -130,7 +136,7 @@ const Services = () => {
       ],
     },
     {
-      id: 7, cat: "hair", icon: Leaf,
+      id: 7, cat: "face", icon: Leaf,
       title: "Threading",
       price: "From Rs.50",
       desc: "Precise, gentle hair removal for eyebrows and facial hair. Suitable for all skin types.",
@@ -179,7 +185,7 @@ const Services = () => {
       ],
     },
     {
-      id: 10, cat: "massage", icon: Gem,
+      id: 10, cat: "massage", icon: Leaf,
       title: "Massage",
       price: "From Rs.1500",
       desc: "Indulge in a soothing hair and head massage designed to relieve stress, stimulate the scalp, and promote healthy hair growth.",
@@ -192,7 +198,7 @@ const Services = () => {
     },
     {
       id: 11, cat: "hair", icon: Scissors,
-      title: "Keratin, Botox, Nanoplastia(treatment) and Hair straightening",
+      title: "Keratin, Botox, Nanoplastia & Hair Straightening",
       price: "From Rs.8000",
       desc: "Transform unruly, damaged hair into smooth and lustrous locks with our professional hair straightening and treatment services using top-quality products.",
       details: [
@@ -207,7 +213,7 @@ const Services = () => {
     },
     {
       id: 12, cat: "hair", icon: Scissors,
-      title: "Hair treatment with Blast Day and Hair Perm",
+      title: "Hair Repair Treatments & Hair Perm",
       price: "From Rs.8000",
       desc: "Deeply nourish and reshape your hair with our intensive blast day treatment and professional perming — perfect for adding volume, bounce, and lasting style.",
       details: [
@@ -283,11 +289,12 @@ const Services = () => {
           </div>
 
           {/* Category filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-3 mb-10" role="list" aria-label="Service categories">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
+                aria-pressed={activeCategory === cat.id}
                 className={`px-6 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
                   activeCategory === cat.id
                     ? "bg-[#171412] text-white border-[#171412]"
@@ -302,7 +309,10 @@ const Services = () => {
           {/* Service cards grid */}
           <div className="grid grid-cols-1 items-start md:grid-cols-2 lg:grid-cols-3 gap-5">
             <AnimatePresence>
-              {filtered.map((service) => (
+              {filtered.map((service) => {
+                const ServiceIcon = service.icon;
+
+                return (
                 <motion.div
                   key={service.id}
                   layout
@@ -316,41 +326,45 @@ const Services = () => {
                       : "hover:border-[#b68a2a]"
                   }`}
                 >
-                  {/* Card header — clickable */}
-                  <div
-                    className="p-5 cursor-pointer"
+                  {/* Card header */}
+                  <button
+                    type="button"
+                    className="w-full p-5 text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b68a2a]"
+                    aria-expanded={expandedService === service.id}
+                    aria-controls={`service-details-${service.id}`}
                     onClick={() =>
                       setExpandedService(
                         expandedService === service.id ? null : service.id
                       )
                     }
                   >
-                    <div className="flex items-start gap-3">
+                    <span className="flex items-start gap-3">
+                      <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-[#f7efe2] text-[#8f681b]">
+                        <ServiceIcon size={20} strokeWidth={1.8} />
+                      </span>
                       {/* Title + price */}
-                      <div className="flex-1 min-w-0">
-                        <div className="mb-3 h-1 w-10 rounded-full bg-[#d6b05b]" />
-                        <h3 className="text-sm font-bold text-[#171412] uppercase tracking-wide leading-snug">
+                      <span className="flex-1 min-w-0">
+                        <span className="mb-3 block h-1 w-10 rounded-full bg-[#d6b05b]" />
+                        <span className="block text-sm font-bold text-[#171412] uppercase tracking-wide leading-snug">
                           {service.title}
-                        </h3>
-                        <p className="text-[#8f681b] font-semibold text-sm mt-2">
+                        </span>
+                        <span className="block text-[#8f681b] font-semibold text-sm mt-2">
                           {service.price}
-                        </p>
-                      </div>
+                        </span>
+                      </span>
                       {/* Chevron */}
-                      <svg
-                        className={`w-4 h-4 text-gray-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
+                      <ChevronDown
+                        size={16}
+                        className={`text-gray-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
                           expandedService === service.id ? "rotate-180" : ""
                         }`}
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
+                      />
+                    </span>
                     {/* Description */}
-                    <p className="text-[#746b61] text-xs leading-relaxed mt-4 pt-4 border-t border-[#eadfce]">
+                    <span className="block text-[#746b61] text-xs leading-relaxed mt-4 pt-4 border-t border-[#eadfce]">
                       {service.desc}
-                    </p>
-                  </div>
+                    </span>
+                  </button>
 
                   {/* Expandable pricing */}
                   <AnimatePresence>
@@ -360,6 +374,7 @@ const Services = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25 }}
+                        id={`service-details-${service.id}`}
                         className="bg-[#f7efe2] border-t border-[#eadfce] px-5 py-4"
                       >
                         {service.isTable ? (
@@ -400,7 +415,8 @@ const Services = () => {
                     )}
                   </AnimatePresence>
                 </motion.div>
-              ))}
+                );
+              })}
             </AnimatePresence>
           </div>
 
