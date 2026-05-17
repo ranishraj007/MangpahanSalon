@@ -38,7 +38,7 @@ const Header = () => {
       <div className="container-custom flex justify-between items-center">
 
         {/* ── LOGO ── */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center" aria-label="Mangpahang Unisex Salon home">
           <motion.div
             className="flex items-center gap-3"
             initial={{ opacity: 0, x: -20 }}
@@ -120,7 +120,9 @@ const Header = () => {
               scrolled ? "text-[#171412]" : "text-white"
             }`}
             onClick={toggleMenu}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -129,6 +131,7 @@ const Header = () => {
 
       {/* ── Mobile Navigation ── */}
       <motion.div
+        id="mobile-navigation"
         className={`md:hidden fixed inset-0 bg-[#fffaf3] z-40 ${
           isOpen ? "block" : "hidden"
         }`}
@@ -187,6 +190,7 @@ const Header = () => {
           <motion.a
             href="tel:+9779708073356"
             className="flex items-center bg-[#d6b05b] text-[#171412] px-6 py-3 rounded-full mt-8 font-bold"
+            onClick={closeMenu}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

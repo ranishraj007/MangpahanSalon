@@ -150,8 +150,8 @@ const Home = () => {
         schema={homeSchema}
       />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/48 to-black/18 z-0"></div>
+      <section className="relative min-h-[88svh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/50 to-black/16 z-0"></div>
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#fffaf3] to-transparent z-0"></div>
         <div
           className="absolute inset-0 bg-cover bg-center z-[-1]"
@@ -172,8 +172,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Discover Your True Beauty at{" "}
-              <span className="text-[#c9a84c]">Mangpahang</span>
+              Mangpahang Unisex Salon
             </motion.h1>
             <motion.p
               className="text-base md:text-xl leading-8 text-white/82 mb-9 max-w-2xl"
@@ -181,9 +180,9 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Searching for the best salon in Kathmandu? Visit our Mid-Baneshwor
-              unisex salon for stylish haircuts, hair color, bridal makeup,
-              nails, facial, waxing, threading, and modern beauty care.
+              A polished Mid-Baneshwor salon for stylish haircuts, hair color,
+              bridal makeup, nails, facials, waxing, threading, and modern
+              beauty care in Kathmandu.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4"
@@ -191,12 +190,10 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Link to="/services" 
-              className="btn-primary text-sm text-center">
+              <Link to="/services" className="btn-primary text-sm text-center">
                 Our Services
               </Link>
-              <Link to="/contact" 
-              className="btn-secondary text-sm text-center">
+              <Link to="/contact" className="btn-secondary text-sm text-center">
                 Book Appointment
               </Link>
             </motion.div>
@@ -213,6 +210,7 @@ const Home = () => {
             repeatType: "reverse",
             repeatDelay: 0.5,
           }}
+          aria-hidden="true"
         >
           <svg
             className="w-8 h-8 text-white"
@@ -371,37 +369,31 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: "👩‍💼",
                 title: "Expert Stylists",
                 description:
                   "Our team consists of highly trained professionals with years of experience",
               },
               {
-                icon: "✨",
                 title: "Premium Products",
                 description:
                   "We use only high-quality products that are gentle on your hair and skin",
               },
               {
-                icon: "🌿",
                 title: "Relaxing Environment",
                 description:
                   "Enjoy a peaceful atmosphere designed for your comfort and relaxation",
               },
               {
-                icon: "💯",
                 title: "Personalized Service",
                 description:
                   "Every treatment is tailored to meet your specific needs and preferences",
               },
               {
-                icon: "🔄",
                 title: "Latest Techniques",
                 description:
                   "We stay updated with the newest trends and techniques in the industry",
               },
               {
-                icon: "💖",
                 title: "Customer Satisfaction",
                 description:
                   "Your happiness is our priority - we're not satisfied until you are",
@@ -477,7 +469,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-            className="btn-primary inline-flex"
+              className="btn-primary inline-flex"
             >
               Book Now
             </Link>

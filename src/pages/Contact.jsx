@@ -25,11 +25,23 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
-    }, 1500);
+    const subject = encodeURIComponent(
+      `Appointment inquiry from ${formData.name}`,
+    );
+    const body = encodeURIComponent(
+      [
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone || "Not provided"}`,
+        `Service: ${formData.service || "Not selected"}`,
+        "",
+        formData.message,
+      ].join("\n"),
+    );
+
+    window.location.href = `mailto:mangpahangsalon@gmail.com?subject=${subject}&body=${body}`;
+    setIsSubmitting(false);
+    setSubmitSuccess(true);
   };
 
   const contactCards = [
@@ -39,7 +51,7 @@ const Contact = () => {
       title: "Our Location",
       summary: "Mid-Baneshwor, Kathmandu",
       details: [
-        { label: "Address", value: "Mid-Baneswor, Kathmandu, Nepal" },
+        { label: "Address", value: "Mid-Baneshwor, Kathmandu, Nepal" },
         { label: "Landmark", value: "Near Mid-Baneshwor Chowk" },
       ],
       link: "https://www.google.com/maps/place/Mangpahang+Unisex+Salon+(Mid-Baneswor)/@27.6952872,85.3374764,17z/",
@@ -193,34 +205,37 @@ const Contact = () => {
                   }`}
                 >
                   {/* Card header — clickable */}
-                  <div
-                    className="p-5 cursor-pointer"
+                  <button
+                    type="button"
+                    className="w-full p-5 text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b68a2a]"
+                    aria-expanded={expandedFaq === `card-${card.id}`}
+                    aria-controls={`contact-card-${card.id}`}
                     onClick={() =>
                       setExpandedFaq(
                         expandedFaq === `card-${card.id}` ? null : `card-${card.id}`
                       )
                     }
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
+                    <span className="flex items-start gap-3">
+                      <span className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
                         <card.icon size={20} className="text-[#b8921a]" strokeWidth={1.8} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide leading-snug">
+                      </span>
+                      <span className="flex-1 min-w-0">
+                        <span className="block text-xs font-bold text-[#222222] uppercase tracking-wide leading-snug">
                           {card.title}
-                        </h3>
-                        <p className="text-[#d4af37] font-semibold text-sm mt-1">
+                        </span>
+                        <span className="block text-[#d4af37] font-semibold text-sm mt-1">
                           {card.summary}
-                        </p>
-                      </div>
+                        </span>
+                      </span>
                       <ChevronDown
                         size={16}
                         className={`text-gray-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
                           expandedFaq === `card-${card.id}` ? "rotate-180" : ""
                         }`}
                       />
-                    </div>
-                  </div>
+                    </span>
+                  </button>
 
                   {/* Expandable details */}
                   <AnimatePresence>
@@ -230,6 +245,7 @@ const Contact = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25 }}
+                        id={`contact-card-${card.id}`}
                         className="bg-[#f8f0e3] border-t border-[#e8e0d0] px-5 py-4"
                       >
                         <div className="space-y-0">
@@ -288,7 +304,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <h3 className="text-base font-bold mb-1">Thank You!</h3>
-                  <p className="text-sm">Your message has been sent successfully. We'll get back to you shortly.</p>
+                  <p className="text-sm">Your email app is opening with the appointment details ready to send.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -385,7 +401,10 @@ const Contact = () => {
                     <Facebook size={18} />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/mangpahangunisexsalon/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Mangpahang Unisex Salon Instagram"
                     className="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
@@ -427,31 +446,34 @@ const Contact = () => {
                       : "hover:border-[#b68a2a]"
                   }`}
                 >
-                  <div
-                    className="p-5 cursor-pointer"
+                  <button
+                    type="button"
+                    className="w-full p-5 text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b68a2a]"
+                    aria-expanded={expandedFaq === `faq-${faq.id}`}
+                    aria-controls={`faq-answer-${faq.id}`}
                     onClick={() =>
                       setExpandedFaq(
                         expandedFaq === `faq-${faq.id}` ? null : `faq-${faq.id}`
                       )
                     }
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
+                    <span className="flex items-start gap-3">
+                      <span className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
                         <span className="text-[#b8921a] text-sm font-bold">Q</span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide leading-snug">
+                      </span>
+                      <span className="flex-1 min-w-0">
+                        <span className="block text-xs font-bold text-[#222222] uppercase tracking-wide leading-snug">
                           {faq.question}
-                        </h3>
-                      </div>
+                        </span>
+                      </span>
                       <ChevronDown
                         size={16}
                         className={`text-gray-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
                           expandedFaq === `faq-${faq.id}` ? "rotate-180" : ""
                         }`}
                       />
-                    </div>
-                  </div>
+                    </span>
+                  </button>
 
                   <AnimatePresence>
                     {expandedFaq === `faq-${faq.id}` && (
@@ -460,6 +482,7 @@ const Contact = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25 }}
+                        id={`faq-answer-${faq.id}`}
                         className="bg-[#f8f0e3] border-t border-[#e8e0d0] px-5 py-4"
                       >
                         <p className="text-xs text-gray-600 leading-relaxed">

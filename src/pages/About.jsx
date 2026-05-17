@@ -39,9 +39,9 @@ const defaultSocialLinks = {
 
 const About = () => {
   const stats = [
-    { icon: Award, value: "10+", label: "Years of Experience" },
-    { icon: Users, value: "5000+", label: "Happy Clients" },
-    { icon: Smile, value: "15+", label: "Expert Stylists" },
+    { icon: Award, value: "2024", label: "Founded in Kathmandu" },
+    { icon: Users, value: "Unisex", label: "Care for Every Client" },
+    { icon: Smile, value: "4", label: "Featured Specialists" },
     { icon: Scissors, value: "20+", label: "Services Offered" },
   ];
 
