@@ -4,5 +4,8 @@ Allow: /
 # Sitemaps
 Sitemap: https://mangpahang.com.np/sitemap.xml
 
+# IndexNow key for Bing and other participating search engines
+IndexNow: https://mangpahang.com.np/6f2b8e9c4a7d4f10b1e6a2c9d5f30871.txt
+
 # Disallow admin or private pages if any
 # Disallow: /admin/
