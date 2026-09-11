@@ -1,8 +1,12 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.mangpahang.com.np" }],
+      "destination": "https://mangpahang.com.np/:path*",
+      "permanent": true
     }
   ]
 }

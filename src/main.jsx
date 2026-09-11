@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 import App from "./App"
 import "./index.css"
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const app = (
   <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>
@@ -16,5 +16,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <SpeedInsights />
       </BrowserRouter>
     </HelmetProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+const root = document.getElementById("root")
+if (root.querySelector("main")) {
+  ReactDOM.hydrateRoot(root, app)
+} else {
+  ReactDOM.createRoot(root).render(app)
+}

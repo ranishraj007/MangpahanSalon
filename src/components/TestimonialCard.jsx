@@ -5,7 +5,7 @@ const TestimonialCard = ({ quote, name, role }) => {
     <motion.div
       className="surface-card rounded-2xl p-6 transition-all duration-300"
       whileHover={{ y: -8 }}
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}

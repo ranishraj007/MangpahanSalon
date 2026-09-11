@@ -11,94 +11,20 @@ import AboutImage768 from "../assets/SalonImages/optimized/GallaryImage-1-768.we
 import AboutImage1200 from "../assets/SalonImages/optimized/GallaryImage-1-1200.webp";
 import HeroBackground from "../assets/SalonImages/optimized/GallaryImage-8-1200.webp";
 
-const homeSchema = {
-  "@context": "https://schema.org",
-  "@type": "HairSalon",
-  name: "Mangpahang Unisex Salon",
-  alternateName: [
-    "Mangpahang Salon",
-    "Mangpahang Unisex Salon Kathmandu",
-    "Mangpahang Salon Baneshwor",
-  ],
-  url: "https://mangpahang.com.np/",
-  image: "https://mangpahang.com.np/Logo.jpg",
-  telephone: "+9779708073356",
-  email: "mangpahangsalon@gmail.com",
-  priceRange: "Rs.50 - Rs.25000",
-  description:
-    "Mangpahang Unisex Salon is a hair and beauty salon in Mid-Baneshwor, Kathmandu offering haircut, styling, hair color, balayage, facial, waxing, threading, nails, bridal makeup, party makeup, keratin, botox, nanoplastia, hair spa, and grooming services.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Mid-Baneshwor",
-    addressLocality: "Kathmandu",
-    addressRegion: "Bagmati Province",
-    postalCode: "44600",
-    addressCountry: "NP",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 27.695287,
-    longitude: 85.334901,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
-      opens: "10:00",
-      closes: "19:00",
-    },
-  ],
-  areaServed: [
-    "Kathmandu",
-    "Baneshwor",
-    "Mid-Baneshwor",
-    "New Baneshwor",
-    "Koteshwor",
-    "Tinkune",
-    "Maitidevi",
-    "Putalisadak",
-    "Lalitpur",
-    "Bhaktapur",
-    "Nepal",
-  ],
-  knowsAbout: [
-    "best salon in Kathmandu",
-    "best salon in Nepal",
-    "stylish haircut",
-    "hair color",
-    "bridal makeup",
-    "nail art",
-    "facial",
-    "waxing",
-    "threading",
-    "hair treatment",
-    "keratin treatment",
-  ],
-  sameAs: [
-    "https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/",
-    "https://www.instagram.com/mangpahangunisexsalon/",
-  ],
-};
 
 const Home = () => {
   const services = [
     {
       icon: "scissors",
       title: "Haircut & Styling",
+      link: "/services/haircut",
       description:
         "Expert haircuts and styling for all hair types and preferences.",
     },
     {
       icon: "palette",
       title: "Hair Coloring",
+      link: "/services/hair-color",
       description:
         "Professional hair coloring services from subtle highlights to bold transformations.",
     },
@@ -111,6 +37,7 @@ const Home = () => {
     {
       icon: "wand",
       title: "Makeup",
+      link: "/services/bridal-makeup",
       description:
         "Professional makeup services for any occasion, from natural to glamorous looks.",
     },
@@ -147,7 +74,7 @@ const Home = () => {
         description="Searching for the best salon in Kathmandu or Nepal? Mangpahang Unisex Salon in Mid-Baneshwor offers stylish haircuts, hair coloring, bridal makeup, facial, waxing, threading, nails, manicure, pedicure, and hair treatments."
         keywords="best salon in Kathmandu, best salon in Nepal, stylish salon Kathmandu, stylish haircut Kathmandu, best hair salon Kathmandu, beauty salon Kathmandu, salon in Baneshwor, unisex salon Kathmandu, haircut Baneshwor, hair color Kathmandu, bridal makeup Kathmandu, nail salon Kathmandu, facial Kathmandu, waxing Baneshwor, threading Kathmandu, Mangpahang Salon"
         canonical="/"
-        schema={homeSchema}
+        preloadImage={HeroBackground}
       />
       {/* Hero Section */}
       <section className="relative min-h-[88svh] flex items-center overflow-hidden">
@@ -161,14 +88,14 @@ const Home = () => {
         ></div>
         <div className="container-custom relative z-10 text-white">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl pt-20"
           >
             <motion.h1
               className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-5"
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
@@ -176,7 +103,7 @@ const Home = () => {
             </motion.h1>
             <motion.p
               className="text-base md:text-xl leading-8 text-white/82 mb-9 max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
@@ -186,7 +113,7 @@ const Home = () => {
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
@@ -201,7 +128,7 @@ const Home = () => {
         </div>
         <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
-          initial={{ opacity: 0, y: -20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
@@ -234,7 +161,7 @@ const Home = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
@@ -258,7 +185,7 @@ const Home = () => {
               />
               <motion.p
                 className="mb-6 text-[#746b61] leading-8"
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -270,7 +197,7 @@ const Home = () => {
               </motion.p>
               <motion.p
                 className="mb-8 text-[#746b61] leading-8"
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -282,7 +209,7 @@ const Home = () => {
                 grooming for clients across Kathmandu and Nepal.
               </motion.p>
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -310,12 +237,13 @@ const Home = () => {
                 icon={service.icon}
                 title={service.title}
                 description={service.description}
+                link={service.link}
               />
             ))}
           </div>
           <motion.div
             className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -324,37 +252,6 @@ const Home = () => {
               View All Services
             </Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Local Search Section */}
-      <section className="py-16 bg-[#fffaf3]">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <SectionTitle
-              title="A Salon People Search for in Kathmandu"
-              subtitle="Mangpahang Unisex Salon serves clients looking for reliable beauty care, stylish haircuts, bridal makeup, nails, facial, waxing, threading, and professional hair treatments in Baneshwor and across Kathmandu."
-            />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 text-sm text-[#746b61]">
-              {[
-                "Best salon in Kathmandu",
-                "Best salon in Nepal",
-                "Hair salon in Baneshwor",
-                "Stylish haircut Kathmandu",
-                "Bridal makeup Kathmandu",
-                "Nail salon Kathmandu",
-                "Facial in Kathmandu",
-                "Waxing and threading",
-              ].map((term) => (
-                <span
-                  key={term}
-                  className="border border-[#eadfce] rounded-full px-4 py-3 bg-white/75 shadow-sm"
-                >
-                  {term}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -402,7 +299,7 @@ const Home = () => {
               <motion.div
                 key={index}
                 className="rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.1]"
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -444,7 +341,7 @@ const Home = () => {
         <div className="container-custom text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-extrabold mb-6"
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -453,7 +350,7 @@ const Home = () => {
           </motion.h2>
           <motion.p
             className="text-lg mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -462,7 +359,7 @@ const Home = () => {
             Our team is ready to help you look and feel your best.
           </motion.p>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}

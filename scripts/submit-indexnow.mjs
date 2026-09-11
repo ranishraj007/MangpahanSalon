@@ -1,15 +1,10 @@
 import https from "node:https";
+import { publicRoutes, siteUrl } from "../src/data/routes.js";
 
 const host = "mangpahang.com.np";
 const key = "6f2b8e9c4a7d4f10b1e6a2c9d5f30871";
 const keyLocation = `https://${host}/${key}.txt`;
-const urlList = [
-  `https://${host}/`,
-  `https://${host}/services`,
-  `https://${host}/gallery`,
-  `https://${host}/about`,
-  `https://${host}/contact`,
-];
+const urlList = publicRoutes.map(({ path }) => `${siteUrl}${path}`);
 
 const payload = JSON.stringify({
   host,

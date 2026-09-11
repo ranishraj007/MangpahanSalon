@@ -8,7 +8,7 @@ const SectionTitle = ({ title, subtitle, centered = true, light = false }) => {
         className={`section-title ${
           light ? "text-white" : "text-[#171412]"
         }`}
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
@@ -20,7 +20,7 @@ const SectionTitle = ({ title, subtitle, centered = true, light = false }) => {
           className={`section-subtitle ${centered ? "mx-auto" : ""} ${
             light ? "text-white/70" : "text-[#746b61]"
           }`}
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}

@@ -41,7 +41,7 @@ const Header = () => {
         <Link to="/" className="flex items-center" aria-label="Mangpahang Unisex Salon home">
           <motion.div
             className="flex items-center gap-3"
-            initial={{ opacity: 0, x: -20 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >

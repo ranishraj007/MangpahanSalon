@@ -1,0 +1,153 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Mangpahang Unisex Salon",
+  "image": "https://mangpahang.com.np/Logo.jpg",
+  "url": "https://mangpahang.com.np/",
+  "telephone": "+977-9708073356",
+  "email": "mangpahangsalon@gmail.com",
+  "description": "Mangpahang Unisex Salon offers premium hair and beauty services including stylish haircut, hair coloring, balayage, ombre, facial, waxing, threading, manicure, pedicure, nail art, nail extensions, bridal makeup, party makeup, keratin, botox, nanoplastia, hair straightening, hair spa, and grooming services in Mid-Baneshwor, Kathmandu.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mid-Baneshwor",
+    "addressLocality": "Kathmandu",
+    "addressRegion": "Bagmati Province",
+    "postalCode": "44600",
+    "addressCountry": "NP"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 27.695287,
+    "longitude": 85.334901
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "10:00",
+      "closes": "19:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/",
+    "https://www.instagram.com/mangpahangunisexsalon/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Salon Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Haircut & Styling",
+          "description": "Expert haircuts and styling for men and women. Man Hair Cut from Rs.700, Ladies from Rs.1500."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hair Coloring & Highlights",
+          "description": "Professional hair coloring including global color, highlights, balayage, ombre, and root touch-ups."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Waxing",
+          "description": "Smooth hair removal waxing services for underarms, legs, hands, and full body."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Threading",
+          "description": "Eyebrow and upper lip threading for precise and clean hair removal."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Manicure & Pedicure",
+          "description": "Luxurious nail care for hands and feet including exfoliation, massage, and polish."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Nail Extensions & Nail Art",
+          "description": "Creative nail extension and nail art services to express your personal style."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Facial & Skincare",
+          "description": "Rejuvenating facial treatments including Casmara facial, clean-up, and gold mask."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bridal Makeup & Party Makeup",
+          "description": "Professional makeup services for weddings, receptions, parties, mehendi events, and all special occasions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hair Treatments",
+          "description": "Keratin, botox, nanoplastia, hair straightening, hair spa, Olaplex, Fiberplex, and repair treatments."
+        }
+      }
+    ]
+  },
+  "priceRange": "Rs. 50 - Rs. 25,000",
+  "currenciesAccepted": "NPR",
+  "paymentAccepted": "Cash, Credit Card, Debit Card, eSewa, Khalti",
+  "areaServed": [
+    "Kathmandu",
+    "Baneshwor",
+    "Mid-Baneshwor",
+    "New Baneshwor",
+    "Koteshwor",
+    "Tinkune",
+    "Maitidevi",
+    "Putalisadak",
+    "Lalitpur",
+    "Bhaktapur",
+    "Nepal"
+  ],
+  "knowsAbout": [
+    "best salon in Kathmandu",
+    "best salon in Nepal",
+    "stylish haircut",
+    "hair color",
+    "bridal makeup",
+    "nail art",
+    "facial",
+    "waxing",
+    "threading",
+    "keratin treatment",
+    "botox hair treatment",
+    "nanoplastia"
+  ],
+  "foundingDate": "2024",
+  "@id": "https://mangpahang.com.np/#salon"
+}

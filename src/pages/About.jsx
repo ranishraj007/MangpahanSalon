@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Award, Users, Smile, Scissors, Facebook, Instagram } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
+import Breadcrumbs from "../components/Breadcrumbs";
 import DefaultImage from "../assets/Images/default_profile_pic.png";
 import InteriorImage480 from "../assets/SalonImages/optimized/GallaryImage-2-480.webp";
 import InteriorImage768 from "../assets/SalonImages/optimized/GallaryImage-2-768.webp";
@@ -108,13 +109,14 @@ const About = () => {
           service
         </p>
       </section>
+      <Breadcrumbs />
 
       {/* ── OUR STORY ── */}
       <section className="py-24 bg-[#fffaf3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
@@ -141,7 +143,7 @@ const About = () => {
               <div className="w-10 h-[2px] bg-[#d4af37] mb-6" />
               <motion.p
                 className="mb-4 text-gray-500 text-sm leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -150,7 +152,7 @@ const About = () => {
               </motion.p>
               <motion.p
                 className="mb-4 text-gray-500 text-sm leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -159,7 +161,7 @@ const About = () => {
               </motion.p>
               <motion.p
                 className="text-gray-500 text-sm leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -179,7 +181,7 @@ const About = () => {
               <motion.div
                 key={index}
                 className="p-6"
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -215,7 +217,7 @@ const About = () => {
             {/* Mission */}
             <motion.div
               className="surface-card rounded-2xl p-7 hover:border-[#b68a2a] transition-colors duration-200"
-              initial={{ opacity: 0, x: -30 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
@@ -240,7 +242,7 @@ const About = () => {
             {/* Values */}
             <motion.div
               className="surface-card rounded-2xl p-7 hover:border-[#b68a2a] transition-colors duration-200"
-              initial={{ opacity: 0, x: 30 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
@@ -288,7 +290,7 @@ const About = () => {
               <motion.div
                 key={index}
                 className="surface-card group rounded-2xl overflow-hidden hover:border-[#b68a2a] transition-all duration-200"
-                initial={{ opacity: 0, y: 30 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -362,7 +364,7 @@ const About = () => {
 
           <motion.div
             className="surface-card max-w-3xl mx-auto rounded-2xl p-8 hover:border-[#b68a2a] transition-colors duration-200"
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}

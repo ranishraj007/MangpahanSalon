@@ -15,7 +15,7 @@ const GalleryItem = ({
   return (
     <motion.figure
       className="surface-card relative overflow-hidden rounded-lg group"
-      initial={{ opacity: 0, scale: 0.9 }}
+      initial={false}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}

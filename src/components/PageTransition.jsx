@@ -3,10 +3,6 @@ import { motion } from "framer-motion";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
-    initial: {
-      opacity: 0,
-      y: 20,
-    },
     animate: {
       opacity: 1,
       y: 0,
@@ -28,7 +24,7 @@ const PageTransition = ({ children }) => {
   return (
     <motion.div
       variants={pageVariants}
-      initial="initial"
+      initial={false}
       animate="animate"
       exit="exit"
     >

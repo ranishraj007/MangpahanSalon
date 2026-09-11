@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Facebook, ChevronDown } from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,6 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [expandedFaq, setExpandedFaq] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -172,6 +172,7 @@ const Contact = () => {
           threading, bridal makeup, and beauty appointments in Kathmandu
         </p>
       </section>
+      <Breadcrumbs />
 
       {/* ── CONTACT INFO CARDS ── */}
       <section className="py-20 bg-[#fffaf3]">
@@ -194,28 +195,14 @@ const Contact = () => {
                 <motion.div
                   key={card.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={false}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className={`surface-card self-start rounded-2xl transition-all duration-300 overflow-hidden ${
-                    expandedFaq === `card-${card.id}`
-                      ? "border-[#b68a2a]"
-                      : "hover:border-[#b68a2a]"
-                  }`}
+                  className="surface-card self-start rounded-2xl overflow-hidden"
                 >
-                  {/* Card header — clickable */}
-                  <button
-                    type="button"
-                    className="w-full p-5 text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b68a2a]"
-                    aria-expanded={expandedFaq === `card-${card.id}`}
-                    aria-controls={`contact-card-${card.id}`}
-                    onClick={() =>
-                      setExpandedFaq(
-                        expandedFaq === `card-${card.id}` ? null : `card-${card.id}`
-                      )
-                    }
-                  >
+                  <details className="group">
+                  <summary className="w-full p-5 text-left cursor-pointer list-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#b68a2a]">
                     <span className="flex items-start gap-3">
                       <span className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
                         <card.icon size={20} className="text-[#b8921a]" strokeWidth={1.8} />
@@ -230,24 +217,11 @@ const Contact = () => {
                       </span>
                       <ChevronDown
                         size={16}
-                        className={`text-gray-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
-                          expandedFaq === `card-${card.id}` ? "rotate-180" : ""
-                        }`}
+                        className="text-gray-400 flex-shrink-0 mt-1 transition-transform group-open:rotate-180"
                       />
                     </span>
-                  </button>
-
-                  {/* Expandable details */}
-                  <AnimatePresence>
-                    {expandedFaq === `card-${card.id}` && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.25 }}
-                        id={`contact-card-${card.id}`}
-                        className="bg-[#f8f0e3] border-t border-[#e8e0d0] px-5 py-4"
-                      >
+                  </summary>
+                      <div className="bg-[#f8f0e3] border-t border-[#e8e0d0] px-5 py-4">
                         <div className="space-y-0">
                           {card.details.map((d, i) => (
                             <div
@@ -274,9 +248,8 @@ const Contact = () => {
                             </div>
                           )}
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      </div>
+                  </details>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -300,7 +273,7 @@ const Contact = () => {
               {submitSuccess ? (
                 <motion.div
                   className="bg-green-50 border border-green-200 text-green-700 p-6 rounded-xl"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <h3 className="text-base font-bold mb-1">Thank You!</h3>
@@ -436,27 +409,14 @@ const Contact = () => {
                 <motion.div
                   key={faq.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={false}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className={`surface-card self-start rounded-2xl transition-all duration-300 overflow-hidden ${
-                    expandedFaq === `faq-${faq.id}`
-                      ? "border-[#b68a2a]"
-                      : "hover:border-[#b68a2a]"
-                  }`}
+                  className="surface-card self-start rounded-2xl overflow-hidden"
                 >
-                  <button
-                    type="button"
-                    className="w-full p-5 text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b68a2a]"
-                    aria-expanded={expandedFaq === `faq-${faq.id}`}
-                    aria-controls={`faq-answer-${faq.id}`}
-                    onClick={() =>
-                      setExpandedFaq(
-                        expandedFaq === `faq-${faq.id}` ? null : `faq-${faq.id}`
-                      )
-                    }
-                  >
+                  <details className="group">
+                  <summary className="w-full p-5 text-left cursor-pointer list-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#b68a2a]">
                     <span className="flex items-start gap-3">
                       <span className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
                         <span className="text-[#b8921a] text-sm font-bold">Q</span>
@@ -468,29 +428,16 @@ const Contact = () => {
                       </span>
                       <ChevronDown
                         size={16}
-                        className={`text-gray-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
-                          expandedFaq === `faq-${faq.id}` ? "rotate-180" : ""
-                        }`}
+                        className="text-gray-400 flex-shrink-0 mt-1 transition-transform group-open:rotate-180"
                       />
                     </span>
-                  </button>
-
-                  <AnimatePresence>
-                    {expandedFaq === `faq-${faq.id}` && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.25 }}
-                        id={`faq-answer-${faq.id}`}
-                        className="bg-[#f8f0e3] border-t border-[#e8e0d0] px-5 py-4"
-                      >
+                  </summary>
+                      <div className="bg-[#f8f0e3] border-t border-[#e8e0d0] px-5 py-4">
                         <p className="text-xs text-gray-600 leading-relaxed">
                           {faq.answer}
                         </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      </div>
+                  </details>
                 </motion.div>
               ))}
             </AnimatePresence>

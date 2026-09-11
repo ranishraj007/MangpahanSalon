@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "../components/PageTransition";
 import GalleryItem from "../components/GalleryItem";
 import SEO from "../components/SEO";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const galleryImageModules = import.meta.glob(
   "../assets/SalonImages/optimized/*.{jpg,webp}",
@@ -116,11 +117,7 @@ const gallerySchema = {
     "nail art Kathmandu",
     "stylish haircut Kathmandu",
   ],
-  provider: {
-    "@type": "HairSalon",
-    name: "Mangpahang Unisex Salon",
-    address: "Mid-Baneshwor, Kathmandu, Nepal",
-  },
+  provider: { "@id": "https://mangpahang.com.np/#salon" },
   associatedMedia: galleryItems.map((item) => ({
     "@type": "ImageObject",
     name: item.title,
@@ -159,7 +156,7 @@ const Gallery = () => {
       <section className="page-hero py-32 text-center">
         <motion.p
           className="text-xs tracking-[4px] text-[#d4af37] uppercase font-medium mb-3"
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -167,7 +164,7 @@ const Gallery = () => {
         </motion.p>
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-white mb-4"
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
@@ -175,13 +172,13 @@ const Gallery = () => {
         </motion.h1>
         <motion.div
           className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-5"
-          initial={{ opacity: 0, scaleX: 0 }}
+          initial={false}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         />
         <motion.p
           className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
@@ -189,6 +186,7 @@ const Gallery = () => {
           art, pedicure care, and beauty transformations in Kathmandu
         </motion.p>
       </section>
+      <Breadcrumbs />
 
       {/* ── GALLERY SECTION ── */}
       <section className="py-20 bg-[#fffaf3]">
@@ -233,7 +231,7 @@ const Gallery = () => {
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={false}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
