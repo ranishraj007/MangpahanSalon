@@ -1,7 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Award, Users, Smile, Scissors, Facebook, Instagram } from "lucide-react";
+import {
+  Award,
+  Users,
+  Smile,
+  Scissors,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import PageTransition from "../components/PageTransition";
 import SEO from "../components/SEO";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -10,21 +17,33 @@ import InteriorImage480 from "../assets/SalonImages/optimized/GallaryImage-2-480
 import InteriorImage768 from "../assets/SalonImages/optimized/GallaryImage-2-768.webp";
 import InteriorImage1200 from "../assets/SalonImages/optimized/GallaryImage-2-1200.webp";
 
-const teamImageAssets = import.meta.glob("../assets/OurTeam/optimized/*.{webp,jpg,jpeg,png}", {
-  eager: true,
-  import: "default",
-  query: "?url",
-});
+const teamImageAssets = import.meta.glob(
+  [
+    "../assets/OurTeam/optimized/*.{webp,jpg,jpeg,png}",
+    "../assets/OurTeam/*.{webp,jpg,jpeg,png}",
+  ],
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  },
+);
 
 const findTeamImage = (fileName) =>
-  Object.entries(teamImageAssets).find(([path]) => path.endsWith(`/${fileName}`))?.[1];
+  Object.entries(teamImageAssets).find(([path]) =>
+    path.endsWith(`/${fileName}`),
+  )?.[1];
 
 const getTeamImage = (name) => {
   const image480 = findTeamImage(`${name}-480.webp`);
   const image768 = findTeamImage(`${name}-768.webp`);
 
   if (!image480) {
-    return { src: DefaultImage };
+    const originalImage = ["webp", "jpg", "jpeg", "png"]
+      .map((extension) => findTeamImage(`${name}.${extension}`))
+      .find(Boolean);
+
+    return { src: originalImage || DefaultImage };
   }
 
   return {
@@ -34,7 +53,8 @@ const getTeamImage = (name) => {
 };
 
 const defaultSocialLinks = {
-  facebook: "https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/",
+  facebook:
+    "https://www.facebook.com/people/Mangpahang-Unisex-Salon/61564606314717/",
   instagram: "https://www.instagram.com/mangpahangunisexsalon/",
 };
 
@@ -48,8 +68,15 @@ const About = () => {
 
   const team = [
     {
+      name: "Bibek Rai",
+      role: "Founder",
+      image: getTeamImage("Bibek"),
+      social: defaultSocialLinks,
+      bio: "Bibek is the visionary behind Mangpahang Unisex Salon, dedicated to creating a welcoming space for all clients.",
+    },
+    {
       name: "Sudip Rai",
-      role: "Founder & Master Stylist",
+      role: "Co-Founder & Master Stylist",
       image: getTeamImage("Sudip"),
       social: defaultSocialLinks,
       bio: "With over 5 years of experience, Sudip brings creativity and precision to every haircut and style.",
@@ -78,11 +105,26 @@ const About = () => {
   ];
 
   const values = [
-    { title: "Excellence", desc: "We are committed to delivering the highest quality services and results." },
-    { title: "Integrity", desc: "We operate with honesty, transparency, and respect in all our interactions." },
-    { title: "Creativity", desc: "We encourage innovation and artistic expression in our work." },
-    { title: "Inclusivity", desc: "We welcome and celebrate diversity in our clients and team." },
-    { title: "Continuous Learning", desc: "We are dedicated to ongoing education and professional development." },
+    {
+      title: "Excellence",
+      desc: "We are committed to delivering the highest quality services and results.",
+    },
+    {
+      title: "Integrity",
+      desc: "We operate with honesty, transparency, and respect in all our interactions.",
+    },
+    {
+      title: "Creativity",
+      desc: "We encourage innovation and artistic expression in our work.",
+    },
+    {
+      title: "Inclusivity",
+      desc: "We welcome and celebrate diversity in our clients and team.",
+    },
+    {
+      title: "Continuous Learning",
+      desc: "We are dedicated to ongoing education and professional development.",
+    },
   ];
 
   return (
@@ -148,7 +190,11 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Mangpahang Unisex Salon was founded in 2024 with a vision to provide premium hair and beauty services in a welcoming environment. What started as a small salon has grown into a beloved establishment in Kathmandu, known for exceptional service and skilled professionals.
+                Mangpahang Unisex Salon was founded in 2024 with a vision to
+                provide premium hair and beauty services in a welcoming
+                environment. What started as a small salon has grown into a
+                beloved establishment in Kathmandu, known for exceptional
+                service and skilled professionals.
               </motion.p>
               <motion.p
                 className="mb-4 text-gray-500 text-sm leading-relaxed"
@@ -157,7 +203,11 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                Our founder, inspired by traditional Nepali beauty practices and modern techniques, created a space where clients could experience the best of both worlds. Today, we continue to uphold our commitment to excellence, using premium products and staying at the forefront of industry trends.
+                Our founder, inspired by traditional Nepali beauty practices and
+                modern techniques, created a space where clients could
+                experience the best of both worlds. Today, we continue to uphold
+                our commitment to excellence, using premium products and staying
+                at the forefront of industry trends.
               </motion.p>
               <motion.p
                 className="text-gray-500 text-sm leading-relaxed"
@@ -166,7 +216,10 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                At Mangpahang, we believe that beauty services should be accessible to everyone. Our diverse team is trained to work with all hair types, skin tones, and personal styles, ensuring every client leaves feeling confident and beautiful.
+                At Mangpahang, we believe that beauty services should be
+                accessible to everyone. Our diverse team is trained to work with
+                all hair types, skin tones, and personal styles, ensuring every
+                client leaves feeling confident and beautiful.
               </motion.p>
             </div>
           </div>
@@ -187,9 +240,15 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="w-12 h-12 rounded-lg bg-[#f8f0e3]/10 flex items-center justify-center mx-auto mb-4">
-                  <stat.icon size={22} className="text-[#d4af37]" strokeWidth={1.8} />
+                  <stat.icon
+                    size={22}
+                    className="text-[#d4af37]"
+                    strokeWidth={1.8}
+                  />
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-1">{stat.value}</h3>
+                <h3 className="text-3xl font-bold text-white mb-1">
+                  {stat.value}
+                </h3>
                 <p className="text-gray-400 text-sm">{stat.label}</p>
               </motion.div>
             ))}
@@ -224,7 +283,11 @@ const About = () => {
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
-                  <Award size={20} className="text-[#b8921a]" strokeWidth={1.8} />
+                  <Award
+                    size={20}
+                    className="text-[#b8921a]"
+                    strokeWidth={1.8}
+                  />
                 </div>
                 <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
                   Our Mission
@@ -232,10 +295,15 @@ const About = () => {
               </div>
               <div className="w-8 h-[2px] bg-[#d4af37] mb-4" />
               <p className="text-gray-500 text-sm leading-relaxed mb-3">
-                To provide exceptional hair and beauty services that enhance our clients' natural beauty and boost their confidence, while creating a welcoming and relaxing environment for everyone who walks through our doors.
+                To provide exceptional hair and beauty services that enhance our
+                clients' natural beauty and boost their confidence, while
+                creating a welcoming and relaxing environment for everyone who
+                walks through our doors.
               </p>
               <p className="text-gray-500 text-sm leading-relaxed">
-                We strive to stay at the forefront of industry trends and techniques, continuously improving our skills to deliver the best possible results for our clients.
+                We strive to stay at the forefront of industry trends and
+                techniques, continuously improving our skills to deliver the
+                best possible results for our clients.
               </p>
             </motion.div>
 
@@ -249,7 +317,11 @@ const About = () => {
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-11 h-11 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
-                  <Smile size={20} className="text-[#b8921a]" strokeWidth={1.8} />
+                  <Smile
+                    size={20}
+                    className="text-[#b8921a]"
+                    strokeWidth={1.8}
+                  />
                 </div>
                 <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
                   Our Values
@@ -258,8 +330,13 @@ const About = () => {
               <div className="w-8 h-[2px] bg-[#d4af37] mb-4" />
               <div className="space-y-0">
                 {values.map((v, i) => (
-                  <div key={i} className="flex justify-between items-start py-2 border-b border-black/5 last:border-0 text-xs gap-4">
-                    <span className="font-semibold text-[#222] whitespace-nowrap">{v.title}</span>
+                  <div
+                    key={i}
+                    className="flex justify-between items-start py-2 border-b border-black/5 last:border-0 text-xs gap-4"
+                  >
+                    <span className="font-semibold text-[#222] whitespace-nowrap">
+                      {v.title}
+                    </span>
                     <span className="text-gray-500 text-right">{v.desc}</span>
                   </div>
                 ))}
@@ -281,7 +358,8 @@ const About = () => {
             </h2>
             <div className="w-12 h-[2px] bg-[#d4af37] mx-auto mb-4" />
             <p className="text-gray-500 text-sm max-w-md mx-auto">
-              Our talented professionals are dedicated to helping you look and feel your best
+              Our talented professionals are dedicated to helping you look and
+              feel your best
             </p>
           </div>
 
@@ -371,15 +449,23 @@ const About = () => {
           >
             <div className="text-4xl text-[#d4af37] mb-4 leading-none">"</div>
             <p className="text-gray-500 text-sm leading-relaxed italic mb-6">
-              I've been coming to Mangpahang Salon for over three years now, and I wouldn't trust anyone else with my hair. The team is professional, friendly, and always up-to-date with the latest trends. Every visit feels like a treat, and I always leave feeling beautiful and confident.
+              I've been coming to Mangpahang Salon for over three years now, and
+              I wouldn't trust anyone else with my hair. The team is
+              professional, friendly, and always up-to-date with the latest
+              trends. Every visit feels like a treat, and I always leave feeling
+              beautiful and confident.
             </p>
             <div className="border-t border-gray-100 pt-4 flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-[#f8f0e3] flex items-center justify-center flex-shrink-0">
                 <span className="text-[#b8921a] text-sm font-bold">AT</span>
               </div>
               <div>
-                <h4 className="text-xs font-bold text-[#222222] uppercase tracking-wide">Anita Tamang</h4>
-                <p className="text-[#d4af37] text-sm font-semibold">Regular Client</p>
+                <h4 className="text-xs font-bold text-[#222222] uppercase tracking-wide">
+                  Anita Tamang
+                </h4>
+                <p className="text-[#d4af37] text-sm font-semibold">
+                  Regular Client
+                </p>
               </div>
             </div>
           </motion.div>
@@ -394,26 +480,20 @@ const About = () => {
               Experience the Mangpahang Difference
             </h2>
             <p className="text-gray-400 text-sm mb-7 max-w-md mx-auto">
-              Join our community of satisfied clients and discover why we're one of Kathmandu's most trusted salons.
+              Join our community of satisfied clients and discover why we're one
+              of Kathmandu's most trusted salons.
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
-              <a
-                href="/contact"
-                className="btn-primary"
-              >
+              <a href="/contact" className="btn-primary">
                 Book Your Appointment
               </a>
-              <a
-                href="/services"
-                className="btn-secondary"
-              >
+              <a href="/services" className="btn-secondary">
                 View Services
               </a>
             </div>
           </div>
         </div>
       </section>
-
     </PageTransition>
   );
 };
