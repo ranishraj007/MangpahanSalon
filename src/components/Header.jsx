@@ -22,6 +22,7 @@ const Header = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
+    { name: "Products", path: "/products" },
     { name: "Gallery", path: "/gallery" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -76,7 +77,7 @@ const Header = () => {
         </Link>
 
         {/* ── Desktop Navigation ── */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-6">
           <ul className={`flex items-center gap-5 rounded-full px-4 py-2 transition-all duration-300 ${
             scrolled ? "bg-white/75 border border-[#eadfce]" : "bg-white/10 border border-white/15 backdrop-blur-md"
           }`}>
@@ -114,10 +115,10 @@ const Header = () => {
         </nav>
 
         {/* ── Mobile Menu Button ── */}
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center relative z-50">
           <button
             className={`text-2xl transition-colors duration-300 ${
-              scrolled ? "text-[#171412]" : "text-white"
+              scrolled || isOpen ? "text-[#171412]" : "text-white"
             }`}
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -132,7 +133,7 @@ const Header = () => {
       {/* ── Mobile Navigation ── */}
       <motion.div
         id="mobile-navigation"
-        className={`md:hidden fixed inset-0 bg-[#fffaf3] z-40 ${
+        className={`lg:hidden fixed inset-0 bg-[#fffaf3] z-40 overflow-y-auto ${
           isOpen ? "block" : "hidden"
         }`}
         initial={{ opacity: 0, x: "100%" }}

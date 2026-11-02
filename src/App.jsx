@@ -6,6 +6,7 @@ import { servicePages } from "./data/routes";
 
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/Services"));
+const Products = lazy(() => import("./pages/Products"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -23,6 +24,7 @@ function App() {
             {servicePages.map((page) => <Route key={page.path} caseSensitive path={page.path.slice(1)} element={<ServiceDetail page={page} />} />)}
             <Route index element={<Home />} />
             <Route caseSensitive path="services" element={<Services />} />
+            <Route caseSensitive path="products" element={<Products />} />
             <Route caseSensitive path="gallery" element={<Gallery />} />
             <Route caseSensitive path="about" element={<About />} />
             <Route caseSensitive path="contact" element={<Contact />} />

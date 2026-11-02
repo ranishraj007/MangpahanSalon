@@ -79,7 +79,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-[88svh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/50 to-black/16 z-0"></div>
-        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#fffaf3] to-transparent z-0"></div>
+        {/* <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#fffaf3] to-transparent z-0"></div> */}
         <div
           className="absolute inset-0 bg-cover bg-center z-[-1]"
           style={{
@@ -126,7 +126,7 @@ const Home = () => {
             </motion.div>
           </motion.div>
         </div>
-        <motion.div
+        {/* <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
           initial={false}
           animate={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ const Home = () => {
               d="M19 14l-7 7m0 0l-7-7m7 7V3"
             />
           </svg>
-        </motion.div>
+        </motion.div> */}
       </section>
 
       {/* About Section */}

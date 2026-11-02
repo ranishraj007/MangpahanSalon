@@ -23,6 +23,7 @@ export const servicePages = [
 export const publicRoutes = [
   { path: "/", label: "Home" },
   { path: "/services", label: "Services" },
+  { path: "/products", label: "Products" },
   { path: "/gallery", label: "Gallery" },
   { path: "/about", label: "About" },
   { path: "/contact", label: "Contact" },
